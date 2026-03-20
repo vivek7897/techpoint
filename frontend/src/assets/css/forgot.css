@@ -1,0 +1,197 @@
+:root {
+    --primary: #04AA6D;
+    --dark: #282A35;
+    --light-bg: #f3f6f7;
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.16);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light-bg);
+}
+
+.login-container {
+    background: var(--white);
+    padding: 40px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.logo {
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    color: var(--dark);
+    margin-bottom: 25px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: var(--dark);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--primary);
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.login-btn:hover {
+    background: #03965f;
+}
+
+.signup {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.signup a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    width: 100%;
+    padding: 11px;
+    padding-right: 40px;
+}
+
+.toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.forgot {
+    text-align: right;
+    margin-bottom: 15px;
+}
+
+/* ====================================
+   Responsive Design
+   ==================================== */
+
+/* Tablet (1024px and below) */
+@media (max-width: 1024px) {
+    .login-container {
+        width: 400px;
+    }
+}
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .login-container {
+        width: 100%;
+        max-width: 450px;
+        padding: 30px 25px;
+    }
+    
+    .logo {
+        width: 150px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 25px 20px;
+    }
+    
+    .logo {
+        width: 120px;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+    
+    .input-group {
+        margin-bottom: 15px;
+    }
+    
+    .input-group input {
+        padding: 12px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .login-btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+    
+    .signup {
+        font-size: 13px;
+    }
+}
+
+.forgot a {
+    font-size: 13px;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.info-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #666;
+}
+.logo {
+  width: 220px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}

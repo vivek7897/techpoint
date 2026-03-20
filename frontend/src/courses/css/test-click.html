@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Test Lesson Click</title>
+    <style>
+      .lesson-item {
+        padding: 10px;
+        margin: 5px;
+        background: #f0f0f0;
+        cursor: pointer;
+      }
+      .lesson-item:hover {
+        background: #e0e0e0;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Test Lesson Navigation</h2>
+    <div id="lessons">
+      <div class="lesson-item" data-lesson="intro">CSS Introduction</div>
+      <div class="lesson-item" data-lesson="syntax">CSS Syntax</div>
+      <div class="lesson-item" data-lesson="selectors">CSS Selectors</div>
+    </div>
+
+    <div
+      id="output"
+      style="
+        margin-top: 20px;
+        padding: 20px;
+        background: #fff;
+        border: 1px solid #ccc;
+      "
+    >
+      <p>Click count: <span id="clickCount">0</span></p>
+      <p>Last clicked: <span id="lastClicked">None</span></p>
+    </div>
+
+    <script>
+      let clickCount = 0;
+
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("DOM loaded");
+
+        const lessonItems = document.querySelectorAll(".lesson-item");
+        console.log("Found lesson items:", lessonItems.length);
+
+        lessonItems.forEach((item, index) => {
+          console.log("Attaching listener to item", index);
+          item.addEventListener("click", function (e) {
+            clickCount++;
+            const lessonId = this.dataset.lesson;
+            console.log("CLICKED:", lessonId);
+            document.getElementById("clickCount").textContent = clickCount;
+            document.getElementById("lastClicked").textContent = lessonId;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

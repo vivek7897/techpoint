@@ -1,0 +1,274 @@
+/* ===========================
+   CODESEEKHO QUICK START GUIDE
+   =========================== */
+
+/*
+   🚀 GETTING STARTED
+   ==================
+   
+   1. Open 'codeseekho.html' in your web browser
+   2. The platform will load with all features ready
+   3. No installation or dependencies required!
+   
+   
+   🎯 FIRST TIME SETUP
+   ===================
+   
+   Step 1: Create an Account
+   - Click "Sign Up" button in the top right
+   - Enter your name, email, and password
+   - Click "Sign Up" to create account
+   - You'll be automatically logged in
+   
+   Step 2: Start Learning
+   - Browse topics in the left sidebar
+   - Click any topic to start learning
+   - Read the content and examples
+   - Your progress is automatically saved!
+   
+   
+   ⚡ QUICK FEATURE TOUR
+   ======================
+   
+   1. TUTORIAL CONTENT
+      - Click topics in left sidebar
+      - Read explanations
+      - View code examples
+      - Copy code with one click
+   
+   2. CODE PLAYGROUND
+      - Edit HTML code in the editor
+      - Click "Run Code" to see results
+      - Click "Reset" to restore example
+      - Click "Copy" to copy code
+   
+   3. DRAG & DROP BUILDER
+      - Click the magic wand FAB button (bottom right)
+      - Drag components from left panel
+      - Drop them in the center canvas
+      - See auto-generated HTML on the right
+      - Click "Copy Code" to use it
+   
+   4. AI ASSISTANT
+      - Click robot FAB button (bottom right)
+      - Type your HTML question
+      - Get instant answers
+      - Use quick action buttons
+   
+   5. QUIZZES
+      - Complete a topic to unlock quiz
+      - Answer all questions
+      - Click "Submit Answers"
+      - See your score
+      - Click "Next Topic" to continue
+   
+   6. DARK MODE
+      - Click moon/sun icon in top right
+      - Toggle between light and dark themes
+      - Preference is automatically saved
+   
+   7. SEARCH
+      - Use search bar in top navigation
+      - Type topic name to filter
+      - Results update as you type
+   
+   8. PROGRESS TRACKING
+      - See progress bar in left sidebar
+      - Shows completed/total topics
+      - Updates automatically
+      - Synced with your account
+   
+   9. CERTIFICATE
+      - Complete all 18 topics
+      - Certificate automatically appears
+      - Download your achievement
+      - Share your success!
+   
+   
+   🔧 TROUBLESHOOTING
+   ===================
+   
+   Issue: Nothing appears
+   Fix: Make sure all 3 files are in same folder:
+        - codeseekho.html
+        - codeseekho-styles.css
+        - codeseekho-script.js
+   
+   Issue: Progress not saving
+   Fix: Check if browser allows localStorage
+        Enable cookies and site data
+   
+   Issue: Can't login
+   Fix: Make sure you signed up first
+        Check email/password spelling
+        Try signing up again
+   
+   Issue: Dark mode not working
+   Fix: Click the moon icon in top right
+        Refresh page if needed
+   
+   Issue: Code playground not working
+   Fix: Click "Run Code" button
+        Make sure HTML is valid
+        Check browser console for errors
+   
+   
+   💡 TIPS & TRICKS
+   =================
+   
+   1. Use keyboard shortcuts:
+      - Enter key in search bar to search
+      - Enter key in AI chat to send message
+   
+   2. Learn efficiently:
+      - Follow topics in order
+      - Complete quizzes
+      - Practice in playground
+      - Use visual builder
+   
+   3. Track your progress:
+      - Check progress bar regularly
+      - Complete all topics
+      - Earn your certificate
+   
+   4. Get help:
+      - Ask AI assistant
+      - Check code examples
+      - Read info boxes
+      - Review content multiple times
+   
+   
+   📱 MOBILE USAGE
+   ===============
+   
+   - Platform is fully responsive
+   - Sidebar opens with menu button
+   - All features work on mobile
+   - Best experience on tablet/desktop
+   
+   
+   🎨 CUSTOMIZATION
+   =================
+   
+   To customize colors:
+   1. Open codeseekho-styles.css
+   2. Edit :root variables:
+      --primary: #04AA6D;
+      --dark: #282A35;
+      --light-bg: #f3f6f7;
+      --white: #ffffff;
+   
+   To add topics:
+   1. Open codeseekho-script.js
+   2. Add to tutorialContent object
+   3. Add to quizData object (optional)
+   
+   
+   🚀 PERFORMANCE
+   ===============
+   
+   - Loads instantly (no dependencies)
+   - All features work offline
+   - Data saved locally
+   - Smooth animations
+   - Responsive design
+   
+   
+   ✅ BROWSER SUPPORT
+   ===================
+   
+   Supported browsers:
+   ✅ Chrome (recommended)
+   ✅ Firefox
+   ✅ Safari
+   ✅ Edge
+   ✅ Opera
+   
+   Requires:
+   - JavaScript enabled
+   - LocalStorage enabled
+   - Modern browser (2020+)
+   
+   
+   📚 LEARNING PATH
+   =================
+   
+   Recommended order:
+   1. HTML Introduction
+   2. HTML Editors
+   3. HTML Basic Structure
+   4. HTML Elements
+   5. HTML Attributes
+   6. HTML Headings
+   7. HTML Paragraphs
+   8. HTML Formatting
+   9. HTML Links
+   10. HTML Images
+   11. HTML Lists
+   12. HTML Tables
+   13. HTML Forms
+   14. HTML Semantic Tags
+   15. HTML Audio & Video
+   16. HTML Canvas
+   17. HTML SVG
+   18. HTML APIs
+   
+   Time estimate: 4-6 hours for complete course
+   
+   
+   🎓 CERTIFICATION
+   =================
+   
+   Requirements:
+   - Complete all 18 topics
+   - Must be logged in
+   - Progress saved automatically
+   
+   Certificate includes:
+   - Your name
+   - Course completion
+   - Date of completion
+   - Techknowldge branding
+   
+   
+   🔐 DATA & PRIVACY
+   ==================
+   
+   Your data:
+   - Stored locally in browser
+   - Not sent to any server
+   - Deleted if you clear browser data
+   - Login info in localStorage
+   
+   
+   🌟 BEST PRACTICES
+   ==================
+   
+   1. Create an account first
+   2. Learn topics in order
+   3. Practice in playground
+   4. Complete all quizzes
+   5. Use visual builder
+   6. Ask AI for help
+   7. Track your progress
+   8. Earn your certificate
+   
+   
+   📞 NEED HELP?
+   ==============
+   
+   1. Ask the AI Assistant (robot icon)
+   2. Check CODESEEKHO-README.md
+   3. Review tutorial content
+   4. Check browser console (F12)
+   
+   
+   🎉 ENJOY LEARNING!
+   ===================
+   
+   Techknowldge makes learning HTML fun and interactive.
+   Start your web development journey today!
+   
+   Happy Coding! 🚀
+   
+*/

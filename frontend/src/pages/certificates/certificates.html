@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Certificates - TechKnowledge</title>
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/certificates.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="/techknowldge/public/index.html" style="text-decoration: none; color: inherit;">Tech<span>Knowledge</span></a></div>
+            <div class="nav-links"><a href="/techknowldge/public/index.html">Home</a><a href="../index.html#courses">Courses</a><a
+                    href="#" class="active">Certificates</a></div>
+            <div class="auth-group"><button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode"><i
+                        class="fa-solid fa-moon"></i></button>
+                <div class="user-profile" id="userProfile"><img src="../assets/images/default-avatar.png" alt="User"
+                        class="profile-img">
+                    <div class="profile-dropdown"><a href="#dashboard">Dashboard</a><a href="#progress">My
+                            Progress</a><a href="certificates.html">Certificates</a><a href="#"
+                            id="logoutBtn">Logout</a></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="certificates-page">
+        <!-- Header Section -->
+        <section class="page-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-text">
+                        <h1><i class="fas fa-certificate"></i>My Certificates</h1>
+                        <p>Download and share your achievements with the world</p>
+                    </div>
+                    <div class="header-stats">
+                        <div class="stat-box">
+                            <h3 id="totalCerts">0</h3>
+                            <p>Certificates Earned</p>
+                        </div>
+                        <div class="stat-box">
+                            <h3 id="completedCourses">0</h3>
+                            <p>Courses Completed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters"><button class="filter-btn active" data-filter="all"><i class="fas fa-th"></i>All
+                    </button><button class="filter-btn" data-filter="recent"><i class="fas fa-clock"></i>Recent
+                    </button><button class="filter-btn" data-filter="popular"><i class="fas fa-fire"></i>Popular
+                    </button></div>
+                <div class="search-box"><i class="fas fa-search"></i><input type="text" id="certSearch"
+                        placeholder="Search certificates..."></div>
+            </div>
+        </section>
+        <!-- Certificates Grid -->
+        <section class="certificates-section">
+            <div class="container">
+                <div class="certificates-grid" id="certificatesGrid">
+                    <!-- Certificates will be dynamically loaded here -->
+                </div>
+                <!-- Empty State -->
+                <div class="empty-state" id="emptyState">
+                    <div class="empty-icon"><i class="fas fa-certificate"></i></div>
+                    <h3>No Certificates Yet</h3>
+                    <p>Complete courses to earn your first certificate !</p><a href="../index.html#courses"
+                        class="btn-primary"><i class="fas fa-graduation-cap"></i>Explore Courses </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Certificate Preview Modal -->
+    <div class="modal" id="certificateModal">
+        <div class="modal-overlay" onclick="closeCertificateModal()"></div>
+        <div class="modal-content"><button class="modal-close" onclick="closeCertificateModal()"><i
+                    class="fas fa-times"></i></button>
+            <div class="certificate-preview" id="certificatePreview">
+                <!-- Certificate Design -->
+                <div class="certificate-container" id="certificateContainer">
+                    <div class="certificate-border">
+                        <div class="certificate-inner">
+                            <!-- Top Decoration -->
+                            <div class="cert-decoration-top">
+                                <div class="cert-icon"><i class="fas fa-award"></i></div>
+                            </div>
+                            <!-- Certificate Header -->
+                            <div class="cert-header">
+                                <h1>CERTIFICATE</h1>
+                                <h2>OF COMPLETION</h2>
+                            </div>
+                            <!-- Certificate Body -->
+                            <div class="cert-body">
+                                <p class="cert-text">This certifies that</p>
+                                <h3 class="cert-name" id="certName">Student Name</h3>
+                                <p class="cert-text">has successfully completed the
+                                <h2 class="cert-course" id="certCourse">"Course Name"
+                                </h2>
+                                </p>
+                                <p class="cert-text">conducted by TechKnowledge
+                                    Academy<br>on <span id="certDate">March 10,
+                                        2026</span></p>
+                            </div>
+                            <!-- Certificate Footer -->
+                            <div class="cert-footer">
+                                <div class="cert-signature">
+                                    <div class="signature-line"></div>
+                                    <p class="label">Nathan Cole</p>
+                                    <p class="value">Chief Executive Officer</p>
+                                </div>
+                                <div class="cert-signature">
+                                    <div class="signature-line"></div>
+                                    <p class="label">Aaron Loeb</p>
+                                    <p class="value">Training Coordinator</p>
+                                </div>
+                            </div>
+                            <!-- Bottom Decoration -->
+                            <div class="cert-decoration-bottom">
+                                <div class="cert-seal"><i class="fas fa-certificate"></i></div>
+                            </div>
+                            <!-- Watermark -->
+                            <div class="cert-watermark">
+                                <span>Tech<strong>Knowledge</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Actions -->
+            <div class="modal-actions"><button class="btn-secondary" onclick="downloadCertificate()"><i
+                        class="fas fa-download"></i>Download PDF
+                </button><button class="btn-secondary" onclick="shareCertificate()"><i
+                        class="fas fa-share-alt"></i>Share </button><button class="btn-secondary"
+                    onclick="verifyCertificate()"><i class="fas fa-shield-alt"></i>Verify </button>
+            </div>
+        </div>
+    </div>
+    <!-- Share Modal -->
+    <div class="modal" id="shareModal">
+        <div class="modal-overlay" onclick="closeShareModal()"></div>
+        <div class="modal-content small"><button class="modal-close" onclick="closeShareModal()"><i
+                    class="fas fa-times"></i></button>
+            <h3><i class="fas fa-share-alt"></i>Share Certificate</h3>
+            <div class="share-options"><button class="share-btn linkedin" onclick="shareOn('linkedin')"><i
+                        class="fab fa-linkedin"></i>LinkedIn
+                </button><button class="share-btn twitter" onclick="shareOn('twitter')"><i
+                        class="fab fa-twitter"></i>Twitter </button><button class="share-btn facebook"
+                    onclick="shareOn('facebook')"><i class="fab fa-facebook"></i>Facebook </button><button
+                    class="share-btn copy" onclick="copyLink()"><i class="fas fa-link"></i>Copy Link </button></div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="../assets/js/certificates.js"></script>
+</body>
+
+</html>

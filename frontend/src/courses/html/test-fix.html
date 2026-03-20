@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diagnostic Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background: #f4f4f4;
+      }
+      .test-box {
+        background: white;
+        padding: 20px;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .success {
+        color: #04aa6d;
+        font-weight: bold;
+      }
+      .error {
+        color: #ff4444;
+        font-weight: bold;
+      }
+      button {
+        padding: 10px 20px;
+        background: #04aa6d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 5px;
+      }
+      button:hover {
+        background: #038855;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔍 Techknowldge Diagnostic Test</h1>
+
+    <div class="test-box">
+      <h2>1. JavaScript Loading Test</h2>
+      <p id="js-test" class="error">JavaScript NOT loaded ❌</p>
+    </div>
+
+    <div class="test-box">
+      <h2>2. Click Event Test</h2>
+      <button id="click-test">Click Me to Test</button>
+      <p id="click-result"></p>
+    </div>
+
+    <div class="test-box">
+      <h2>3. DOM Query Test</h2>
+      <p id="dom-test">Testing...</p>
+    </div>
+
+    <div class="test-box">
+      <h2>4. Console Check</h2>
+      <p>Open Browser Console (F12) to see detailed errors</p>
+      <button onclick="console.log('Console is working!')">Test Console</button>
+    </div>
+
+    <div class="test-box">
+      <h2>5. Quick Fix Options</h2>
+      <button onclick="window.location.href = 'html-course.html'">
+        Open HTML Course
+      </button>
+      <button onclick="location.reload()">Reload This Page</button>
+    </div>
+
+    <script>
+      // Test 1: JavaScript Loading
+      document.getElementById("js-test").innerHTML = "JavaScript is working ✅";
+      document.getElementById("js-test").className = "success";
+      console.log("✅ Test 1: JavaScript loaded successfully");
+
+      // Test 2: Click Events
+      document
+        .getElementById("click-test")
+        .addEventListener("click", function () {
+          document.getElementById("click-result").innerHTML =
+            '<span class="success">✅ Click events working!</span>';
+          console.log("✅ Test 2: Click event fired successfully");
+        });
+
+      // Test 3: DOM Queries
+      setTimeout(() => {
+        const testElements = document.querySelectorAll(".test-box");
+        if (testElements.length > 0) {
+          document.getElementById("dom-test").innerHTML =
+            `<span class="success">✅ Found ${testElements.length} elements</span>`;
+          console.log("✅ Test 3: DOM queries working");
+        } else {
+          document.getElementById("dom-test").innerHTML =
+            '<span class="error">❌ DOM queries failed</span>';
+          console.error("❌ Test 3: DOM queries failed");
+        }
+      }, 100);
+
+      // Test 4: Check for common blocking issues
+      console.log("=== Diagnostic Report ===");
+      console.log("Document Ready State:", document.readyState);
+      console.log("Location:", window.location.href);
+      console.log("User Agent:", navigator.userAgent);
+
+      // Test if main HTML course file has issues
+      fetch("html-course.html")
+        .then((response) => {
+          if (response.ok) {
+            console.log("✅ html-course.html file exists and is accessible");
+          } else {
+            console.error(
+              "❌ html-course.html returned status:",
+              response.status,
+            );
+          }
+        })
+        .catch((error) => {
+          console.error("❌ Error loading html-course.html:", error);
+        });
+
+      // Test if JavaScript file exists
+      fetch("html-course.js")
+        .then((response) => {
+          if (response.ok) {
+            console.log("✅ html-course.js file exists and is accessible");
+          } else {
+            console.error(
+              "❌ html-course.js returned status:",
+              response.status,
+            );
+          }
+        })
+        .catch((error) => {
+          console.error("❌ Error loading html-course.js:", error);
+        });
+
+      // Test if CSS file exists
+      fetch("html-course.css")
+        .then((response) => {
+          if (response.ok) {
+            console.log("✅ html-course.css file exists and is accessible");
+          } else {
+            console.error(
+              "❌ html-course.css returned status:",
+              response.status,
+            );
+          }
+        })
+        .catch((error) => {
+          console.error("❌ Error loading html-course.css:", error);
+        });
+    </script>
+  </body>
+</html>

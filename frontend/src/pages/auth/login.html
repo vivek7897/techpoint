@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Techknowldge Login</title>
+
+    <link rel="stylesheet" href="/techknowldge/src/assets/css/login.css" />
+  </head>
+
+  <body>
+    <div class="login-container">
+      <a href="/techknowldge/public/index.html">
+        <img
+          src="/techknowldge/src/assets/images/logo.png"
+          class="logo"
+          alt="Techknowldge"
+        />
+      </a>
+
+      <h2>Login</h2>
+
+      <form>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required />
+        </div>
+
+        <div class="input-group password-box">
+          <label>Password</label>
+
+          <div class="password-field">
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter password"
+              required
+            />
+            <span class="toggle" onclick="togglePassword()">👁</span>
+          </div>
+        </div>
+
+        <div class="forgot">
+          <a href="/techknowldge/src/pages/auth/forgot.html"
+            >Forgot Password?</a
+          >
+        </div>
+
+        <button class="login-btn">Login</button>
+      </form>
+
+      <p class="signup">
+        Don't have an account?
+        <a href="/techknowldge/src/pages/auth/register.html">Register</a>
+      </p>
+    </div>
+
+    <script src="/techknowldge/src/assets/js/login.js"></script>
+  </body>
+</html>

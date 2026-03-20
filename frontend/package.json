@@ -1,0 +1,35 @@
+{
+  "name": "techknowldge",
+  "version": "1.0.0",
+  "description": "TechKnowldge (CodeSeekho) - Interactive Learning Platform for Web Development",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "live-server public --port=3000",
+    "dev": "live-server public --port=3000 --watch=src",
+    "build": "echo 'Build script for future bundler integration'",
+    "test": "echo 'Test scripts will be added'"
+  },
+  "keywords": [
+    "education",
+    "learning",
+    "tutorials",
+    "web-development",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "TechKnowldge Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/techknowldge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/techknowldge/issues"
+  },
+  "homepage": "https://techknowldge.com",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {}
+}
