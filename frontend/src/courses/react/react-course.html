@@ -1,0 +1,4152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Tutorial - TechKnowledge Interactive Learning</title>
+    <link rel="stylesheet" href="react-course.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <a href="/techknowldge/public/index.html"><i class="fas fa-home"></i></a
+        ><span
+          >Tech<strong style="color: #04aa6d">Knowledge</strong
+          ><span class="course-name">/ React Tutorial</span></span
+        >
+      </div>
+      <div class="search-bar">
+        <i class="fas fa-search"></i
+        ><input type="text" id="lessonSearch" placeholder="Search lessons..." />
+      </div>
+      <div class="nav-controls">
+        <button class="btn-icon" id="darkModeToggle" title="Toggle Dark Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="progress-display">
+          <span id="progressText">0%</span>
+          <div class="mini-progress">
+            <div class="mini-progress-bar" id="miniProgressBar"></div>
+          </div>
+        </div>
+        <a href="../../pages/auth/login.html" class="user-icon"
+          ><i class="fas fa-user-circle"></i
+        ></a>
+      </div>
+    </nav>
+    <!-- Mobile Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="layout-container">
+      <!-- Left Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <button class="sidebar-toggle" id="sidebarToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="progress-section">
+          <h3><i class="fas fa-chart-line"></i>Your Progress</h3>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <p class="progress-info">
+            <span id="completedLessons">0</span> of
+            <span id="totalLessons">49</span> completed
+          </p>
+          <button
+            class="btn-certificate"
+            id="generateCertificate"
+            style="display: none"
+          >
+            <i class="fas fa-certificate"></i>Get Certificate
+          </button>
+        </div>
+        <div class="lessons-nav">
+          <h3><i class="fas fa-book"></i>Course Content</h3>
+
+          <!-- Basics -->
+          <div class="lesson-category">
+            <div class="category-header">React Basics</div>
+            <div class="lesson-item" data-lesson="intro">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Introduction to React</span>
+            </div>
+            <div class="lesson-item" data-lesson="setup">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Setting up React Environment</span>
+            </div>
+            <div class="lesson-item" data-lesson="jsx">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>JSX</span>
+            </div>
+            <div class="lesson-item" data-lesson="components">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Components</span>
+            </div>
+            <div class="lesson-item" data-lesson="props">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Props</span>
+            </div>
+            <div class="lesson-item" data-lesson="state">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>State</span>
+            </div>
+            <div class="lesson-item" data-lesson="events">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Event Handling</span>
+            </div>
+            <div class="lesson-item" data-lesson="conditional">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Conditional Rendering</span>
+            </div>
+            <div class="lesson-item" data-lesson="lists">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Lists & Keys</span>
+            </div>
+          </div>
+
+          <!-- Forms -->
+          <div class="lesson-category">
+            <div class="category-header">Forms</div>
+            <div class="lesson-item" data-lesson="forms">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Forms in React</span>
+            </div>
+            <div class="lesson-item" data-lesson="controlled">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Controlled Components</span>
+            </div>
+            <div class="lesson-item" data-lesson="uncontrolled">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Uncontrolled Components</span>
+            </div>
+            <div class="lesson-item" data-lesson="validation">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Forms Validation</span>
+            </div>
+          </div>
+
+          <!-- Hooks -->
+          <div class="lesson-category">
+            <div class="category-header">React Hooks</div>
+            <div class="lesson-item" data-lesson="usestate">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>useState Hook</span>
+            </div>
+            <div class="lesson-item" data-lesson="useeffect">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>useEffect Hook</span>
+            </div>
+            <div class="lesson-item" data-lesson="useref">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>useRef Hook</span>
+            </div>
+            <div class="lesson-item" data-lesson="usecontext">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>useContext Hook</span>
+            </div>
+            <div class="lesson-item" data-lesson="usememo">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>useMemo Hook</span>
+            </div>
+            <div class="lesson-item" data-lesson="usecallback">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>useCallback Hook</span>
+            </div>
+            <div class="lesson-item" data-lesson="customhooks">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Custom Hooks</span>
+            </div>
+          </div>
+
+          <!-- Lifecycle & Routing -->
+          <div class="lesson-category">
+            <div class="category-header">Lifecycle & Routing</div>
+            <div class="lesson-item" data-lesson="lifecycle">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Component Lifecycle</span>
+            </div>
+            <div class="lesson-item" data-lesson="routing">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>React Router</span>
+            </div>
+            <div class="lesson-item" data-lesson="dynamicrouting">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Dynamic Routing</span>
+            </div>
+            <div class="lesson-item" data-lesson="nestedrouting">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Nested Routing</span>
+            </div>
+          </div>
+
+          <!-- State Management -->
+          <div class="lesson-category">
+            <div class="category-header">State Management</div>
+            <div class="lesson-item" data-lesson="contextapi">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Context API</span>
+            </div>
+            <div class="lesson-item" data-lesson="redux">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Redux</span>
+            </div>
+            <div class="lesson-item" data-lesson="reduxtoolkit">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Redux Toolkit</span>
+            </div>
+          </div>
+
+          <!-- API & Data -->
+          <div class="lesson-category">
+            <div class="category-header">API & Data</div>
+            <div class="lesson-item" data-lesson="apicalls">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>API Calls</span>
+            </div>
+            <div class="lesson-item" data-lesson="errorhandling">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Error Handling</span>
+            </div>
+            <div class="lesson-item" data-lesson="loadingstates">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Loading States</span>
+            </div>
+          </div>
+
+          <!-- Styling -->
+          <div class="lesson-category">
+            <div class="category-header">Styling</div>
+            <div class="lesson-item" data-lesson="styling">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Styling in React</span>
+            </div>
+            <div class="lesson-item" data-lesson="tailwind">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Tailwind CSS</span>
+            </div>
+          </div>
+
+          <!-- Authentication -->
+          <div class="lesson-category">
+            <div class="category-header">Authentication</div>
+            <div class="lesson-item" data-lesson="auth">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Authentication</span>
+            </div>
+            <div class="lesson-item" data-lesson="protectedroutes">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Protected Routes</span>
+            </div>
+          </div>
+
+          <!-- Performance -->
+          <div class="lesson-category">
+            <div class="category-header">Performance</div>
+            <div class="lesson-item" data-lesson="optimization">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Performance Optimization</span>
+            </div>
+            <div class="lesson-item" data-lesson="lazyloading">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Lazy Loading</span>
+            </div>
+            <div class="lesson-item" data-lesson="codesplitting">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Code Splitting</span>
+            </div>
+            <div class="lesson-item" data-lesson="reactmemo">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>React.memo</span>
+            </div>
+          </div>
+
+          <!-- Advanced Patterns -->
+          <div class="lesson-category">
+            <div class="category-header">Advanced Patterns</div>
+            <div class="lesson-item" data-lesson="hoc">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Higher Order Components</span>
+            </div>
+            <div class="lesson-item" data-lesson="renderprops">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Render Props</span>
+            </div>
+            <div class="lesson-item" data-lesson="portals">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Portals</span>
+            </div>
+            <div class="lesson-item" data-lesson="errorboundaries">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Error Boundaries</span>
+            </div>
+          </div>
+
+          <!-- Testing -->
+          <div class="lesson-category">
+            <div class="category-header">Testing</div>
+            <div class="lesson-item" data-lesson="jest">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Testing with Jest</span>
+            </div>
+            <div class="lesson-item" data-lesson="rtl">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>React Testing Library</span>
+            </div>
+          </div>
+
+          <!-- TypeScript & Production -->
+          <div class="lesson-category">
+            <div class="category-header">Production</div>
+            <div class="lesson-item" data-lesson="typescript">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>TypeScript with React</span>
+            </div>
+            <div class="lesson-item" data-lesson="envvars">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Environment Variables</span>
+            </div>
+            <div class="lesson-item" data-lesson="deployment">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>Build & Deployment</span>
+            </div>
+            <div class="lesson-item" data-lesson="seo">
+              <div class="lesson-status"><i class="far fa-circle"></i></div>
+              <span>SEO in React</span>
+            </div>
+          </div>
+
+          <!-- Final Exam -->
+          <div class="lesson-category">
+            <div class="category-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+              <i class="fas fa-graduation-cap"></i> Final Certification
+            </div>
+            <div class="lesson-item" data-lesson="exam" style="border-left: 4px solid #667eea;">
+              <div class="lesson-status"><i class="fas fa-award"></i></div>
+              <span style="font-weight: 600; color: #667eea;">Final Exam (60% to Pass)</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Content Area -->
+      <main class="main-content">
+        <div class="tab-navigation">
+          <button class="tab-btn active" data-tab="tutorial">
+            <i class="fas fa-book-open"></i>Tutorial</button
+          ><button class="tab-btn" data-tab="playground">
+            <i class="fas fa-code"></i>Live Playground
+          </button>
+        </div>
+
+        <!-- Tutorial Tab -->
+        <div class="tab-content active" id="tutorial">
+          <div class="lesson-content">
+            <!-- Lesson 1: Introduction to React -->
+            <div class="lesson-section" id="intro-content">
+              <h1><i class="fab fa-react"></i> Introduction to React</h1>
+              <div class="info-box">
+                <p>
+                  <strong>React</strong> is a popular JavaScript library for
+                  building user interfaces, particularly single-page
+                  applications. It was developed by Facebook and is maintained
+                  by Facebook and a community of developers.
+                </p>
+              </div>
+
+              <h2>What is React?</h2>
+              <ul>
+                <li>
+                  React is a <strong>JavaScript library</strong> for building
+                  user interfaces
+                </li>
+                <li>
+                  It's <strong>component-based</strong> - build encapsulated
+                  components that manage their own state
+                </li>
+                <li>
+                  React uses a <strong>Virtual DOM</strong> for efficient
+                  updates
+                </li>
+                <li>
+                  It follows a <strong>declarative</strong> programming paradigm
+                </li>
+                <li>
+                  Created by <strong>Facebook</strong> in 2011, open-sourced in
+                  2013
+                </li>
+              </ul>
+
+              <h2>Why Use React?</h2>
+              <ul>
+                <li>
+                  <strong>Component-Based:</strong> Build reusable UI components
+                </li>
+                <li>
+                  <strong>Virtual DOM:</strong> Optimizes rendering and improves
+                  app performance
+                </li>
+                <li>
+                  <strong>One-Way Data Binding:</strong> Provides better control
+                  over the application
+                </li>
+                <li>
+                  <strong>JSX:</strong> Write HTML-like syntax in JavaScript
+                </li>
+                <li>
+                  <strong>Large Ecosystem:</strong> Extensive third-party
+                  library support
+                </li>
+                <li>
+                  <strong>Strong Community:</strong> Backed by Facebook and a
+                  large developer community
+                </li>
+              </ul>
+
+              <h2>React Features</h2>
+              <div class="example-box">
+                <h3>Key Features:</h3>
+                <pre><code>// 1. Components
+function Welcome() {
+    return &lt;h1&gt;Hello, React!&lt;/h1&gt;;
+}
+
+// 2. JSX Syntax
+const element = &lt;div&gt;Welcome to React&lt;/div&gt;;
+
+// 3. Virtual DOM
+// React updates only the changed elements
+
+// 4. One-way Data Flow
+// Data flows from parent to child components
+
+// 5. Hooks
+import { useState, useEffect } from 'react';
+</code></pre>
+              </div>
+
+              <h2>React Use Cases</h2>
+              <ul>
+                <li>Single Page Applications (SPAs)</li>
+                <li>Mobile Applications (React Native)</li>
+                <li>Progressive Web Apps (PWAs)</li>
+                <li>Dashboard and Data Visualization Tools</li>
+                <li>Social Media Platforms</li>
+                <li>E-commerce Websites</li>
+              </ul>
+
+              <div class="tip-box">
+                <strong>💡 Tip:</strong> React is a library, not a framework.
+                You have the flexibility to choose additional libraries for
+                routing, state management, and more.
+              </div>
+
+              <div class="navigation-buttons">
+                <button
+                  class="btn-complete"
+                  onclick="markLessonComplete('intro')"
+                >
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('intro')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lesson 2: Setting up React Environment -->
+            <div
+              class="lesson-section"
+              id="setup-content"
+              style="display: none"
+            >
+              <h1>Setting up React Environment</h1>
+              <div class="info-box">
+                <p>
+                  There are multiple ways to set up a React development
+                  environment. We'll cover the most popular methods.
+                </p>
+              </div>
+
+              <h2>Prerequisites</h2>
+              <ul>
+                <li>Node.js (version 14 or higher)</li>
+                <li>npm or yarn package manager</li>
+                <li>Code editor (VS Code recommended)</li>
+                <li>Basic JavaScript knowledge</li>
+              </ul>
+
+              <h2>Method 1: Create React App (CRA)</h2>
+              <div class="example-box">
+                <h3>Quick Start:</h3>
+                <pre><code># Create a new React app
+npx create-react-app my-app
+
+# Navigate to project
+cd my-app
+
+# Start development server
+npm start
+</code></pre>
+              </div>
+
+              <h2>Method 2: Vite (Recommended)</h2>
+              <div class="example-box">
+                <h3>Faster Alternative:</h3>
+                <pre><code># Create new project with Vite
+npm create vite@latest my-react-app -- --template react
+
+# Navigate and install
+cd my-react-app
+npm install
+
+# Start dev server
+npm run dev
+</code></pre>
+              </div>
+
+              <h2>Project Structure</h2>
+              <div class="example-box">
+                <pre><code>my-app/
+├── node_modules/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.js
+│   ├── App.css
+│   ├── index.js
+│   └── index.css
+├── package.json
+└── README.md
+</code></pre>
+              </div>
+
+              <h2>CDN Setup (For Learning)</h2>
+              <div class="example-box">
+                <h3>Using CDN:</h3>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"&gt;&lt;/script&gt;
+    &lt;script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"&gt;&lt;/script&gt;
+    &lt;script src="https://unpkg.com/@babel/standalone/babel.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+    &lt;script type="text/babel"&gt;
+        function App() {
+            return &lt;h1&gt;Hello React!&lt;/h1&gt;;
+        }
+        ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));
+    &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Tip:</strong> Vite is faster than Create React App
+                for development. Use CRA for beginners, Vite for production
+                projects.
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('setup')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button
+                  class="btn-complete"
+                  onclick="markLessonComplete('setup')"
+                >
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('setup')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lesson 3: JSX -->
+            <div class="lesson-section" id="jsx-content" style="display: none">
+              <h1>JSX - JavaScript XML</h1>
+              <div class="info-box">
+                <p>
+                  <strong>JSX</strong> stands for JavaScript XML. It allows you
+                  to write HTML-like code in JavaScript files. JSX makes React
+                  code more readable and expressive.
+                </p>
+              </div>
+
+              <h2>What is JSX?</h2>
+              <p>
+                JSX stands for <strong>JavaScript XML</strong>. It's a syntax extension that allows you to write \n                HTML-like code directly in your JavaScript files. Even though it looks like HTML, it's actually \n                JavaScript! React transforms JSX into regular JavaScript function calls using React.createElement().
+              </p>
+
+              <h3>Why Use JSX?</h3>
+              <ul>
+                <li><strong>Familiar Syntax:</strong> If you know HTML, JSX is easy to learn</li>
+                <li><strong>Visual Clarity:</strong> You can see the UI structure directly in your code</li>
+                <li><strong>Better Error Messages:</strong> React shows helpful errors when something's wrong</li>
+                <li><strong>Full JavaScript Power:</strong> Use any JavaScript expression inside JSX using {}</li>
+                <li><strong>Type Safety:</strong> Works great with TypeScript for catching errors early</li>
+              </ul>
+
+              <div class="example-box">
+                <h3>JSX Example:</h3>
+                <pre><code>// JSX Code
+const element = &lt;h1&gt;Hello, World!&lt;/h1&gt;;
+
+// Without JSX (Pure JavaScript)
+const element = React.createElement('h1', null, 'Hello, World!');
+</code></pre>
+              </div>
+
+              <h2>JSX Rules</h2>
+              <ul>
+                <li>Must return a single parent element</li>
+                <li>
+                  Use <code>className</code> instead of <code>class</code>
+                </li>
+                <li>Close all tags (even self-closing ones)</li>
+                <li>Use camelCase for HTML attributes</li>
+                <li>JavaScript expressions go inside <code>{}</code></li>
+              </ul>
+
+              <h2>Embedding Expressions</h2>
+              <div class="example-box">
+                <pre><code>function Greeting() {
+    const name = "John";
+    const age = 25;
+    
+    return (
+        &lt;div&gt;
+            &lt;h1&gt;Hello, {name}!&lt;/h1&gt;
+            &lt;p&gt;You are {age} years old&lt;/p&gt;
+            &lt;p&gt;Next year you'll be {age + 1}&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>JSX Attributes</h2>
+              <div class="example-box">
+                <pre><code>// String attributes
+&lt;img src="logo.png" alt="Logo" /&gt;
+
+// Expression attributes
+&lt;img src={logoUrl} alt={altText} /&gt;
+
+// className instead of class
+&lt;div className="container"&gt;&lt;/div&gt;
+
+// Style as object
+&lt;div style={{ color: 'red', fontSize: '20px' }}&gt;Text&lt;/div&gt;
+
+// Boolean attributes
+&lt;input type="checkbox" disabled={true} /&gt;
+</code></pre>
+              </div>
+
+              <h2>Conditional Rendering in JSX</h2>
+              <div class="example-box">
+                <pre><code>function App() {
+    const isLoggedIn = true;
+    
+    return (
+        &lt;div&gt;
+            {/* Ternary operator */}
+            {isLoggedIn ? &lt;h1&gt;Welcome Back!&lt;/h1&gt; : &lt;h1&gt;Please Log In&lt;/h1&gt;}
+            
+            {/* Logical AND */}
+            {isLoggedIn && &lt;button&gt;Logout&lt;/button&gt;}
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>JSX Comments</h2>
+              <div class="example-box">
+                <pre><code>function App() {
+    return (
+        &lt;div&gt;
+            {/* This is a comment in JSX */}
+            &lt;h1&gt;Hello World&lt;/h1&gt;
+            {/* 
+                Multi-line
+                comment
+            */}
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Tip:</strong> JSX is not required for React, but it
+                makes code more readable and is widely adopted in the React
+                community.
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('jsx')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button
+                  class="btn-complete"
+                  onclick="markLessonComplete('jsx')"
+                >
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('jsx')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lesson 4: Components (Functional & Class) -->
+            <div
+              class="lesson-section"
+              id="components-content"
+              style="display: none"
+            >
+              <h1>React Components</h1>
+              <div class="info-box">
+                <p>
+                  Components are the building blocks of React applications. They
+                  let you split the UI into independent, reusable pieces.
+                </p>
+              </div>
+
+              <h2>Types of Components</h2>
+              <p>
+                React has two types of components:
+                <strong>Functional Components</strong> and
+                <strong>Class Components</strong>.
+              </p>
+
+              <h2>Functional Components</h2>
+              <div class="example-box">
+                <h3>Simple Function Component:</h3>
+                <pre><code>// Basic functional component
+function Welcome() {
+    return &lt;h1&gt;Hello, World!&lt;/h1&gt;;
+}
+
+// Arrow function component
+const Welcome = () => {
+    return &lt;h1&gt;Hello, World!&lt;/h1&gt;;
+};
+
+// With props
+function Greeting(props) {
+    return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
+}
+
+// Usage
+&lt;Greeting name="John" /&gt;
+</code></pre>
+              </div>
+
+              <h2>Class Components</h2>
+              <div class="example-box">
+                <h3>Class-based Component:</h3>
+                <pre><code>import React, { Component } from 'react';
+
+class Welcome extends Component {
+    render() {
+        return &lt;h1&gt;Hello, World!&lt;/h1&gt;;
+    }
+}
+
+// With props
+class Greeting extends Component {
+    render() {
+        return &lt;h1&gt;Hello, {this.props.name}!&lt;/h1&gt;;
+    }
+}
+
+// Usage
+&lt;Greeting name="John" /&gt;
+</code></pre>
+              </div>
+
+              <h2>Component Composition</h2>
+              <div class="example-box">
+                <pre><code>function Header() {
+    return &lt;header&gt;&lt;h1&gt;My Website&lt;/h1&gt;&lt;/header&gt;;
+}
+
+function Content() {
+    return &lt;main&gt;&lt;p&gt;Welcome to my site&lt;/p&gt;&lt;/main&gt;;
+}
+
+function Footer() {
+    return &lt;footer&gt;&lt;p&gt;© 2026&lt;/p&gt;&lt;/footer&gt;;
+}
+
+function App() {
+    return (
+        &lt;div&gt;
+            &lt;Header /&gt;
+            &lt;Content /&gt;
+            &lt;Footer /&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Functional vs Class Components</h2>
+              <table
+                style="width: 100%; border-collapse: collapse; margin: 20px 0"
+              >
+                <tr style="background: var(--light-bg)">
+                  <th style="padding: 10px; border: 1px solid var(--border)">
+                    Feature
+                  </th>
+                  <th style="padding: 10px; border: 1px solid var(--border)">
+                    Functional
+                  </th>
+                  <th style="padding: 10px; border: 1px solid var(--border)">
+                    Class
+                  </th>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    Syntax
+                  </td>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    Simpler
+                  </td>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    More verbose
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    State
+                  </td>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    useState Hook
+                  </td>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    this.state
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    Lifecycle
+                  </td>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    useEffect Hook
+                  </td>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    Lifecycle methods
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    this keyword
+                  </td>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    Not needed
+                  </td>
+                  <td style="padding: 10px; border: 1px solid var(--border)">
+                    Required
+                  </td>
+                </tr>
+              </table>
+
+              <div class="tip-box">
+                <strong>💡 Tip:</strong> Modern React favors functional
+                components with Hooks. Class components are still supported but
+                less commonly used in new code.
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('components')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button
+                  class="btn-complete"
+                  onclick="markLessonComplete('components')"
+                >
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('components')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lesson 5: Props -->
+            <div
+              class="lesson-section"
+              id="props-content"
+              style="display: none"
+            >
+              <h1>Props in React</h1>
+              <div class="info-box">
+                <p>
+                  <strong>Props</strong> (short for properties) are read-only
+                  data passed from parent to child components. They allow
+                  components to be dynamic and reusable.
+                </p>
+              </div>
+
+              <h2>Passing Props</h2>
+              <div class="example-box">
+                <pre><code>// Parent Component
+function App() {
+    return (
+        &lt;div&gt;
+            &lt;Greeting name="John" age={25} /&gt;
+            &lt;Greeting name="Jane" age={22} /&gt;
+        &lt;/div&gt;
+    );
+}
+
+// Child Component
+function Greeting(props) {
+    return (
+        &lt;div&gt;
+            &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;
+            &lt;p&gt;Age: {props.age}&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Destructuring Props</h2>
+              <div class="example-box">
+                <pre><code>// Method 1: In function parameters
+function Greeting({ name, age }) {
+    return (
+        &lt;div&gt;
+            &lt;h1&gt;Hello, {name}!&lt;/h1&gt;
+            &lt;p&gt;Age: {age}&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}
+
+// Method 2: Inside function
+function Greeting(props) {
+    const { name, age } = props;
+    return (
+        &lt;div&gt;
+            &lt;h1&gt;Hello, {name}!&lt;/h1&gt;
+            &lt;p&gt;Age: {age}&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Default Props</h2>
+              <div class="example-box">
+                <pre><code>// Using defaultProps
+function Greeting({ name = "Guest", age = 0 }) {
+    return (
+        &lt;div&gt;
+            &lt;h1&gt;Hello, {name}!&lt;/h1&gt;
+            &lt;p&gt;Age: {age}&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}
+
+// For class components
+class Greeting extends React.Component {
+    static defaultProps = {
+        name: "Guest",
+        age: 0
+    };
+    
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;h1&gt;Hello, {this.props.name}!&lt;/h1&gt;
+                &lt;p&gt;Age: {this.props.age}&lt;/p&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+</code></pre>
+              </div>
+
+              <h2>Props Types</h2>
+              <div class="example-box">
+                <pre><code>// Different prop types
+function Profile({ 
+    name,           // string
+    age,            // number
+    isActive,       // boolean
+    hobbies,        // array
+    address,        // object
+    onClick         // function
+}) {
+    return (
+        &lt;div&gt;
+            &lt;h2&gt;{name}&lt;/h2&gt;
+            &lt;p&gt;Age: {age}&lt;/p&gt;
+            &lt;p&gt;Status: {isActive ? 'Active' : 'Inactive'}&lt;/p&gt;
+            &lt;ul&gt;
+                {hobbies.map((hobby, index) => (
+                    &lt;li key={index}&gt;{hobby}&lt;/li&gt;
+                ))}
+            &lt;/ul&gt;
+            &lt;p&gt;City: {address.city}&lt;/p&gt;
+            &lt;button onClick={onClick}&gt;Click Me&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+
+// Usage
+&lt;Profile
+    name="John"
+    age={25}
+    isActive={true}
+    hobbies={['Reading', 'Gaming']}
+    address={{ city: 'New York', country: 'USA' }}
+    onClick={() => alert('Clicked!')}
+/&gt;
+</code></pre>
+              </div>
+
+              <h2>Children Props</h2>
+              <div class="example-box">
+                <pre><code>function Card({ children }) {
+    return (
+        &lt;div className="card"&gt;
+            {children}
+        &lt;/div&gt;
+    );
+}
+
+// Usage
+&lt;Card&gt;
+    &lt;h1&gt;Title&lt;/h1&gt;
+    &lt;p&gt;This is the content&lt;/p&gt;
+&lt;/Card&gt;
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Remember:</strong> Props are read-only. Never modify
+                props directly inside a component. If you need to change data,
+                use state instead.
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('props')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button
+                  class="btn-complete"
+                  onclick="markLessonComplete('props')"
+                >
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('props')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Continue with remaining lessons... Due to length, I'll create a condensed version -->
+            <!-- The pattern continues for all 48 lessons -->
+
+            <!-- Additional lessons follow the same structure -->
+            <!-- I'll include key lessons to demonstrate the pattern -->
+
+            <!-- Lesson 6: State -->
+            <div
+              class="lesson-section"
+              id="state-content"
+              style="display: none"
+            >
+              <h1>State in React</h1>
+              <div class="info-box">
+                <p>
+                  <strong>State</strong> is a built-in object used to contain
+                  data that changes over time. Unlike props, state is managed
+                  within the component. Think of state as the component's memory.
+                </p>
+              </div>
+
+              <h2>What is State?</h2>
+              <p>
+                State is like a storage box inside your component. When data in the state changes,
+                React automatically re-renders the component to show the new data. This is what makes
+                React apps interactive!
+              </p>
+
+              <h3>Key Points About State:</h3>
+              <ul>
+                <li>State is <strong>private</strong> to the component</li>
+                <li>When state changes, component <strong>re-renders</strong></li>
+                <li>State should not be modified directly</li>
+                <li>Use setState() or setters to update state</li>
+                <li>State updates may be <strong>asynchronous</strong></li>
+              </ul>
+
+              <h2>State in Class Components</h2>
+              <div class="example-box">
+                <pre><code>class Counter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            count: 0
+        };
+    }
+    
+    increment = () => {
+        this.setState({ count: this.state.count + 1 });
+    }
+    
+    render() {
+        return (
+            &lt;div&gt;
+                &lt;p&gt;Count: {this.state.count}&lt;/p&gt;
+                &lt;button onClick={this.increment}&gt;Increment&lt;/button&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+</code></pre>
+              </div>
+
+              <h2>State in Functional Components (with Hooks)</h2>
+              <div class="example-box">
+                <pre><code>import { useState } from 'react';
+
+function Counter() {
+    const [count, setCount] = useState(0);
+    
+    return (
+        &lt;div&gt;
+            &lt;p&gt;Count: {count}&lt;/p&gt;
+            &lt;button onClick={() => setCount(count + 1)}&gt;
+                Increment
+            &lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Multiple State Variables</h2>
+              <div class="example-box">
+                <h3>You Can Have Many States:</h3>
+                <pre><code>function UserProfile() {
+    const [name, setName] = useState('John');
+    const [age, setAge] = useState(25);
+    const [isOnline, setIsOnline] = useState(true);
+    
+    return (
+        &lt;div&gt;
+            &lt;h2&gt;{name}&lt;/h2&gt;
+            &lt;p&gt;Age: {age}&lt;/p&gt;
+            &lt;p&gt;Status: {isOnline ? 'Online' : 'Offline'}&lt;/p&gt;
+            &lt;button onClick={() => setAge(age + 1)}&gt;Birthday&lt;/button&gt;
+            &lt;button onClick={() => setIsOnline(!isOnline)}&gt;Toggle Status&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>State with Objects</h2>
+              <div class="example-box">
+                <h3>Managing Complex State:</h3>
+                <pre><code>function UserForm() {
+    const [user, setUser] = useState({
+        name: '',
+        email: '',
+        age: 0
+    });
+    
+    const updateName = (e) => {
+        setUser({
+            ...user,  // Keep other properties
+            name: e.target.value  // Update only name
+        });
+    };
+    
+    return (
+        &lt;div&gt;
+            &lt;input 
+                value={user.name} 
+                onChange={updateName}
+                placeholder="Your name"
+            /&gt;
+            &lt;p&gt;Hello, {user.name}!&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Common State Mistakes</h2>
+              <div class="warning-box">
+                <h4>❌ Don't Do This:</h4>
+                <pre><code>// Wrong - Direct mutation
+state.count = 5;
+
+// Wrong - Modifying object directly
+user.name = 'John';
+setUser(user);
+</code></pre>
+                <h4>✅ Do This Instead:</h4>
+                <pre><code>// Correct - Use setter function
+setCount(5);
+
+// Correct - Create new object
+setUser({ ...user, name: 'John' });
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Tip:</strong> State updates are asynchronous and may
+                be batched for performance. Always use the previous state when
+                the new state depends on the old state.
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('state')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button
+                  class="btn-complete"
+                  onclick="markLessonComplete('state')"
+                >
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('state')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lesson 7: Event Handling -->
+            <div class="lesson-section" id="events-content" style="display: none">
+              <h1>Event Handling in React</h1>
+              <div class="info-box">
+                <p>
+                  React events are similar to DOM events but with some key differences. React events 
+                  use camelCase naming convention and are passed as functions. Events let your app
+                  respond to user actions like clicks, typing, scrolling, etc.
+                </p>
+              </div>
+
+              <h2>Why Event Handling?</h2>
+              <p>
+                Events make your app interactive. Without events, users can't interact with your app.
+                Events tell React "Hey, the user clicked this button!" or "The user typed something!"
+              </p>
+
+              <h2>React Events vs HTML Events</h2>
+              <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+                <tr style="background: var(--light-bg);">
+                  <th style="padding: 10px; border: 1px solid var(--border);">HTML</th>
+                  <th style="padding: 10px; border: 1px solid var(--border);">React</th>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border);"><code>onclick</code></td>
+                  <td style="padding: 10px; border: 1px solid var(--border);"><code>onClick</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border);"><code>onchange</code></td>
+                  <td style="padding: 10px; border: 1px solid var(--border);"><code>onChange</code></td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border);">String function</td>
+                  <td style="padding: 10px; border: 1px solid var(--border);">Function reference</td>
+                </tr>
+              </table>
+
+              <h2>Basic Event Handling</h2>
+              <div class="example-box">
+                <pre><code>function Button() {
+    const handleClick = () => {
+        alert('Button clicked!');
+    };
+    
+    return &lt;button onClick={handleClick}&gt;Click Me&lt;/button&gt;;
+}
+
+// Inline function
+&lt;button onClick={() => alert('Clicked!')}&gt;Click&lt;/button&gt;
+</code></pre>
+              </div>
+
+              <h2>Event Object</h2>
+              <div class="example-box">
+                <pre><code>function Form() {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form submitted');
+    };
+    
+    const handleChange = (e) => {
+        console.log(e.target.value);
+    };
+    
+    return (
+        &lt;form onSubmit={handleSubmit}&gt;
+            &lt;input onChange={handleChange} /&gt;
+            &lt;button type="submit"&gt;Submit&lt;/button&gt;
+        &lt;/form&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Common Events</h2>
+              <div class="example-box">
+                <h3>Mouse Events:</h3>
+                <ul>
+                  <li><code>onClick</code> - When user clicks</li>
+                  <li><code>onDoubleClick</code> - When user double clicks</li>
+                  <li><code>onMouseEnter</code> - When mouse enters element</li>
+                  <li><code>onMouseLeave</code> - When mouse leaves element</li>
+                  <li><code>onMouseMove</code> - When mouse moves over element</li>
+                </ul>
+              </div>
+
+              <div class="example-box">
+                <h3>Form Events:</h3>
+                <ul>
+                  <li><code>onChange</code> - When input value changes</li>
+                  <li><code>onSubmit</code> - When form is submitted</li>
+                  <li><code>onFocus</code> - When input gets focus</li>
+                  <li><code>onBlur</code> - When input loses focus</li>
+                </ul>
+              </div>
+
+              <div class="example-box">
+                <h3>Keyboard Events:</h3>
+                <ul>
+                  <li><code>onKeyDown</code> - When key is pressed</li>
+                  <li><code>onKeyUp</code> - When key is released</li>
+                  <li><code>onKeyPress</code> - When key is pressed (deprecated)</li>
+                </ul>
+              </div>
+
+              <h2>Event with Parameters</h2>
+              <div class="example-box">
+                <pre><code>function ItemList() {
+    const handleDelete = (id) => {
+        alert(\`Deleting item \${id}\`);
+    };
+    
+    return (
+        &lt;div&gt;
+            {/* Method 1: Arrow function */}
+            &lt;button onClick={() => handleDelete(1)}&gt;Delete Item 1&lt;/button&gt;
+            
+            {/* Method 2: bind */}
+            &lt;button onClick={handleDelete.bind(null, 2)}&gt;Delete Item 2&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Preventing Default Behavior</h2>
+              <div class="example-box">
+                <pre><code>function LinkComponent() {
+    const handleClick = (e) => {
+        e.preventDefault();  // Stop default action
+        console.log('Link clicked, but not navigating!');
+    };
+    
+    return &lt;a href="https://example.com" onClick={handleClick}&gt;Click Me&lt;/a&gt;;
+}
+</code></pre>
+              </div>
+
+              <h2>Real Example: Interactive Button</h2>
+              <div class="example-box">
+                <pre><code>function LikeButton() {
+    const [likes, setLikes] = useState(0);
+    const [isLiked, setIsLiked] = useState(false);
+    
+    const handleLike = () => {
+        if (isLiked) {
+            setLikes(likes - 1);
+            setIsLiked(false);
+        } else {
+            setLikes(likes + 1);
+            setIsLiked(true);
+        }
+    };
+    
+    return (
+        &lt;button 
+            onClick={handleLike}
+            style={{ backgroundColor: isLiked ? 'blue' : 'gray' }}
+        &gt;
+            👍 {likes} {isLiked ? 'Liked' : 'Like'}
+        &lt;/button&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Tip:</strong> React events are synthetic events - wrappers around native 
+                browser events that work consistently across all browsers. This means you don't have
+                to worry about browser compatibility!
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('events')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('events')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('events')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lesson 8: Conditional Rendering -->
+            <div class="lesson-section" id="conditional-content" style="display: none">
+  <h1>Conditional Rendering</h1>
+              <div class="info-box">
+                <p>In React, you can render different UI based on conditions using JavaScript operators.
+                Think of it like IF-ELSE in your component - show this OR show that!</p>
+              </div>
+
+              <h2>Why Conditional Rendering?</h2>
+              <p>
+                Sometimes you want to show different things based on certain conditions:
+              </p>
+              <ul>
+                <li>Show "Welcome Back!" if user is logged in, else show "Please Login"</li>
+                <li>Show loading spinner while data is loading</li>
+                <li>Show error message if something goes wrong</li>
+                <li>Hide/show parts of UI based on user permissions</li>
+              </ul>
+
+              <h2>If-Else Statement</h2>
+              <div class="example-box">
+                <pre><code>function Greeting({ isLoggedIn }) {
+    if (isLoggedIn) {
+        return &lt;h1&gt;Welcome Back!&lt;/h1&gt;;
+    } else {
+        return &lt;h1&gt;Please Sign In&lt;/h1&gt;;
+    }
+}
+</code></pre>
+              </div>
+
+              <h2>Ternary Operator</h2>
+              <div class="example-box">
+                <pre><code>function Greeting({ isLoggedIn }) {
+    return (
+        &lt;div&gt;
+            {isLoggedIn ? &lt;h1&gt;Welcome!&lt;/h1&gt; : &lt;h1&gt;Please Sign In&lt;/h1&gt;}
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Logical AND (&&)</h2>
+              <div class="example-box">
+                <pre><code>function Mailbox({ unreadMessages }) {
+    return (
+        &lt;div&gt;
+            &lt;h1&gt;Hello!&lt;/h1&gt;
+            {unreadMessages.length > 0 && (
+                &lt;h2&gt;You have {unreadMessages.length} unread messages.&lt;/h2&gt;
+            )}
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Multiple Conditions</h2>
+              <div class="example-box">
+                <h3>More Complex Logic:</h3>
+                <pre><code>function UserStatus({ user }) {
+    // Multiple conditions
+    if (!user) {
+        return &lt;p&gt;No user found&lt;/p&gt;;
+    }
+    
+    if (user.age &lt; 18) {
+        return &lt;p&gt;Access Denied: You must be 18+&lt;/p&gt;;
+    }
+    
+    if (!user.isPremium) {
+        return (
+            &lt;div&gt;
+                &lt;p&gt;Welcome, {user.name}!&lt;/p&gt;
+                &lt;button&gt;Upgrade to Premium&lt;/button&gt;
+            &lt;/div&gt;
+        );
+    }
+    
+    return &lt;p&gt;Welcome Premium User, {user.name}! 🌟&lt;/p&gt;;
+}
+</code></pre>
+              </div>
+
+              <h2>Switch Case Alternative</h2>
+              <div class="example-box">
+                <pre><code>function StatusMessage({ status }) {
+    const messages = {
+        loading: '⏳ Loading...',
+        success: '✅ Success!',
+        error: '❌ Error occurred',
+        idle: '💤 Waiting...'
+    };
+    
+    return &lt;p&gt;{messages[status] || 'Unknown status'}&lt;/p&gt;;
+}
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Tip:</strong> Use the method that makes your code most readable. 
+                For simple conditions, use ternary or &&. For complex logic, use if-else or switch.
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('conditional')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('conditional')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('conditional')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lesson 9: Lists & Keys -->
+            <div class="lesson-section" id="lists-content" style="display: none">
+              <h1>Lists and Keys</h1>
+              <div class="info-box">
+                <p>
+                  Use <code>map()</code> to render lists in React. Keys help React identify which 
+                  items have changed, added, or removed. Think of keys as unique IDs for list items!
+                </p>
+              </div>
+
+              <h2>Why Lists?</h2>
+              <p>
+                In real apps, you often have arrays of data (users, products, comments) that you need
+                to display. Instead of writing the same code 100 times, you use <code>.map()</code> to
+                automatically create elements from your array!
+              </p>
+
+              <h2>Rendering Lists</h2>
+              <div class="example-box">
+                <pre><code>function TodoList() {
+    const todos = ['Learn React', 'Build Project', 'Deploy'];
+    
+    return (
+        &lt;ul&gt;
+            {todos.map((todo, index) => (
+                &lt;li key={index}&gt;{todo}&lt;/li&gt;
+            ))}
+        &lt;/ul&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Keys</h2>
+              <div class="example-box">
+                <pre><code>// Use unique IDs as keys
+function UserList({ users }) {
+    return (
+        &lt;ul&gt;
+            {users.map(user => (
+                &lt;li key={user.id}&gt;
+                    {user.name} - {user.email}
+                &lt;/li&gt;
+            ))}
+        &lt;/ul&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Why Keys Are Important?</h2>
+              <p>
+                Keys tell React which item is which. Without keys, React can't tell if you added,
+                removed, or reordered items. This can cause bugs and performance issues!
+              </p>
+
+              <div class="example-box">
+                <h3>More Complex List Example:</h3>
+                <pre><code>function ProductList() {
+    const products = [
+        { id: 1, name: 'Laptop', price: 999, inStock: true },
+        { id: 2, name: 'Mouse', price: 29, inStock: true },
+        { id: 3, name: 'Keyboard', price: 79, inStock: false }
+    ];
+    
+    return (
+        &lt;div&gt;
+            {products.map(product => (
+                &lt;div key={product.id} className="product-card"&gt;
+                    &lt;h3&gt;{product.name}&lt;/h3&gt;
+                    &lt;p&gt;Price: \${product.price}&lt;/p&gt;
+                    {product.inStock ? (
+                        &lt;button&gt;Add to Cart&lt;/button&gt;
+                    ) : (
+                        &lt;p style={{ color: 'red' }}&gt;Out of Stock&lt;/p&gt;
+                    )}
+                &lt;/div&gt;
+            ))}
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Filtering Lists</h2>
+              <div class="example-box">
+                <pre><code>function FilteredList() {
+    const items = ['Apple', 'Banana', 'Cherry', 'Date'];
+    const [search, setSearch] = useState('');
+    
+    // Filter items based on search
+    const filteredItems = items.filter(item => 
+        item.toLowerCase().includes(search.toLowerCase())
+    );
+    
+    return (
+        &lt;div&gt;
+            &lt;input 
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search fruits..."
+            /&gt;
+            &lt;ul&gt;
+                {filteredItems.map((item, index) => (
+                    &lt;li key={index}&gt;{item}&lt;/li&gt;
+                ))}
+            &lt;/ul&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Important:</strong> Never use array index as key if the list can be reordered. 
+                Always use unique IDs when available. Index as key is okay only if the list never changes!
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('lists')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('lists')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('lists')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Lesson 10: Forms in React -->
+            <div class="lesson-section" id="forms-content" style="display: none">
+              <h1>Forms in React</h1>
+              <div class="information-box">
+                <p>React forms work differently from HTML forms. Form data is handled by React components 
+                rather than the DOM. This gives you more control and makes form validation easier!</p>
+              </div>
+
+              <h2>Why React Forms Are Different?</h2>
+              <p>
+                In HTML, forms maintain their own state. In React, we want React to be in charge of 
+                the state. This is called a "controlled component" - React controls the form!
+              </p>
+
+              <h2>Basic Form</h2>
+              <div class="example-box">
+                <pre><code>import { useState } from 'react';
+
+function MyForm() {
+    const [name, setName] = useState('');
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert(`Hello, ${name}!`);
+    };
+    
+    return (
+        &lt;form onSubmit={handleSubmit}&gt;
+            &lt;input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+            /&gt;
+            &lt;button type="submit"&gt;Submit&lt;/button&gt;
+        &lt;/form&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Multiple Inputs</h2>
+              <div class="example-box">
+                <pre><code>function SignupForm() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: ''
+    });
+    
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+    
+    return (
+        &lt;form&gt;
+            &lt;input name="name" onChange={handleChange} /&gt;
+            &lt;input name="email" type="email" onChange={handleChange} /&gt;
+            &lt;input name="password" type="password" onChange={handleChange} /&gt;
+        &lt;/form&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Different Input Types</h2>
+              <div class="example-box">
+                <h3>Checkbox and Radio:</h3>
+                <pre><code>function PreferencesForm() {
+    const [preferences, setPreferences] = useState({
+        newsletter: false,
+        theme: 'light'
+    });
+    
+    return (
+        &lt;form&gt;
+            {/* Checkbox */}
+            &lt;label&gt;
+                &lt;input
+                    type="checkbox"
+                    checked={preferences.newsletter}
+                    onChange={(e) => setPreferences({
+                        ...preferences,
+                        newsletter: e.target.checked
+                    })}
+                /&gt;
+                Subscribe to newsletter
+            &lt;/label&gt;
+            
+            {/* Radio buttons */}
+            &lt;div&gt;
+                &lt;label&gt;
+                    &lt;input
+                        type="radio"
+                        value="light"
+                        checked={preferences.theme === 'light'}
+                        onChange={(e) => setPreferences({
+                            ...preferences,
+                            theme: e.target.value
+                        })}
+                    /&gt;
+                    Light Theme
+                &lt;/label&gt;
+                &lt;label&gt;
+                    &lt;input
+                        type="radio"
+                        value="dark"
+                        checked={preferences.theme === 'dark'}
+                        onChange={(e) => setPreferences({
+                            ...preferences,
+                            theme: e.target.value
+                        })}
+                    /&gt;
+                    Dark Theme
+                &lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/form&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Select Dropdown</h2>
+              <div class="example-box">
+                <pre><code>function CountrySelector() {
+    const [country, setCountry] = useState('');
+    
+    return (
+        &lt;select value={country} onChange={(e) => setCountry(e.target.value)}&gt;
+            &lt;option value=""&gt;Select Country&lt;/option&gt;
+            &lt;option value="usa"&gt;United States&lt;/option&gt;
+            &lt;option value="india"&gt;India&lt;/option&gt;
+            &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+        &lt;/select&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Textarea</h2>
+              <div class="example-box">
+                <pre><code>function CommentBox() {
+    const [comment, setComment] = useState('');
+    
+    return (
+        &lt;textarea
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+            placeholder="Write your comment..."
+            rows="5"
+        /&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Tip:</strong> Always use value and onChange together for controlled inputs.
+                This keep React in control of the form state!
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('forms')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('forms')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('forms')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Remaining lessons follow similar pattern -->
+            <!-- I'll add key lessons to demonstrate the complete structure -->
+
+            <!-- Lesson 11-48 placeholders with short content -->
+            <div class="lesson-section" id="controlled-content" style="display: none">
+              <h1>Controlled Components</h1>
+              <div class="info-box">
+                <p>Controlled components have their value controlled by React state. React is the 
+                "single source of truth" for the input value.</p>
+              </div>
+
+              <h2>What Are Controlled Components?</h2>
+              <p>
+                A controlled component is an input whose value is controlled by React state. Every
+                time the user types, React updates the state, and that state controls what the input shows.
+              </p>
+
+              <h3>Benefits:</h3>
+              <ul>
+                <li>Easy to implement validation</li>
+                <li>You can disable submit button based on input</li>
+                <li>Enforce specific input formats</li>
+                <li>React has full control over the form</li>
+              </ul>
+
+              <div class="example-box">
+                <h3>Simple Controlled Input:</h3>
+                <pre><code>function ControlledInput() {
+    const [value, setValue] = useState('');
+    
+    return (
+        &lt;div&gt;
+            &lt;input 
+                value={value} 
+                onChange={e => setValue(e.target.value)} 
+                placeholder="Type something..."
+            /&gt;
+            &lt;p&gt;You typed: {value}&lt;/p&gt;
+            &lt;p&gt;Length: {value.length} characters&lt;/p&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Real Example: Form with Validation</h2>
+              <div class="example-box">
+                <pre><code>function EmailForm() {
+    const [email, setEmail] = useState('');
+    const [isValid, setIsValid] = useState(false);
+    
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setEmail(value);
+        // Simple email validation
+        setIsValid(value.includes('@') && value.includes('.'));
+    };
+    
+    return (
+        &lt;div&gt;
+            &lt;input
+                type="email"
+                value={email}
+                onChange={handleChange}
+                placeholder="Enter email"
+            /&gt;
+            {email && (
+                &lt;p style={{ color: isValid ? 'green' : 'red' }}&gt;
+                    {isValid ? '✅ Valid email' : '❌ Invalid email'}
+                &lt;/p&gt;
+            )}
+            &lt;button disabled={!isValid}&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('controlled')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('controlled')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('controlled')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="uncontrolled-content" style="display: none">
+              <h1>Uncontrolled Components</h1>
+              <div class="info-box">
+                <p>Uncontrolled components store their own state internally and use refs to access 
+                their values. The DOM itself maintains the state, not React.</p>
+              </div>
+
+              <h2>What Are Uncontrolled Components?</h2>
+              <p>
+                In uncontrolled components, React doesn't control the input value. The DOM handles it
+                like in traditional HTML. You use <code>ref</code> to get the value when you need it.
+              </p>
+
+              <h3>When to Use Uncontrolled Components?</h3>
+              <ul>
+                <li>Integrating with non-React code</li>
+                <li>File inputs (always uncontrolled)</li>
+                <li>Simple forms where you don't need instant validation</li>
+                <li>Performance-critical forms with many inputs</li>
+              </ul>
+
+              <div class="example-box">
+                <h3>Simple Uncontrolled Input:</h3>
+                <pre><code>import { useRef } from 'react';
+
+function UncontrolledInput() {
+    const inputRef = useRef();
+    
+    const handleSubmit = () => {
+        // Get value when needed
+        alert(\`You entered: \${inputRef.current.value}\`);
+    };
+    
+    return (
+        &lt;div&gt;
+            &lt;input ref={inputRef} defaultValue="Initial value" /&gt;
+            &lt;button onClick={handleSubmit}&gt;Submit&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>File Input (Always Uncontrolled)</h2>
+              <div class="example-box">
+                <pre><code>function FileUpload() {
+    const fileInput = useRef();
+    
+    const handleUpload = () => {
+        const file = fileInput.current.files[0];
+        if (file) {
+            console.log('File name:', file.name);
+            console.log('File size:', file.size);
+        }
+    };
+    
+    return (
+        &lt;div&gt;
+            &lt;input type="file" ref={fileInput} /&gt;
+            &lt;button onClick={handleUpload}&gt;Upload&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Controlled vs Uncontrolled</h2>
+              <table style="width:100%; border-collapse: collapse; margin: 20px 0;">
+                <tr style="background: var(--light-bg);">
+                  <th style="padding: 10px; border: 1px solid var(--border);">Feature</th>
+                  <th style="padding: 10px; border: 1px solid var(--border);">Controlled</th>
+                  <th style="padding: 10px; border: 1px solid var(--border);">Uncontrolled</th>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border);">Data control</td>
+                  <td style="padding: 10px; border: 1px solid var(--border);">React</td>
+                  <td style="padding: 10px; border: 1px solid var(--border);">DOM</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border);">Accessing value</td>
+                  <td style="padding: 10px; border: 1px solid var(--border);">From state</td>
+                  <td style="padding: 10px; border: 1px solid var(--border);">Using ref</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border);">Validation</td>
+                  <td style="padding: 10px; border: 1px solid var(--border);">Easy, instant</td>
+                  <td style="padding: 10px; border: 1px solid var(--border);">On submit only</td>
+                </tr>
+                <tr>
+                  <td style="padding: 10px; border: 1px solid var(--border);">Best for</td>
+                  <td style="padding: 10px; border: 1px solid var(--border);">Most forms</td>
+                  <td style="padding: 10px; border: 1px solid var(--border);">Simple/legacy forms</td>
+                </tr>
+              </table>
+
+              <div class="tip-box">
+                <strong>💡 Tip:</strong> Use controlled components in most cases. They give you more
+                control and make it easier to implement features like validation and formatting.
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('uncontrolled')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('uncontrolled')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('uncontrolled')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="validation-content" style="display: none">
+              <h1>Forms Validation</h1>
+              <div class="info-box">
+                <p>Implement form validation to ensure data quality before submission. Validation helps
+                users enter correct information and prevents errors.</p>
+              </div>
+
+              <h2>Why Validation?</h2>
+              <p>
+                Validation ensures users enter the right data in the right format. It improves user
+                experience by catching errors early and prevents bad data from reaching your server!
+              </p>
+
+              <h3>Types of Validation:</h3>
+              <ul>
+                <li><strong>Required fields</strong> - Check if field is not empty</li>
+                <li><strong>Format validation</strong> - Email, phone number format</li>
+                <li><strong>Length validation</strong> - Min/max length</li>
+                <li><strong>Pattern matching</strong> - Using regex</li>
+                <li><strong>Custom validation</strong> - Business logic rules</li>
+              </ul>
+
+              <div class="example-box">
+                <h3>Basic Validation:</h3>
+                <pre><code>function LoginForm() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState({});
+    
+    const validate = () => {
+        const newErrors = {};
+        
+        // Email validation
+        if (!email) {
+            newErrors.email = 'Email is required';
+        } else if (!/\S+@\S+\.\S+/.test(email)) {
+            newErrors.email = 'Email is invalid';
+        }
+        
+        // Password validation
+        if (!password) {
+            newErrors.password = 'Password is required';
+        } else if (password.length < 6) {
+            newErrors.password = 'Password must be at least 6 characters';
+        }
+        
+        return newErrors;
+    };
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const validationErrors = validate();
+        
+        if (Object.keys(validationErrors).length === 0) {
+            // No errors, submit form
+            console.log('Form submitted successfully!');
+        } else {
+            // Show errors
+            setErrors(validationErrors);
+        }
+    };
+    
+    return (
+        &lt;form onSubmit={handleSubmit}&gt;
+            &lt;div&gt;
+                &lt;input 
+                    type="email"
+                    value={email} 
+                    onChange={e => setEmail(e.target.value)}
+                    placeholder="Email"
+                /&gt;
+                {errors.email && &lt;span style={{ color: 'red' }}&gt;{errors.email}&lt;/span&gt;}
+            &lt;/div&gt;
+            
+            &lt;div&gt;
+                &lt;input 
+                    type="password"
+                    value={password} 
+                    onChange={e => setPassword(e.target.value)}
+                    placeholder="Password"
+                /&gt;
+                {errors.password && &lt;span style={{ color: 'red' }}&gt;{errors.password}&lt;/span&gt;}
+            &lt;/div&gt;
+            
+            &lt;button type="submit"&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Real-Time Validation</h2>
+              <div class="example-box">
+                <pre><code>function SignupForm() {
+    const [username, setUsername] = useState('');
+    const [usernameError, setUsernameError] = useState('');
+    
+    const validateUsername = (value) => {
+        if (value.length < 3) {
+            setUsernameError('Username must be at least 3 characters');
+        } else if (value.length > 20) {
+            setUsernameError('Username must be less than 20 characters');
+        } else if (!/^[a-zA-Z0-9_]+$/.test(value)) {
+            setUsernameError('Username can only contain letters, numbers, and underscores');
+        } else {
+            setUsernameError('');
+        }
+    };
+    
+    const handleChange = (e) => {
+        const value = e.target.value;
+        setUsername(value);
+        validateUsername(value);
+    };
+    
+    return (
+        &lt;div&gt;
+            &lt;input
+                value={username}
+                onChange={handleChange}
+                placeholder="Username"
+                style={{ borderColor: usernameError ? 'red' : 'green' }}
+            /&gt;
+            {usernameError && &lt;p style={{ color: 'red' }}&gt;{usernameError}&lt;/p&gt;}
+            {!usernameError && username && &lt;p style={{ color: 'green' }}&gt;✓ Looks good!&lt;/p&gt;}
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Complete Registration Form Example</h2>
+              <div class="example-box">
+                <pre><code>function RegistrationForm() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+    });
+    const [errors, setErrors] = useState({});
+    
+    const validateAll = () => {
+        const newErrors = {};
+        
+        if (!formData.name.trim()) newErrors.name = 'Name is required';
+        if (!formData.email) newErrors.email = 'Email is required';
+        else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+            newErrors.email = 'Invalid email format';
+        }
+        
+        if (!formData.password) newErrors.password = 'Password is required';
+        else if (formData.password.length < 8) {
+            newErrors.password = 'Password must be 8+ characters';
+        }
+        
+        if (formData.password !== formData.confirmPassword) {
+            newErrors.confirmPassword = 'Passwords do not match';
+        }
+        
+        return newErrors;
+    };
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const validationErrors = validateAll();
+        
+        if (Object.keys(validationErrors).length === 0) {
+            alert('Registration successful!');
+        } else {
+            setErrors(validationErrors);
+        }
+    };
+    
+    return (
+        &lt;form onSubmit={handleSubmit}&gt;
+            {Object.entries(formData).map(([key, value]) => (
+                &lt;div key={key}&gt;
+                    &lt;input
+                        type={key.includes('password') ? 'password' : 'text'}
+                        value={value}
+                        onChange={(e) => setFormData({...formData, [key]: e.target.value})}
+                        placeholder={key}
+                    /&gt;
+                    {errors[key] && &lt;span style={{ color: 'red' }}&gt;{errors[key]}&lt;/span&gt;}
+                &lt;/div&gt;
+            ))}
+            &lt;button type="submit"&gt;Register&lt;/button&gt;
+        &lt;/form&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Tips for Good Validation:</strong>
+                <ul>
+                  <li>Show errors inline near the input</li>
+                  <li>Use clear error messages</li>
+                  <li>Validate on blur or on submit, not on every keystroke (for better UX)</li>
+                  <li>Disable submit button if form is invalid</li>
+                  <li>Use green checkmarks for valid inputs</li>
+                </ul>
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('validation')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('validation')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('validation')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- React Hooks Lessons -->
+            <div class="lesson-section" id="usestate-content" style="display: none">
+              <h1>useState Hook</h1>
+              <div class="info-box">
+                <p><strong>useState</strong> is a Hook that lets you add state to functional components.</p>
+              </div>
+
+              <h2>What is useState?</h2>
+              <p>
+                <strong>useState</strong> is a React Hook that allows you to add <strong>state variables</strong> 
+                to your functional components. Before Hooks, only class components could have state. Now with 
+                useState, functional components can remember and update values!
+              </p>
+
+              <h3>How Does It Work?</h3>
+              <p>
+                When you call useState, it gives you two things:
+              </p>
+              <ul>
+                <li><strong>Current State Value:</strong> The current value of your state variable</li>
+                <li><strong>Setter Function:</strong> A function to update the state value</li>
+              </ul>
+
+              <h2>Why Use useState?</h2>
+              <ul>
+                <li><strong>Simple State Management:</strong> Easy way to add state to functional components</li>
+                <li><strong>Auto Re-render:</strong> Component automatically re-renders when state changes</li>
+                <li><strong>Multiple States:</strong> You can use useState multiple times in one component</li>
+                <li><strong>Cleaner Code:</strong> Simpler than class component state</li>
+              </ul>
+
+              <h2>Basic Usage</h2>
+              <div class="example-box">
+                <pre><code>import { useState } from 'react';
+
+function Counter() {
+    const [count, setCount] = useState(0);
+    
+    return (
+        &lt;div&gt;
+            &lt;p&gt;Count: {count}&lt;/p&gt;
+            &lt;button onClick={() => setCount(count + 1)}&gt;Increment&lt;/button&gt;
+            &lt;button onClick={() => setCount(count - 1)}&gt;Decrement&lt;/button&gt;
+            &lt;button onClick={() => setCount(0)}&gt;Reset&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Multiple State Variables</h2>
+              <div class="example-box">
+                <pre><code>function Form() {
+    const [name, setName] = useState('');
+    const [age, setAge] = useState(0);
+    const [email, setEmail] = useState('');
+    
+    return (
+        &lt;form&gt;
+            &lt;input value={name} onChange={e => setName(e.target.value)} /&gt;
+            &lt;input type="number" value={age} onChange={e => setAge(e.target.value)} /&gt;
+            &lt;input type="email" value={email} onChange={e => setEmail(e.target.value)} /&gt;
+        &lt;/form&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h2>Functional Updates</h2>
+              <div class="example-box">
+                <pre><code>// Use functional update when new state depends on previous state
+setCount(prevCount => prevCount + 1);
+
+// With objects
+setUser(prevUser => ({ ...prevUser, name: 'John' }));
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Tip:</strong> useState returns an array: [stateValue, setStateFunction]. 
+                Use array destructuring to access them.
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('usestate')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('usestate')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('usestate')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="useeffect-content" style="display: none">
+              <h1>useEffect Hook</h1>
+              <div class="info-box">
+                <p><strong>useEffect</strong> lets you perform side effects in functional components like data fetching, subscriptions, or DOM manipulation.</p>
+              </div>
+
+              <h2>What is useEffect?</h2>
+              <p>
+                <strong>useEffect</strong> is a Hook that lets you perform <strong>side effects</strong> in 
+                functional components. A "side effect" is anything that affects something outside the component - 
+                like fetching data from an API, updating the browser title, or setting up a timer.
+              </p>
+
+              <h3>What Are Side Effects?</h3>
+              <p>Side effects are operations that interact with the outside world:</p>
+              <ul>
+                <li>Fetching data from an API</li>
+                <li>Updating the document title</li>
+                <li>Setting up event listeners</li>
+                <li>Starting timers or intervals</li>
+                <li>Subscribing to external data sources</li>
+                <li>Manually changing the DOM</li>
+              </ul>
+
+              <h2>Why Use useEffect?</h2>
+              <ul>
+                <li><strong>Lifecycle Replacement:</strong> Replaces componentDidMount, componentDidUpdate, componentWillUnmount</li>
+                <li><strong>Run After Render:</strong> Code runs after component renders to screen</li>
+                <li><strong>Control When It Runs:</strong> Use dependency array to control when effect runs</li>
+                <li><strong>Cleanup:</strong> Return a cleanup function to prevent memory leaks</li>
+              </ul>
+
+              <h2>Basic Usage</h2>
+              <div class="example-box">
+                <pre><code>import { useState, useEffect } from 'react';
+
+function Example() {
+    const [count, setCount] = useState(0);
+    
+    useEffect(() => {
+        document.title = `Count: ${count}`;
+    });
+    
+    return &lt;button onClick={() => setCount(count + 1)}&gt;Click&lt;/button&gt;;
+}
+</code></pre>
+              </div>
+
+              <h2>Dependency Array</h2>
+              <div class="example-box">
+                <pre><code>// Runs only once (componentDidMount)
+useEffect(() => {
+    fetchData();
+}, []);
+
+// Runs when 'id' changes
+useEffect(() => {
+    fetchUser(id);
+}, [id]);
+
+// Runs on every render
+useEffect(() => {
+    console.log('Component rendered');
+});
+</code></pre>
+              </div>
+
+              <h2>Cleanup Function</h2>
+              <div class="example-box">
+                <pre><code>useEffect(() => {
+    const subscription = props.source.subscribe();
+    
+    return () => {
+        // Cleanup
+        subscription.unsubscribe();
+    };
+}, [props.source]);
+</code></pre>
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('useeffect')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('useeffect')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('useeffect')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Additional Hook Lessons (condensed) -->
+            <div class="lesson-section" id="useref-content" style="display: none">
+              <h1>useRef Hook</h1>
+              <div class="info-box">
+                <p><strong>useRef</strong> creates a mutable reference that persists across renders. Commonly used to access DOM elements directly.</p>
+              </div>
+
+              <h2>What is useRef?</h2>
+              <p>
+                <strong>useRef</strong> is a Hook that creates a <strong>mutable reference</strong> that persists 
+                for the entire lifetime of the component. Think of it as a box where you can store any value that 
+                won't trigger a re-render when changed.
+              </p>
+
+              <h3>Two Main Uses:</h3>
+              <ul>
+                <li><strong>Accessing DOM Elements:</strong> Get direct access to HTML elements (like focusing an input)</li>
+                <li><strong>Storing Mutable Values:</strong> Keep values that don't need to trigger re-renders (like timers, previous values)</li>
+              </ul>
+
+              <h2>Why Use useRef?</h2>
+              <ul>
+                <li><strong>Direct DOM Access:</strong> Sometimes you need to directly interact with HTML elements</li>
+                <li><strong>No Re-render:</strong> Changing ref.current doesn't cause component to re-render</li>
+                <li><strong>Persists Between Renders:</strong> Value stays the same across re-renders</li>
+                <li><strong>Store Previous Values:</strong> Keep track of previous state or props</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>import { useRef } from 'react';
+
+function TextInput() {
+    const inputRef = useRef();
+    
+    const focusInput = () => {
+        inputRef.current.focus();
+    };
+    
+    return (
+        &lt;&gt;
+            &lt;input ref={inputRef} /&gt;
+            &lt;button onClick={focusInput}&gt;Focus Input&lt;/button&gt;
+        &lt;/&gt;
+    );
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('useref')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('useref')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('useref')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="usecontext-content" style="display: none">
+              <h1>useContext Hook</h1>
+              <div class="info-box">
+                <p><strong>useContext</strong> allows you to consume context values without wrapping components in a Consumer.</p>
+              </div>
+
+              <h2>What is useContext?</h2>
+              <p>
+                <strong>useContext</strong> is a Hook that lets you read and subscribe to <strong>Context</strong> 
+                in your component. Context is a way to pass data through the component tree without having to pass 
+                props down manually at every level.
+              </p>
+
+              <h3>The Problem It Solves:</h3>
+              <p>
+                Imagine you have data (like user info, theme, language) that many components need. Without Context, 
+                you'd have to pass it through every component in between - this is called "prop drilling" and it's 
+                annoying! Context lets you "teleport" data directly to any component that needs it.
+              </p>
+
+              <h2>Why Use useContext?</h2>
+              <ul>
+                <li><strong>Avoid Prop Drilling:</strong> No need to pass props through every component</li>
+                <li><strong>Global State:</strong> Share data across the entire app (theme, user, language)</li>
+                <li><strong>Cleaner Code:</strong> Simpler than passing props through many levels</li>
+                <li><strong>Easy to Use:</strong> Much simpler than Context.Consumer</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>const ThemeContext = React.createContext('light');
+
+function Button() {
+    const theme = useContext(ThemeContext);
+    return &lt;button className={theme}&gt;Styled Button&lt;/button&gt;;
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('usecontext')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('usecontext')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('usecontext')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="usememo-content" style="display: none">
+              <h1>useMemo Hook</h1>
+              <div class="info-box">
+                <p><strong>useMemo</strong> memoizes expensive calculations to optimize performance.</p>
+              </div>
+
+              <h2>What is useMemo?</h2>
+              <p>
+                <strong>useMemo</strong> is a Hook that <strong>remembers</strong> (memoizes) the result of an 
+                expensive calculation. It only recalculates when one of its dependencies changes. Think of it as 
+                a smart cache for expensive operations!
+              </p>
+
+              <h3>How It Works:</h3>
+              <p>
+                When your component re-renders, useMemo checks if the dependencies changed. If they didn't, it 
+                returns the cached result instead of recalculating. This saves time and improves performance!
+              </p>
+
+              <h2>Why Use useMemo?</h2>
+              <ul>
+                <li><strong>Performance:</strong> Avoid expensive calculations on every render</li>
+                <li><strong>Optimization:</strong> Only recalculate when dependencies change</li>
+                <li><strong>Better UX:</strong> Faster component renders = smoother app</li>
+                <li><strong>Efficient:</strong> Don't waste CPU on unnecessary work</li>
+              </ul>
+
+              <h3>When to Use useMemo:</h3>
+              <ul>
+                <li>Expensive calculations (filtering large arrays, complex math)</li>
+                <li>Preventing unnecessary object/array recreation</li>
+                <li>Optimizing child components that depend on reference equality</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>import { useMemo } from 'react';
+
+function ExpensiveComponent({ data }) {
+    const expensiveResult = useMemo(() => {
+        return data.reduce((sum, item) => sum + item, 0);
+    }, [data]);
+    
+    return &lt;div&gt;Result: {expensiveResult}&lt;/div&gt;;
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('usememo')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('usememo')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('usememo')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="usecallback-content" style="display: none">
+              <h1>useCallback Hook</h1>
+              <div class="info-box">
+                <p><strong>useCallback</strong> memoizes callback functions to prevent unnecessary re-renders.</p>
+              </div>
+
+              <h2>What is useCallback?</h2>
+              <p>
+                <strong>useCallback</strong> is a Hook that <strong>remembers</strong> (memoizes) a function. 
+                It returns the same function instance between renders unless dependencies change. This is useful 
+                when passing functions to child components.
+              </p>
+
+              <h3>The Problem:</h3>
+              <p>
+                In JavaScript, every time a component re-renders, all the functions inside it are recreated. 
+                Even if the function does the same thing, it's a new function object. This can cause child 
+                components to re-render unnecessarily.
+              </p>
+
+              <h2>Why Use useCallback?</h2>
+              <ul>
+                <li><strong>Prevent Re-renders:</strong> Child components won't re-render if function doesn't change</li>
+                <li><strong>Stable References:</strong> Function reference stays the same between renders</li>
+                <li><strong>Performance:</strong> Reduces unnecessary work in React apps</li>
+                <li><strong>With React.memo:</strong> Works great with memoized components</li>
+              </ul>
+
+              <h3>Difference from useMemo:</h3>
+              <ul>
+                <li><strong>useMemo:</strong> Memoizes the <em>result</em> of a function</li>
+                <li><strong>useCallback:</strong> Memoizes the <em>function itself</em></li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>import { useCallback } from 'react';
+
+function Parent() {
+    const handleClick = useCallback(() => {
+        console.log('Clicked!');
+    }, []);
+    
+    return &lt;Child onClick={handleClick} /&gt;;
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('usecallback')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('usecallback')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('usecallback')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="customhooks-content" style="display: none">
+              <h1>Custom Hooks</h1>
+              <div class="info-box">
+                <p>Custom Hooks let you extract component logic into reusable functions.</p>
+              </div>
+
+              <h2>What Are Custom Hooks?</h2>
+              <p>
+                <strong>Custom Hooks</strong> are JavaScript functions that use React Hooks inside them. They let 
+                you extract component logic into reusable functions. Custom Hooks always start with "use" (like 
+                useCounter, useFetch, useLocalStorage).
+              </p>
+
+              <h3>Why Create Custom Hooks?</h3>
+              <p>
+                When you find yourself writing the same logic in multiple components, you can extract it into a 
+                Custom Hook. This makes your code <strong>DRY</strong> (Don't Repeat Yourself) and easier to maintain!
+              </p>
+
+              <h2>Benefits of Custom Hooks:</h2>
+              <ul>
+                <li><strong>Reusability:</strong> Write once, use in many components</li>
+                <li><strong>Organization:</strong> Keep related logic together</li>
+                <li><strong>Easier Testing:</strong> Test logic separate from components</li>
+                <li><strong>Share Logic:</strong> Share stateful logic between components</li>
+                <li><strong>Cleaner Components:</strong> Components stay focused on UI</li>
+              </ul>
+
+              <h3>Rules for Custom Hooks:</h3>
+              <ul>
+                <li>Name must start with "use" (e.g., useCounter, useFetch)</li>
+                <li>Can call other Hooks inside them</li>
+                <li>Can return anything (values, functions, objects, arrays)</li>
+                <li>Follow the same rules as React Hooks</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>// Custom Hook
+function useCounter(initialValue = 0) {
+    const [count, setCount] = useState(initialValue);
+    
+    const increment = () => setCount(c => c + 1);
+    const decrement = () => setCount(c => c - 1);
+    const reset = () => setCount(initialValue);
+    
+    return { count, increment, decrement, reset };
+}
+
+// Usage
+function Counter() {
+    const { count, increment, decrement, reset } = useCounter(0);
+    
+    return (
+        &lt;div&gt;
+            &lt;p&gt;{count}&lt;/p&gt;
+            &lt;button onClick={increment}&gt;+&lt;/button&gt;
+            &lt;button onClick={decrement}&gt;-&lt;/button&gt;
+            &lt;button onClick={reset}&gt;Reset&lt;/button&gt;
+        &lt;/div&gt;
+    );
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('customhooks')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('customhooks')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('customhooks')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Remaining lessons (20-48) with condensed content for brevity -->
+            <div class="lesson-section" id="lifecycle-content" style="display: none">
+              <h1>Component Lifecycle</h1>
+              <div class="info-box">
+                <p>Understanding component lifecycle helps you run code at specific times - when components mount, update, or unmount.</p>
+              </div>
+
+              <h2>What is Component Lifecycle?</h2>
+              <p>
+                Every React component goes through a <strong>lifecycle</strong> - it's born (mounting), grows and 
+                changes (updating), and eventually dies (unmounting). Component lifecycle methods/hooks let you 
+                run code at each of these stages. In class components, you use lifecycle methods. In functional 
+                components, you use the <strong>useEffect</strong> Hook!
+              </p>
+
+              <h2>The Three Lifecycle Phases:</h2>
+              <ul>
+                <li><strong>Mounting:</strong> Component is created and added to the DOM (birth)</li>
+                <li><strong>Updating:</strong> Component re-renders due to state or props changes (growth)</li>
+                <li><strong>Unmounting:</strong> Component is removed from the DOM (cleanup)</li>
+              </ul>
+
+              <h2>Why Understanding Lifecycle?</h2>
+              <ul>
+                <li><strong>Fetch Data:</strong> Know when to load data from an API</li>
+                <li><strong>Setup/Cleanup:</strong> Start timers, subscriptions, and clean them up</li>
+                <li><strong>Performance:</strong> Avoid unnecessary updates or memory leaks</li>
+                <li><strong>Side Effects:</strong> Control when side effects happen</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>// Class Component Lifecycle
+class Example extends React.Component {
+    componentDidMount() { /* Mounting */ }
+    componentDidUpdate() { /* Updating */ }
+    componentWillUnmount() { /* Unmounting */ }
+}
+
+// Functional Component with Hooks
+function Example() {
+    useEffect(() => {
+        // componentDidMount + componentDidUpdate
+        return () => {
+            // componentWillUnmount
+        };
+    }, []);
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('lifecycle')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('lifecycle')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('lifecycle')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Routing Lessons -->
+            <div class="lesson-section" id="routing-content" style="display: none">
+              <h1>React Router</h1>
+              <div class="info-box">
+                <p>React Router enables navigation between different views in your application - essential for building Single Page Applications.</p>
+              </div>
+
+              <h2>What is React Router?</h2>
+              <p>
+                <strong>React Router</strong> is the standard routing library for React. It enables navigation 
+                between different "pages" in your app without reloading the browser. Instead of traditional web 
+                pages that reload, React Router changes what's displayed on screen by showing different components!
+              </p>
+
+              <h2>Why Use React Router?</h2>
+              <ul>
+                <li><strong>Single Page App (SPA):</strong> Navigate without page reloads</li>
+                <li><strong>Fast Navigation:</strong> Instant transitions between pages</li>
+                <li><strong>Bookmarkable URLs:</strong> Each "page" has its own URL users can bookmark</li>
+                <li><strong>Browser History:</strong> Back/Forward buttons work correctly</li>
+                <li><strong>Code Splitting:</strong> Load only the code needed for current page</li>
+              </ul>
+
+              <h3>Core Components:</h3>
+              <ul>
+                <li><strong>BrowserRouter:</strong> Wraps your app to enable routing</li>
+                <li><strong>Routes & Route:</strong> Define which component to show for each URL</li>
+                <li><strong>Link:</strong> Navigate between routes (like &lt;a&gt; tag but without reload)</li>
+                <li><strong>useNavigate:</strong> Navigate programmatically from JavaScript</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+
+function App() {
+    return (
+        &lt;BrowserRouter&gt;
+            &lt;nav&gt;
+                &lt;Link to="/"&gt;Home&lt;/Link&gt;
+                &lt;Link to="/about"&gt;About&lt;/Link&gt;
+            &lt;/nav&gt;
+            
+            &lt;Routes&gt;
+                &lt;Route path="/" element={&lt;Home /&gt;} /&gt;
+                &lt;Route path="/about" element={&lt;About /&gt;} /&gt;
+            &lt;/Routes&gt;
+        &lt;/BrowserRouter&gt;
+    );
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('routing')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('routing')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('routing')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="dynamicrouting-content" style="display: none">
+              <h1>Dynamic Routing</h1>
+              <div class="info-box">
+                <p>Dynamic routes allow you to create routes with parameters - perfect for user profiles, product pages, and more!</p>
+              </div>
+
+              <h2>What is Dynamic Routing?</h2>
+              <p>
+                <strong>Dynamic routing</strong> allows you to create routes with <strong>variable parts</strong>. 
+                Instead of creating a separate route for every user or product, you create one route with a parameter 
+                (like <code>/user/:id</code>) that works for any ID! The colon (:) before "id" makes it a dynamic parameter.
+              </p>
+
+              <h2>Why Use Dynamic Routing?</h2>
+              <ul>
+                <li><strong>DRY Code:</strong> One route handles thousands of pages</li>
+                <li><strong>Scalable:</strong> No need to create routes for each item</li>
+                <li><strong>Flexible:</strong> Works with any ID, slug, or parameter</li>
+                <li><strong>Clean URLs:</strong> Creates nice URLs like /product/123 or /user/john</li>
+              </ul>
+
+              <h3>Common Use Cases:</h3>
+              <ul>
+                <li>User profiles (/user/123)</li>
+                <li>Product pages (/product/456)</li>
+                <li>Blog posts (/blog/my-post-title)</li>
+                <li>Category pages (/category/electronics)</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>import { useParams } from 'react-router-dom';
+
+function User() {
+    const { id } = useParams();
+    return &lt;h1&gt;User ID: {id}&lt;/h1&gt;;
+}
+
+// In App
+&lt;Route path="/user/:id" element={&lt;User /&gt;} /&gt;
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('dynamicrouting')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('dynamicrouting')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('dynamicrouting')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="nestedrouting-content" style="display: none">
+              <h1>Nested Routing</h1>
+              <div class="info-box">
+                <p>Nested routes allow you to render child components within parent routes - great for layouts and dashboards!</p>
+              </div>
+
+              <h2>What is Nested Routing?</h2>
+              <p>
+                <strong>Nested routing</strong> lets you have routes inside other routes. Imagine a dashboard page 
+                that has its own sub-pages (like profile, settings, analytics). The dashboard layout stays visible 
+                while the sub-pages change! This is done using the <code>&lt;Outlet /&gt;</code> component.
+              </p>
+
+              <h2>Why Use Nested Routing?</h2>
+              <ul>
+                <li><strong>Shared Layouts:</strong> Keep common UI (headers, sidebars) while changing content</li>
+                <li><strong>Better Organization:</strong> Group related routes together logically</li>
+                <li><strong>Code Reuse:</strong> Don't repeat layout code in every sub-page</li>
+                <li><strong>Intuitive URLs:</strong> URLs reflect the hierarchy (e.g., /dashboard/settings)</li>
+              </ul>
+
+              <h3>Common Examples:</h3>
+              <ul>
+                <li>Dashboard with multiple sections</li>
+                <li>Settings page with tabs (profile, security, notifications)</li>
+                <li>Admin panels with navigation</li>
+                <li>Documentation sites with sidebar</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>import { Outlet } from 'react-router-dom';
+
+function Dashboard() {
+    return (
+        &lt;div&gt;
+            &lt;h1&gt;Dashboard&lt;/h1&gt;
+            &lt;Outlet /&gt;
+        &lt;/div&gt;
+    );
+}
+
+// Routes
+&lt;Route path="/dashboard" element={&lt;Dashboard /&gt;}&gt;
+    &lt;Route path="profile" element={&lt;Profile /&gt;} /&gt;
+    &lt;Route path="settings" element={&lt;Settings /&gt;} /&gt;
+&lt;/Route&gt;
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('nestedrouting')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('nestedrouting')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('nestedrouting')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- State Management Lessons -->
+            <div class="lesson-section" id="contextapi-content" style="display: none">
+              <h1>Context API</h1>
+              <div class="info-box">
+                <p>Context API provides a way to share values between components without passing props manually through every level.</p>
+              </div>
+
+              <h2>What is Context API?</h2>
+              <p>
+                <strong>Context API</strong> is React's built-in solution for sharing data globally across your 
+                component tree. It solves the "<strong>prop drilling</strong>" problem - when you need to pass 
+                data through many components to reach the one that needs it. Context lets components "subscribe" 
+                to data without wrapping every component.
+              </p>
+
+              <h2>Why Use Context API?</h2>
+              <ul>
+                <li><strong>Avoid Prop Drilling:</strong> No need to pass props through intermediate components</li>
+                <li><strong>Global State:</strong> Share data like theme, user info, language across entire app</li>
+                <li><strong>Built-in React:</strong> No external libraries needed (unlike Redux)</li>
+                <li><strong>Simple API:</strong> Easy to learn and use for most cases</li>
+                <li><strong>Provider Pattern:</strong> Clean way to wrap parts of your app</li>
+              </ul>
+
+              <h3>Perfect For:</h3>
+              <ul>
+                <li>Theme (dark/light mode)</li>
+                <li>User authentication status</li>
+                <li>Language/locale settings</li>
+                <li>Shopping cart data</li>
+                <li>Any data needed by many components</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>import { createContext, useContext, useState } from 'react';
+
+const UserContext = createContext();
+
+function App() {
+    const [user, setUser] = useState({ name: 'John' });
+    
+    return (
+        &lt;UserContext.Provider value={{ user, setUser }}&gt;
+            &lt;Profile /&gt;
+        &lt;/UserContext.Provider&gt;
+    );
+}
+
+function Profile() {
+    const { user } = useContext(UserContext);
+    return &lt;h1&gt;{user.name}&lt;/h1&gt;;
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('contextapi')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('contextapi')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('contextapi')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="redux-content" style="display: none">
+              <h1>Redux</h1>
+              <div class="info-box">
+                <p>Redux is a predictable state container for JavaScript apps - the most popular state management library for React.</p>
+              </div>
+
+              <h2>What is Redux?</h2>
+              <p>
+                <strong>Redux</strong> is a state management library that keeps all your app's state in one place 
+                (called the "<strong>store</strong>"). It uses a strict pattern: to change state, you dispatch an 
+                <strong>action</strong>, which goes through a <strong>reducer</strong> function that returns new state. 
+                This makes state changes predictable and traceable.
+              </p>
+
+              <h2>Why Use Redux?</h2>
+              <ul>
+                <li><strong>Centralized State:</strong> All state in one place, easy to debug</li>
+                <li><strong>Predictable:</strong> Same action always produces same result</li>
+                <li><strong>Time Travel Debugging:</strong> Can replay actions and undo changes</li>
+                <li><strong>Large Apps:</strong> Essential for complex apps with lots of shared state</li>
+                <li><strong>DevTools:</strong> Amazing debugging tools to inspect every state change</li>
+              </ul>
+
+              <h3>Core Concepts:</h3>
+              <ul>
+                <li><strong>Store:</strong> Single object that holds all application state</li>
+                <li><strong>Actions:</strong> Plain objects describing what happened</li>
+                <li><strong>Reducers:</strong> Pure functions that take old state and action, return new state</li>
+                <li><strong>Dispatch:</strong> Send actions to reducers to update state</li>
+              </ul>
+
+              <h3>When to Use Redux:</h3>
+              <ul>
+                <li>Many components need the same data</li>
+                <li>State changes frequently</li>
+                <li>State updating logic is complex</li>
+                <li>Large codebase with many developers</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>// Actions
+const increment = () => ({ type: 'INCREMENT' });
+const decrement = () => ({ type: 'DECREMENT' });
+
+// Reducer
+function counterReducer(state = { count: 0 }, action) {
+    switch (action.type) {
+        case 'INCREMENT':
+            return { count: state.count + 1 };
+        case 'DECREMENT':
+            return { count: state.count - 1 };
+        default:
+            return state;
+    }
+}
+
+// Store
+import { createStore } from 'redux';
+const store = createStore(counterReducer);
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('redux')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('redux')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('redux')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="reduxtoolkit-content" style="display: none">
+              <h1>Redux Toolkit</h1>
+              <div class="info-box">
+                <p>Redux Toolkit simplifies Redux development with less boilerplate code and better defaults.</p>
+              </div>
+
+              <h2>What is Redux Toolkit?</h2>
+              <p>
+                <strong>Redux Toolkit</strong> (RTK) is the official, recommended way to write Redux code. 
+                It was created to solve three major problems with Redux: too much boilerplate code, complex 
+                configuration, and too many packages needed. RTK includes everything you need in one package!
+              </p>
+
+              <h2>Why Use Redux Toolkit?</h2>
+              <ul>
+                <li><strong>Less Code:</strong> Write 50% less code compared to traditional Redux</li>
+                <li><strong>Best Practices:</strong> Includes Redux best practices by default</li>
+                <li><strong>All-in-One:</strong> Includes Redux, Immer, Redux Thunk, and more</li>
+                <li><strong>Easier to Learn:</strong> Simpler API makes Redux easier for beginners</li>
+                <li><strong>TypeScript Support:</strong> Excellent TypeScript integration out of the box</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>import { createSlice, configureStore } from '@reduxjs/toolkit';
+
+const counterSlice = createSlice({
+    name: 'counter',
+    initialState: { value: 0 },
+    reducers: {
+        increment: state => { state.value += 1 },
+        decrement: state => { state.value -= 1 }
+    }
+});
+
+export const { increment, decrement } = counterSlice.actions;
+const store = configureStore({ reducer: counterSlice.reducer });
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('reduxtoolkit')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('reduxtoolkit')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('reduxtoolkit')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- API & Data Lessons -->
+            <div class="lesson-section" id="apicalls-content" style="display: none">
+              <h1>API Calls (Fetch & Axios)</h1>
+              <div class="info-box">
+                <p>Learn how to make HTTP requests in React using Fetch API and Axios library.</p>
+              </div>
+
+              <h2>What Are API Calls?</h2>
+              <p>
+                <strong>API calls</strong> are requests your React app makes to a server to get or send data. 
+                Almost every real application needs to fetch data from an API (like user data, posts, products) 
+                or send data to a server (like submitting forms, uploading files).
+              </p>
+
+              <h2>Why Make API Calls in React?</h2>
+              <ul>
+                <li><strong>Get Data:</strong> Fetch data from backend servers or third-party APIs</li>
+                <li><strong>Send Data:</strong> Submit forms, update user profiles, create/delete items</li>
+                <li><strong>Real-time Updates:</strong> Keep data synchronized with the server</li>
+                <li><strong>Dynamic Content:</strong> Load content dynamically instead of hardcoding it</li>
+              </ul>
+
+              <h3>Two Common Methods:</h3>
+              <ul>
+                <li><strong>Fetch API:</strong> Built into modern browsers, no installation needed</li>
+                <li><strong>Axios:</strong> Third-party library with more features and simpler API</li>
+              </ul>
+
+              <div class="example-box">
+                <h3>Using Fetch:</h3>
+                <pre><code>useEffect(() => {
+    fetch('https://api.example.com/data')
+        .then(res => res.json())
+        .then(data => setData(data))
+        .catch(err => console.error(err));
+}, []);
+
+// Using Axios
+import axios from 'axios';
+
+useEffect(() => {
+    axios.get('https://api.example.com/data')
+        .then(res => setData(res.data))
+        .catch(err => console.error(err));
+}, []);
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('apicalls')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('apicalls')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('apicalls')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="errorhandling-content" style="display: none">
+              <h1>Error Handling</h1>
+              <div class="info-box">
+                <p>Properly handle errors in API calls and component rendering to create robust applications.</p>
+              </div>
+
+              <h2>What is Error Handling?</h2>
+              <p>
+                <strong>Error handling</strong> is the process of catching and managing errors that can occur 
+                in your app. Things can go wrong - API calls can fail, networks can be down, users can enter 
+                invalid data. Good error handling makes your app reliable and user-friendly!
+              </p>
+
+              <h2>Why Handle Errors?</h2>
+              <ul>
+                <li><strong>Better UX:</strong> Show helpful messages instead of crashing the app</li>
+                <li><strong>Debugging:</strong> Know what went wrong and where</li>
+                <li><strong>Reliability:</strong> App keeps working even when things fail</li>
+                <li><strong>User Trust:</strong> Professional error messages build user confidence</li>
+              </ul>
+
+              <h3>Common Errors to Handle:</h3>
+              <ul>
+                <li>Network errors (no internet, server down)</li>
+                <li>API errors (404, 500, authentication failures)</li>
+                <li>JavaScript runtime errors</li>
+                <li>User input validation errors</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>function DataFetcher() {
+    const [data, setData] = useState(null);
+    const [error, setError] = useState(null);
+    
+    useEffect(() => {
+        fetch('https://api.example.com/data')
+            .then(res => res.json())
+            .then(setData)
+            .catch(setError);
+    }, []);
+    
+    if (error) return &lt;div&gt;Error: {error.message}&lt;/div&gt;;
+    if (!data) return &lt;div&gt;Loading...&lt;/div&gt;;
+    return &lt;div&gt;{JSON.stringify(data)}&lt;/div&gt;;
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('errorhandling')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('errorhandling')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('errorhandling')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="loadingstates-content" style="display: none">
+              <h1>Loading States</h1>
+              <div class="info-box">
+                <p>Manage loading states to provide better user experience while data is being fetched.</p>
+              </div>
+
+              <h2>What Are Loading States?</h2>
+              <p>
+                <strong>Loading states</strong> tell users that something is happening when data is being fetched 
+                from an API. Instead of showing a blank screen or old data, you show a loading spinner, skeleton 
+                screen, or "Loading..." message. This improves user experience significantly!
+              </p>
+
+              <h2>Why Use Loading States?</h2>
+              <ul>
+                <li><strong>Better UX:</strong> Users know the app is working, not frozen</li>
+                <li><strong>Less Confusion:</strong> Clear feedback prevents users from clicking multiple times</li>
+                <li><strong>Professional:</strong> Makes your app feel polished and well-made</li>
+                <li><strong>Perceived Performance:</strong> App feels faster when you show progress</li>
+              </ul>
+
+              <h3>Types of Loading Indicators:</h3>
+              <ul>
+                <li><strong>Spinners:</strong> Circular loading animations</li>
+                <li><strong>Progress Bars:</strong> Show percentage of completion</li>
+                <li><strong>Skeleton Screens:</strong> Gray boxes that mimic content layout</li>
+                <li><strong>Text Messages:</strong> Simple "Loading..." text</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>function App() {
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState(null);
+    
+    useEffect(() => {
+        setLoading(true);
+        fetch('https://api.example.com/data')
+            .then(res => res.json())
+            .then(data => {
+                setData(data);
+                setLoading(false);
+            });
+    }, []);
+    
+    if (loading) return &lt;Spinner /&gt;;
+    return &lt;div&gt;{data}&lt;/div&gt;;
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('loadingstates')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('loadingstates')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('loadingstates')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Styling Lessons -->
+            <div class="lesson-section" id="styling-content" style="display: none">
+              <h1>Styling in React</h1>
+              <div class="info-box">
+                <p>Multiple ways to style React components: CSS, CSS Modules, Styled Components, and more.</p>
+              </div>
+
+              <h2>What Are the Styling Options in React?</h2>
+              <p>
+                Unlike traditional HTML where you just link a CSS file, React offers <strong>multiple ways</strong> 
+                to style your components. Each method has its pros and cons, and you can choose based on your 
+                project needs. You can even mix different methods in the same project!
+              </p>
+
+              <h2>Why So Many Options?</h2>
+              <ul>
+                <li><strong>Component-Based:</strong> React's component model allows scoped styles</li>
+                <li><strong>JavaScript Power:</strong> Style based on props, state, or conditions</li>
+                <li><strong>No Conflicts:</strong> Avoid global CSS naming conflicts</li>
+                <li><strong>Developer Choice:</strong> Pick what works best for your team</li>
+              </ul>
+
+              <h3>Main Styling Methods:</h3>
+              <ul>
+                <li><strong>Inline Styles:</strong> CSS as JavaScript objects</li>
+                <li><strong>CSS Files:</strong> Traditional external CSS files</li>
+                <li><strong>CSS Modules:</strong> Scoped CSS that won't conflict</li>
+                <li><strong>Styled Components:</strong> Write CSS in JavaScript with template literals</li>
+                <li><strong>Tailwind CSS:</strong> Utility-first CSS framework</li>
+              </ul>
+
+              <div class="example-box">
+                <pre><code>// 1. Inline Styles
+&lt;div style={{ color: 'red', fontSize: '20px' }}&gt;Text&lt;/div&gt;
+
+// 2. CSS Classes
+import './styles.css';
+&lt;div className="container"&gt;Content&lt;/div&gt;
+
+// 3. CSS Modules
+import styles from './Button.module.css';
+&lt;button className={styles.primary}&gt;Click&lt;/button&gt;
+
+// 4. Styled Components
+import styled from 'styled-components';
+const Button = styled.button\`
+    background: blue;
+    color: white;
+\`;
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('styling')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('styling')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('styling')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="tailwind-content" style="display: none">
+              <h1>Tailwind CSS with React</h1>
+              <div class="info-box">
+                <p>Tailwind CSS is a utility-first CSS framework that works great with React.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>// Installation
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+// Usage
+function Button() {
+    return (
+        &lt;button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"&gt;
+            Click Me
+        &lt;/button&gt;
+    );
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('tailwind')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('tailwind')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('tailwind')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Remaining lessons 33-48 with condensed content -->
+            <div class="lesson-section" id="auth-content" style="display: none">
+              <h1>Authentication</h1>
+              <div class="info-box">
+                <p>Implement user authentication in React applications.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>function Login() {
+    const [credentials, setCredentials] = useState({ email: '', password: '' });
+    
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(credentials)
+        });
+        const data = await response.json();
+        localStorage.setItem('token', data.token);
+    };
+    
+    return &lt;form onSubmit={handleLogin}&gt;{/* form fields */}&lt;/form&gt;;
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('auth')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('auth')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('auth')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="protectedroutes-content" style="display: none">
+              <h1>Protected Routes</h1>
+              <div class="info-box">
+                <p>Protect routes that require authentication.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>function ProtectedRoute({ children }) {
+    const isAuthenticated = localStorage.getItem('token');
+    return isAuthenticated ? children : &lt;Navigate to="/login" /&gt;;
+}
+
+// Usage
+&lt;Route path="/dashboard" element={
+    &lt;ProtectedRoute&gt;
+        &lt;Dashboard /&gt;
+    &lt;/ProtectedRoute&gt;
+} /&gt;
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('protectedroutes')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('protectedroutes')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('protectedroutes')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Performance Lessons (35-38) -->
+            <div class="lesson-section" id="optimization-content" style="display: none">
+              <h1>Performance Optimization</h1>
+              <div class="info-box">
+                <p>Techniques to optimize React application performance. A fast app = happy users!</p>
+              </div>
+
+              <h2>Why Performance Matters?</h2>
+              <p>
+                Slow apps drive users away! Performance optimization makes your app load faster,
+                respond quicker, and use less memory. This means better user experience and higher
+                conversion rates.
+              </p>
+
+              <h2>Common Performance Issues</h2>
+              <ul>
+                <li>Unnecessary re-renders</li>
+                <li>Large bundle sizes</li>
+                <li>Heavy computations on every render</li>
+                <li>Loading everything at once</li>
+                <li>Not caching expensive operations</li>
+              </ul>
+
+              <h2>Optimization Techniques</h2>
+             
+              <h3>1. Use React.memo for Component Memoization</h3>
+              <div class="example-box">
+                <pre><code>// Without memo - re-renders every time parent renders
+function ExpensiveComponent({ data }) {
+    console.log('Rendering...');
+    return &lt;div&gt;{data}&lt;/div&gt;;
+}
+
+// With memo - only re-renders when props change
+const OptimizedComponent = React.memo(function ExpensiveComponent({ data }) {
+    console.log('Rendering...');
+    return &lt;div&gt;{data}&lt;/div&gt;;
+});
+</code></pre>
+              </div>
+
+              <h3>2. Use useMemo for Expensive Calculations</h3>
+              <div class="example-box">
+                <pre><code>function DataProcessor({ items }) {
+    // Without useMemo - recalculates on every render
+    const processedData = items.map(item => expensiveOperation(item));
+    
+    // With useMemo - only recalculates when items change
+    const memoizedData = useMemo(() => {
+        return items.map(item => expensiveOperation(item));
+    }, [items]);
+    
+    return &lt;div&gt;{memoizedData.length} items&lt;/div&gt;;
+}
+</code></pre>
+              </div>
+
+              <h3>3. Use useCallback for Function Memoization</h3>
+              <div class="example-box">
+                <pre><code>function Parent() {
+    // Without useCallback - new function on every render
+    const handleClick = () => {
+        console.log('Clicked');
+    };
+    
+    // With useCallback - same function reference
+    const memoizedCallback = useCallback(() => {
+        console.log('Clicked');
+    }, []);
+    
+    return &lt;Child onClick={memoizedCallback} /&gt;;
+}
+</code></pre>
+              </div>
+
+              <h3>4. Virtualize Long Lists</h3>
+              <div class="example-box">
+                <pre><code>// Only render visible items, not all 10,000
+import { FixedSizeList } from 'react-window';
+
+function LongList({ items }) {
+    return (
+        &lt;FixedSizeList
+            height={500}
+            itemCount={items.length}
+            itemSize={35}
+            width="100%"
+        &gt;
+            {({ index, style }) => (
+                &lt;div style={style}&gt;{items[index]}&lt;/div&gt;
+            )}
+        &lt;/FixedSizeList&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h3>5. Code Splitting with Dynamic Imports</h3>
+              <div class="example-box">
+                <pre><code>// Load component only when needed
+const HeavyComponent = lazy(() => import('./HeavyComponent'));
+
+function App() {
+    return (
+        &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+            &lt;HeavyComponent /&gt;
+        &lt;/Suspense&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <h3>6. Optimize Images and Assets</h3>
+              <ul>
+                <li>Use WebP format for images</li>
+                <li>Lazy load images below the fold</li>
+                <li>Use image CDN for optimization</li>
+                <li>Compress images before upload</li>
+                <li>Use appropriate image sizes</li>
+              </ul>
+
+              <h2>Performance Measurement</h2>
+              <div class="example-box">
+                <pre><code>// Use React DevTools Profiler
+import { Profiler } from 'react';
+
+function onRenderCallback(id, phase, actualDuration) {
+    console.log(\`\${id} took \${actualDuration}ms to render\`);
+}
+
+function App() {
+    return (
+        &lt;Profiler id="App" onRender={onRenderCallback}&gt;
+            &lt;YourComponent /&gt;
+        &lt;/Profiler&gt;
+    );
+}
+</code></pre>
+              </div>
+
+              <div class="tip-box">
+                <strong>💡 Performance Tips:</strong>
+                <ul>
+                  <li>Measure first, then optimize (don't guess!)</li>
+                  <li>Focus on user-visible improvements</li>
+                  <li>Use production builds for testing</li>
+                  <li>Monitor bundle size regularly</li>
+                  <li>Use Chrome DevTools Lighthouse for audits</li>
+                </ul>
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('optimization')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('optimization')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('optimization')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="lazyloading-content" style="display: none">
+              <h1>Lazy Loading</h1>
+              <div class="info-box">
+                <p>Load components only when needed to improve initial load time.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>import { lazy, Suspense } from 'react';
+
+const Dashboard = lazy(() => import('./Dashboard'));
+
+function App() {
+    return (
+        &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+            &lt;Dashboard /&gt;
+        &lt;/Suspense&gt;
+    );
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('lazyloading')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('lazyloading')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('lazyloading')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="codesplitting-content" style="display: none">
+              <h1>Code Splitting</h1>
+              <div class="info-box">
+                <p>Split your code into smaller bundles for better performance.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>// Dynamic import
+button.addEventListener('click', () => {
+    import('./module.js')
+        .then(module => {
+            module.doSomething();
+        });
+});
+
+// Route-based splitting
+const Home = lazy(() => import('./routes/Home'));
+const About = lazy(() => import('./routes/About'));
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('codesplitting')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('codesplitting')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('codesplitting')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="reactmemo-content" style="display: none">
+              <h1>React.memo</h1>
+              <div class="info-box">
+                <p>Prevent unnecessary re-renders by memoizing components.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>import React, { memo } from 'react';
+
+const ExpensiveComponent = memo(function ExpensiveComponent({ data }) {
+    console.log('Rendering...');
+    return &lt;div&gt;{data}&lt;/div&gt;;
+});
+
+// With custom comparison
+const MyComponent = memo(Component, (prevProps, nextProps) => {
+    return prevProps.id === nextProps.id;
+});
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('reactmemo')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('reactmemo')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('reactmemo')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Advanced Patterns (39-42) -->
+            <div class="lesson-section" id="hoc-content" style="display: none">
+              <h1>Higher Order Components (HOC)</h1>
+              <div class="info-box">
+                <p>HOCs are functions that take a component and return a new component with additional props or behavior.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>function withLoading(Component) {
+    return function WithLoadingComponent({ isLoading, ...props }) {
+        if (isLoading) return &lt;div&gt;Loading...&lt;/div&gt;;
+        return &lt;Component {...props} /&gt;;
+    };
+}
+
+const UserListWithLoading = withLoading(UserList);
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('hoc')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('hoc')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('hoc')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="renderprops-content" style="display: none">
+              <h1>Render Props</h1>
+              <div class="info-box">
+                <p>A technique for sharing code between components using a prop whose value is a function.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>function Mouse({ render }) {
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    
+    return &lt;div onMouseMove={e => setPosition({ x: e.clientX, y: e.clientY })}&gt;
+        {render(position)}
+    &lt;/div&gt;;
+}
+
+// Usage
+&lt;Mouse render={({ x, y }) => &lt;h1&gt;{x}, {y}&lt;/h1&gt;} /&gt;
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('renderprops')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('renderprops')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('renderprops')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="portals-content" style="display: none">
+              <h1>Portals</h1>
+              <div class="info-box">
+                <p>Portals provide a way to render children into a DOM node outside the parent component's hierarchy.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>import { createPortal } from 'react-dom';
+
+function Modal({ children }) {
+    return createPortal(
+        &lt;div className="modal"&gt;{children}&lt;/div&gt;,
+        document.getElementById('modal-root')
+    );
+}
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('portals')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('portals')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('portals')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="errorboundaries-content" style="display: none">
+              <h1>Error Boundaries</h1>
+              <div class="info-box">
+                <p>Error boundaries catch JavaScript errors in component tree and display fallback UI.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>class ErrorBoundary extends React.Component {
+    state = { hasError: false };
+    
+    static getDerivedStateFromError(error) {
+        return { hasError: true };
+    }
+    
+    componentDidCatch(error, errorInfo) {
+        console.log(error, errorInfo);
+    }
+    
+    render() {
+        if (this.state.hasError) {
+            return &lt;h1&gt;Something went wrong.&lt;/h1&gt;;
+        }
+        return this.props.children;
+    }
+}
+
+// Usage
+&lt;ErrorBoundary&gt;&lt;App /&gt;&lt;/ErrorBoundary&gt;
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('errorboundaries')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('errorboundaries')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('errorboundaries')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Testing (43-44) -->
+            <div class="lesson-section" id="jest-content" style="display: none">
+              <h1>Testing with Jest</h1>
+              <div class="info-box">
+                <p>Jest is a JavaScript testing framework for unit and integration tests.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>// sum.test.js
+import { sum } from './sum';
+
+test('adds 1 + 2 to equal 3', () => {
+    expect(sum(1, 2)).toBe(3);
+});
+
+// Component test
+import { render } from '@testing-library/react';
+import Button from './Button';
+
+test('renders button', () => {
+    const { getByText } = render(&lt;Button&gt;Click&lt;/Button&gt;);
+    expect(getByText('Click')).toBeInTheDocument();
+});
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('jest')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('jest')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('jest')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="rtl-content" style="display: none">
+              <h1>React Testing Library</h1>
+              <div class="info-box">
+                <p>React Testing Library helps test React components in a way that resembles how users interact with your app.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>import { render, screen, fireEvent } from '@testing-library/react';
+
+test('button click', () => {
+    render(&lt;Counter /&gt;);
+    const button = screen.getByRole('button');
+    fireEvent.click(button);
+    expect(screen.getByText('Count: 1')).toBeInTheDocument();
+});
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('rtl')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('rtl')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('rtl')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Production (45-48) -->
+            <div class="lesson-section" id="typescript-content" style="display: none">
+              <h1>TypeScript with React</h1>
+              <div class="info-box">
+                <p>TypeScript adds static typing to React for better development experience.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>// Component with TypeScript
+interface ButtonProps {
+    text: string;
+    onClick: () => void;
+    disabled?: boolean;
+}
+
+const Button: React.FC&lt;ButtonProps&gt; = ({ text, onClick, disabled }) => {
+    return &lt;button onClick={onClick} disabled={disabled}&gt;{text}&lt;/button&gt;;
+};
+
+// With useState
+const [count, setCount] = useState&lt;number&gt;(0);
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('typescript')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('typescript')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('typescript')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="envvars-content" style="display: none">
+              <h1>Environment Variables</h1>
+              <div class="info-box">
+                <p>Use environment variables to store configuration and sensitive data.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>// .env file
+REACT_APP_API_URL=https://api.example.com
+REACT_APP_API_KEY=your_key_here
+
+// Usage in React
+const apiUrl = process.env.REACT_APP_API_URL;
+const apiKey = process.env.REACT_APP_API_KEY;
+
+fetch(\`\${apiUrl}/users\`, {
+    headers: { 'Authorization': \`Bearer \${apiKey}\` }
+});
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('envvars')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('envvars')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('envvars')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="deployment-content" style="display: none">
+              <h1>Build & Deployment</h1>
+              <div class="info-box">
+                <p>Learn how to build and deploy your React application to production.</p>
+              </div>
+              <div class="example-box">
+                <h3>Build for Production:</h3>
+                <pre><code># Create React App
+npm run build
+
+# Vite
+npm run build
+
+# Deploy to platforms:
+# - Vercel: vercel --prod
+# - Netlify: netlify deploy --prod
+# - GitHub Pages: npm run deploy
+</code></pre>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('deployment')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('deployment')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="nextLesson('deployment')">
+                  Next Lesson <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="lesson-section" id="seo-content" style="display: none">
+              <h1>SEO in React</h1>
+              <div class="info-box">
+                <p>Optimize your React app for search engines using SSR/SSG or React Helmet.</p>
+              </div>
+              <div class="example-box">
+                <pre><code>// Using React Helmet
+import { Helmet } from 'react-helmet';
+
+function Page() {
+    return (
+        &lt;&gt;
+            &lt;Helmet&gt;
+                &lt;title&gt;My Page Title&lt;/title&gt;
+                &lt;meta name="description" content="Page description" /&gt;
+                &lt;meta property="og:title" content="My Page" /&gt;
+            &lt;/Helmet&gt;
+            &lt;div&gt;Content&lt;/div&gt;
+        &lt;/&gt;
+    );
+}
+
+// For better SEO, use frameworks like:
+// - Next.js (SSR/SSG)
+// - Gatsby (SSG)
+</code></pre>
+              </div>
+              <div class="tip-box">
+                <strong>🎉 Congratulations!</strong> You've completed all 48 lessons of the React course!
+                <p style="margin-top: 10px;">Ready to earn your certificate? Take the final exam below!</p>
+              </div>
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('seo')">
+                  <i class="fas fa-arrow-left"></i>Previous</button
+                ><button class="btn-complete" onclick="markLessonComplete('seo')">
+                  <i class="fas fa-check"></i>Mark as Complete</button
+                ><button class="btn-next" onclick="showLesson('exam')">
+                  Take Final Exam <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Final Exam Section -->
+            <div class="lesson-section" id="exam-content" style="display: none">
+              <div class="exam-header">
+                <h1><i class="fas fa-graduation-cap"></i> React Certification Exam</h1>
+                <div class="exam-info">
+                  <div class="info-card">
+                    <i class="fas fa-question-circle"></i>
+                    <div>
+                      <strong>50 Questions</strong>
+                      <p>Multiple Choice</p>
+                    </div>
+                  </div>
+                  <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                      <strong>No Time Limit</strong>
+                      <p>Take your time</p>
+                    </div>
+                  </div>
+                  <div class="info-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                      <strong>60% to Pass</strong>
+                      <p>30 correct answers</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="exam-warning">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <strong>Important:</strong> You need to score at least 60% (30 out of 50) to earn your certificate. 
+                  Answer carefully and test your knowledge!
+                </div>
+              </div>
+
+              <div id="quizContainer" class="quiz-container">
+                <!-- Questions will be generated by JavaScript -->
+              </div>
+
+              <div class="exam-actions">
+                <button class="btn-submit-exam" onclick="submitExam()">
+                  <i class="fas fa-check-circle"></i> Submit Exam
+                </button>
+              </div>
+
+              <div id="examResult" class="exam-result" style="display: none">
+                <!-- Result will be shown here -->
+              </div>
+
+              <div class="navigation-buttons">
+                <button class="btn-prev" onclick="prevLesson('exam')">
+                  <i class="fas fa-arrow-left"></i>Back to Course
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+          </div>
+        </div>
+
+        <!-- Playground Tab -->
+        <div class="tab-content" id="playground">
+          <div class="playground-container">
+            <div class="playground-header">
+              <h2><i class="fas fa-code"></i> React Playground</h2>
+              <div class="playground-controls">
+                <button class="btn-run" onclick="runReactCode()">
+                  <i class="fas fa-play"></i> Run Code
+                </button>
+                <button class="btn-clear" onclick="clearReactCode()">
+                  <i class="fas fa-eraser"></i> Clear
+                </button>
+              </div>
+            </div>
+            <div class="editor-preview-container">
+              <div class="editor-panel">
+                <h3>React Code</h3>
+                <textarea id="reactCode" class="code-editor">
+// Write your React code here
+function App() {
+  return (
+    &lt;div className="container"&gt;
+      &lt;h1&gt;Hello React!&lt;/h1&gt;
+      &lt;p&gt;Start coding...&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default App;</textarea
+                >
+              </div>
+              <div class="preview-panel">
+                <h3>Preview</h3>
+                <iframe id="reactPreview" class="preview-frame"></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="react-course.js"></script>
+  </body>
+</html>
