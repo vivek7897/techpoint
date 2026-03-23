@@ -1,0 +1,5118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Tutorial - Techknowldge Interactive Learning</title>
+    <link rel="stylesheet" href="js-course.css" />
+ <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+</head>
+<body>
+     <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+      <div class="nav-brand">
+        <a href="/frontend/public/index.html"><i class="fas fa-home"></i></a
+        ><span
+          >Tech<strong style="color: #04aa6d">Knowldge</strong
+          ><span class="course-name">/ HTML Tutorial</span></span
+        >
+      </div>
+      <div class="search-bar">
+        <i class="fas fa-search"></i
+        ><input type="text" id="lessonSearch" placeholder="Search lessons..." />
+      </div>
+      <div class="nav-controls">
+        <button class="btn-icon" id="darkModeToggle" title="Toggle Dark Mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <div class="progress-display">
+          <span id="progressText">0%</span>
+          <div class="mini-progress">
+            <div class="mini-progress-bar" id="miniProgressBar"></div>
+          </div>
+        </div>
+        <a href="../../pages/login.html" class="user-icon"
+          ><i class="fas fa-user-circle"></i
+        ></a>
+      </div>
+    </nav>
+    <div class="layout-container">
+      <!-- Left Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <button class="sidebar-toggle" id="sidebarToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="progress-section">
+          <h3><i class="fas fa-chart-line"></i>Your Progress</h3>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+          <p class="progress-info">
+            <span id="completedLessons">0</span>of
+            <span id="totalLessons">24</span>completed
+          </p>
+          <button
+            class="btn-certificate"
+            id="generateCertificate"
+            style="display: none"
+          >
+            <i class="fas fa-certificate"></i>Get Certificate
+          </button>
+        </div>
+        <div class="lessons-nav">
+          <h3><i class="fas fa-book"></i>Course Content</h3>
+          <div class="lesson-item" data-lesson="intro">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Introduction</span>
+          </div>
+          <div class="lesson-item" data-lesson="editors">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Editors</span>
+          </div>
+          <div class="lesson-item" data-lesson="basic">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Basic Structure</span>
+          </div>
+          <div class="lesson-item" data-lesson="elements">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Elements</span>
+          </div>
+          <div class="lesson-item" data-lesson="attributes">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Attributes</span>
+          </div>
+          <div class="lesson-item" data-lesson="headings">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Headings</span>
+          </div>
+          <div class="lesson-item" data-lesson="paragraphs">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Paragraphs</span>
+          </div>
+          <div class="lesson-item" data-lesson="formatting">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Formatting</span>
+          </div>
+          <div class="lesson-item" data-lesson="links">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Links</span>
+          </div>
+          <div class="lesson-item" data-lesson="images">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Images</span>
+          </div>
+          <div class="lesson-item" data-lesson="lists">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Lists</span>
+          </div>
+          <div class="lesson-item" data-lesson="tables">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Tables</span>
+          </div>
+          <div class="lesson-item" data-lesson="forms">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Forms</span>
+          </div>
+          <div class="lesson-item" data-lesson="semantic">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Semantic Tags</span>
+          </div>
+          <div class="lesson-item" data-lesson="media">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Audio & Video</span>
+          </div>
+          <div class="lesson-item" data-lesson="canvas">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Canvas</span>
+          </div>
+          <div class="lesson-item" data-lesson="svg">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML SVG</span>
+          </div>
+          <div class="lesson-item" data-lesson="apis">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML APIs</span>
+          </div>
+          <div class="lesson-item" data-lesson="comments">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Comments</span>
+          </div>
+          <div class="lesson-item" data-lesson="favicon">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Favicon</span>
+          </div>
+          <div class="lesson-item" data-lesson="pagetitle">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Page Title</span>
+          </div>
+          <div class="lesson-item" data-lesson="blockinline">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Block & Inline</span>
+          </div>
+          <div class="lesson-item" data-lesson="div">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Div</span>
+          </div>
+          <div class="lesson-item" data-lesson="responsive">
+            <div class="lesson-status"><i class="far fa-circle"></i></div>
+            <span>HTML Responsive</span>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+          <a href="#playground" class="sidebar-link"
+            ><i class="fas fa-code"></i>Playground </a
+          ><a href="#builder" class="sidebar-link"
+            ><i class="fas fa-th-large"></i>HTML Builder </a
+          ><a href="#ai-assistant" class="sidebar-link"
+            ><i class="fas fa-robot"></i>AI Assistant </a
+          ><a
+            href="#"
+            class="sidebar-link"
+            id="downloadCertificateLink"
+            onclick="
+              generateAndDownloadCertificate();
+              return false;
+            "
+            ><i class="fas fa-download"></i>Download Certificate
+          </a>
+        </div>
+      </aside>
+      <!-- Main Content Area -->
+      <main class="main-content" id="mainContent">
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+          <button class="tab-btn active" data-tab="tutorial">
+            <i class="fas fa-book-open"></i>Tutorial</button
+          ><button class="tab-btn" data-tab="playground">
+            <i class="fas fa-code"></i>Live Playground</button
+          ><button class="tab-btn" data-tab="builder">
+            <i class="fas fa-th-large"></i>Drag & Drop Builder
+          </button>
+        </div>
+        <!-- Tutorial Tab Content -->
+        <div class="tab-content active" id="tutorial">
+          <!-- Lesson: HTML Introduction -->
+          <section class="lesson active" id="intro">
+            <div class="lesson-header">
+              <h1><i class="fab fa-html5"></i>Introduction to HTML</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <p class="lead">
+                HTML (HyperText Markup Language) is the standard markup language
+                for creating web pages. It describes the structure and content
+                of a web page.
+              </p>
+              <h2>What is JavaScript?</h2>
+              <ul class="styled-list">
+                <li>
+                  
+                <li><strong>JavaScript</strong> was intially created to "make web pages alive"</li>
+                <li><strong>JavaScript</strong> The programs in this language are called scripts. They can be written right in a web page’s HTML and run automatically as the page loads.</li>
+                <li><strong>JavaScript</strong> It is an interpreted language which means it executes the code line by line.</li>
+                <li><strong>JavaScript</strong> is a single-threaded language that executes one task at a time.</li>
+              </ul>
+              <div class="info-box">
+                <div class="info-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="info-content">
+                  <h3>Did you know?</h3>
+                  <p>
+                    JavaScript was created in 1995 by Brendan Eich while working at Netscape Communications.
+                     It was designed as a lightweight scripting language to add interactivity to static web pages and has since evolved into a core technology of the web, used for both client-side and server-side development.
+                  </p>
+                </div>
+              </div>
+              <h2>A Simple JavaScript Document</h2>
+              <div class="code-example">
+                <div class="code-header">
+                  <span class="code-lang">JavaScript</span
+                  ><button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>Copy
+                  </button>
+                </div>
+                <pre><code>&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Check the console for the message!&lt;/h1&gt;
+&lt;script&gt;
+// This is our first JavaScript program
+&lt;console.log("Hello, World!");&gt;
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h3>Explanation:</h3>
+              <ul class="styled-list">
+                <li>
+                  <code>&lt;script&gt;</code>- tag is used to include JavaScript code inside an HTML document.
+                </li>
+                <li><code>&lt;console.log()&gt; </code>- prints messages to the browser's developer console.</li>
+                
+              
+          <!-- Additional lessons would follow the same structure --><!-- For
+          brevity, showing template for remaining lessons -->
+          <section class="lesson" id="editors" style="display: none">
+            <div class="lesson-header">
+              <h1>HTML Editors</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <p class="lead">
+                Learn about different HTML editors and tools for writing HTML
+                code.
+              </p>
+              <h2>Popular HTML Editors</h2>
+              <ul class="styled-list">
+                <li>
+                  <strong>Visual Studio Code</strong>- Free, powerful code
+                  editor
+                </li>
+                <li><strong>Sublime Text</strong>- Fast and customizable</li>
+                <li><strong>Notepad++</strong>- Lightweight and free</li>
+                <li>
+                  <strong>Techknowldge Playground</strong>- Built-in browser
+                  editor
+                </li>
+              </ul>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('intro')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('editors')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('basic')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Placeholder lessons (to be expanded) -->
+          <section class="lesson" id="basic" style="display: none">
+            <div class="lesson-header"><h1>HTML Basic Structure</h1></div>
+            <div class="lesson-content">
+              <h2>Understanding HTML Document Structure</h2>
+              <p class="lead">
+                Every HTML document follows a standard structure that browsers use to display web pages correctly. 
+                Understanding this structure is essential for creating valid and well-formed HTML documents.
+              </p>
+
+              <h3>The Basic HTML Template</h3>
+              <p>
+                A complete HTML document consists of several key components that work together. 
+                Here's the basic structure every HTML page should have:
+              </p>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span class="code-lang">HTML</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>Copy
+                  </button>
+                </div>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My First Webpage&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome to HTML&lt;/h1&gt;
+    &lt;p&gt;This is my first webpage!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              </div>
+
+              <h3>1. DOCTYPE Declaration</h3>
+              <p>
+                The <code>&lt;!DOCTYPE html&gt;</code> declaration is the very first line of an HTML document. 
+                It tells the browser that this is an HTML5 document and ensures the page is rendered in standards mode.
+              </p>
+              <div class="info-box">
+                <strong>Important:</strong> Always include the DOCTYPE declaration at the beginning of your HTML files. 
+                Without it, browsers may render your page in "quirks mode," causing inconsistent behavior.
+              </div>
+
+              <h3>2. The HTML Element</h3>
+              <p>
+                The <code>&lt;html&gt;</code> element is the root element that contains all other HTML elements. 
+                The <code>lang</code> attribute specifies the language of the document (e.g., "en" for English), 
+                which helps search engines and screen readers.
+              </p>
+              <div class="code-example">
+                <div class="code-header">
+                  <span class="code-lang">HTML</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>Copy
+                  </button>
+                </div>
+                <pre><code>&lt;html lang="en"&gt;
+  &lt;!-- All content goes here --&gt;
+&lt;/html&gt;</code></pre>
+              </div>
+
+              <h3>3. The Head Section</h3>
+              <p>
+                The <code>&lt;head&gt;</code> element contains meta-information about the document that isn't displayed on the page. 
+                This includes the page title, character encoding, stylesheets, and scripts.
+              </p>
+              <p><strong>Common elements in the head section:</strong></p>
+              <ul>
+                <li><code>&lt;meta charset="UTF-8"&gt;</code> - Defines character encoding for proper text display</li>
+                <li><code>&lt;meta name="viewport"&gt;</code> - Makes the page responsive on mobile devices</li>
+                <li><code>&lt;title&gt;</code> - Sets the page title shown in browser tabs and search results</li>
+                <li><code>&lt;link&gt;</code> - Links external resources like CSS files</li>
+                <li><code>&lt;meta name="description"&gt;</code> - Provides a page description for SEO</li>
+              </ul>
+
+              <div class="code-example">
+                <div class="code-header">
+                  <span class="code-lang">HTML</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>Copy
+                  </button>
+                </div>
+                <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta name="description" content="Learn HTML basics"&gt;
+  &lt;title&gt;HTML Tutorial&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></pre>
+              </div>
+
+              <h3>4. The Body Section</h3>
+              <p>
+                The <code>&lt;body&gt;</code> element contains all the visible content of the webpage - 
+                text, images, links, videos, and everything users see and interact with.
+              </p>
+              <div class="code-example">
+                <div class="code-header">
+                  <span class="code-lang">HTML</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>Copy
+                  </button>
+                </div>
+                <pre><code>&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;My Website&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a href="#home"&gt;Home&lt;/a&gt;
+      &lt;a href="#about"&gt;About&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  
+  &lt;main&gt;
+    &lt;h2&gt;Welcome!&lt;/h2&gt;
+    &lt;p&gt;This is the main content area.&lt;/p&gt;
+  &lt;/main&gt;
+  
+  &lt;footer&gt;
+    &lt;p&gt;&copy; 2026 My Website&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+              </div>
+
+              <h3>Complete Example</h3>
+              <p>Here's a complete HTML document with all the essential components:</p>
+              <div class="code-example">
+                <div class="code-header">
+                  <span class="code-lang">HTML</span>
+                  <button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>Copy
+                  </button>
+                </div>
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;meta name="description" content="A simple HTML page example"&gt;
+    &lt;title&gt;Complete HTML Structure&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;
+      &lt;h1&gt;My First Website&lt;/h1&gt;
+    &lt;/header&gt;
+    
+    &lt;main&gt;
+      &lt;article&gt;
+        &lt;h2&gt;About HTML&lt;/h2&gt;
+        &lt;p&gt;HTML is the standard markup language for creating web pages.&lt;/p&gt;
+      &lt;/article&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+      &lt;p&gt;Created with HTML5&lt;/p&gt;
+    &lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+              </div>
+
+              <h3>Key Takeaways</h3>
+              <ul>
+                <li>Always start with <code>&lt;!DOCTYPE html&gt;</code> to declare HTML5</li>
+                <li>The <code>&lt;html&gt;</code> element wraps all content</li>
+                <li>The <code>&lt;head&gt;</code> contains meta-information (not visible)</li>
+                <li>The <code>&lt;body&gt;</code> contains all visible content</li>
+                <li>Proper indentation makes your code readable and maintainable</li>
+                <li>Every opening tag must have a corresponding closing tag</li>
+              </ul>
+
+              <div class="info-box">
+                <strong>Pro Tip:</strong> Use proper indentation (2 or 4 spaces) to show the hierarchy of your HTML elements. 
+                This makes your code easier to read and debug!
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('editors')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('basic')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('elements')">
+                Next <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <section class="lesson" id="elements" style="display: none">
+            <div class="lesson-header">
+              <h1>HTML Elements</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>What Are HTML Elements?</h2>
+              <p class="lead">
+                The foundation of HTML documents is HTML elements. They are used
+                to specify a web page's layout and content. A start tag,
+                content, and an end tag are present in every HTML element.
+              </p>
+              <h3>1. Start Tag</h3>
+              <p>
+                It identifies the element's type, whereas the end tag specifies
+                where the element finishes.
+              </p>
+              <p>
+                For example, <code>&lt;html&gt; </code>is the start tag as it
+                starts the HTML document.
+              </p>
+              <h3>2. Content</h3>
+              <p>
+                Text, photos, or other HTML components can all be used as an
+                element's content. The visual and interactive components of a
+                website are created by developers by mixing various elements.
+              </p>
+              <p>For example,</p>
+              <div class="code-example">
+                <div class="code-header">
+                  <span class="code-lang">HTML</span
+                  ><button class="copy-btn" onclick="copyCode(this)">
+                    <i class="fas fa-copy"></i>Copy
+                  </button>
+                </div>
+                <pre><code>&lt;p&gt;
+This is a paragraph.&lt;/p&gt;
+</code></pre>
+              </div>
+              <p>
+                In this, the <code>&lt;p&gt; </code>tag starts the paragraph,
+                which includes the content "This is a paragraph,"and closes the
+                paragraph with the <code>&lt;/p&gt; </code>tag.
+              </p>
+              <h3>3. End Tag</h3>
+              <p>
+                An end tag in an HTML element is the tag that marks the end of
+                the element. The end tag has the same name as the start tag but
+                with a forward slash (/) before the tag name.
+              </p>
+              <p>
+                For example, the end tag for the start tag
+                <code>&lt;html&gt; </code>is <code>&lt;/html&gt; </code>.
+              </p>
+              <div class="info-box">
+                <div class="info-icon">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="info-content">
+                  <h3>Professional Tip</h3>
+                  <p>
+                    Join our Full stack developer course with placement and
+                    start your journey to becoming a professional full stack
+                    developer today and let us help you secure placement.
+                  </p>
+                </div>
+              </div>
+              <h2>HTML Elements List</h2>
+              <p>Let's have a look at the elements present in HTML.</p>
+              <h3>1. Root Element In HTML</h3>
+              <p>It is the top-level element of any HTML document.</p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;html&gt; </code></td>
+                    <td>
+                      It includes the entire document. All other elements fall
+                      under this.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>2. Document Metadata</h3>
+              <p>
+                Information about the page is contained in the metadata. This
+                provides details about the styles, scripts, and data that
+                software (such as browsers and search engines) can use to render
+                the page.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;head&gt; </code></td>
+                    <td>
+                      Represents the container for the HTML document's head
+                      section, which includes metadata and other structural
+                      data.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;title&gt; </code></td>
+                    <td>
+                      Defines the HTML document's title, which appears in the
+                      browser's title bar or tab.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;base&gt; </code></td>
+                    <td>
+                      Specifies the base URL or target for all relative URLs in
+                      the document.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;link&gt; </code></td>
+                    <td>
+                      Establishes a link between an external source and the HTML
+                      document.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;meta&gt; </code></td>
+                    <td>
+                      It provides metadata information about the HTML document.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;style&gt; </code></td>
+                    <td>
+                      Contains CSS rules that specify how items in an HTML
+                      document should be presented and laid up.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>3. Content Section</h3>
+              <p>
+                It helps in organizing the document in a logical order. With
+                this, you can create a layout for your webpage and add sections
+                you need. Let's have a look at its elements.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;body&gt; </code></td>
+                    <td>Shows the content of the whole HTML document.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;article&gt; </code></td>
+                    <td>It represents a self-contained piece of content.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;section&gt; </code></td>
+                    <td>It represents a section within an HTML document.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;nav&gt; </code></td>
+                    <td>
+                      Represents a section within the document that contains
+                      navigation links. It can be within the document and in
+                      other documents as well.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;aside&gt; </code></td>
+                    <td>
+                      Represents a part of the content that is indirectly
+                      related to the main content.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <code
+                        >&lt;h1&gt; , &lt;h2&gt; , &lt;h3&gt; , &lt;h4&gt; ,
+                        &lt;h5&gt; , &lt;h6&gt;
+                      </code>
+                    </td>
+                    <td>
+                      It represents the six levels of headings. h1 is the
+                      highest, and h6 is the lowest.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;hgroup&gt; </code></td>
+                    <td>It groups the headings into a single element.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;header&gt; </code></td>
+                    <td>
+                      Defines the header of a document, which typically contains
+                      the title and other information about the document.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;footer&gt; </code></td>
+                    <td>Defines the footer section of a page.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;address&gt; </code></td>
+                    <td>Shows the address of the owner of the document.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>4. Text Content</h3>
+              <p>
+                HTML text content elements are used to organize blocks or chunks
+                of content that are positioned between the opening and closing
+                body tags.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;blockquote&gt; </code></td>
+                    <td>It shows a block of quoted content.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;dd&gt; </code></td>
+                    <td>Provides a description of the preceding term.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;div&gt; </code></td>
+                    <td>Defines and creates a block of content.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;dl&gt; </code></td>
+                    <td>Defines a description list.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;dt&gt; </code></td>
+                    <td>It specifies a term in the description list.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;figcaption&gt; </code></td>
+                    <td>It defines a caption for a figure.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;figure&gt; </code></td>
+                    <td>
+                      Represents self-contained content, such as images,
+                      diagrams, or code snippets.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;hr&gt; </code></td>
+                    <td>It inserts a horizontal line.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;li&gt; </code></td>
+                    <td>
+                      It represents a list item in an ordered or unordered list.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;menu&gt; </code></td>
+                    <td>It shows a list of commands or options.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;ol&gt; </code></td>
+                    <td>It defines a numbered list.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;p&gt; </code></td>
+                    <td>It defines a paragraph.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;pre&gt; </code></td>
+                    <td>
+                      Represents text that has been preformatted and is to be
+                      displayed precisely as it is written in the HTML file.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;ul&gt; </code></td>
+                    <td>It defines an unordered list.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>5. Inline Text Semantics</h3>
+              <p>
+                To specify the meaning, structure, or style of a word, line, or
+                any other random piece of text, use the HTML inline text
+                semantic.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;a&gt; </code></td>
+                    <td>It shows a hyperlink anchor element.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;b&gt; </code></td>
+                    <td>It shows the bold text that is within a document.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;abbr&gt; </code></td>
+                    <td>It shows an abbreviation.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;bdi&gt; </code></td>
+                    <td>
+                      It isolates a part of a text that is formatted in a
+                      different way from the other content.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;bdo&gt; </code></td>
+                    <td>It overrides the current text direction.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;br&gt; </code></td>
+                    <td>It shows a line break.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;cite&gt; </code></td>
+                    <td>It shows the title of a creative work.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;code&gt; </code></td>
+                    <td>It represents a computer code.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;data&gt; </code></td>
+                    <td>It shows a relationship with computer code.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;em&gt; </code></td>
+                    <td>Represents an emphasized text.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;i&gt; </code></td>
+                    <td>It shows italicized text.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;kbd&gt; </code></td>
+                    <td>It represents text input from a keyboard.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;mark&gt; </code></td>
+                    <td>Represents text highlighted for reference purposes.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;q&gt; </code></td>
+                    <td>It shows a short inline quotation.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;rp&gt; </code></td>
+                    <td>
+                      Represents parentheses for browsers that do not support
+                      Ruby annotations.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;rt&gt; </code></td>
+                    <td>
+                      Represents the ruby text annotation for a ruby annotation.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;ruby&gt; </code></td>
+                    <td>It represents a Ruby annotation.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;s&gt; </code></td>
+                    <td>
+                      It shows text that is no longer accurate or relevant.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;samp&gt; </code></td>
+                    <td>
+                      It represents a sample output from a computer program.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;var&gt; </code></td>
+                    <td>It shows a variable in a computer program.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;u&gt; </code></td>
+                    <td>
+                      It represents text that should be stylistically rendered
+                      as underlined.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>6. Image and Multimedia</h3>
+              <p>
+                Images, audio files, and video files are all supported by HTML.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;area&gt; </code></td>
+                    <td>
+                      It defines an area inside an image that can be clicked.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;audio&gt; </code></td>
+                    <td>It embeds audio content in a document for playback.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;img&gt; </code></td>
+                    <td>Inserts an image.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;map&gt; </code></td>
+                    <td>Defines an image map.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;track&gt; </code></td>
+                    <td>
+                      It provides a text track for videos, like subtitles.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;video&gt; </code></td>
+                    <td>It embeds video content in a document for playback.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>7. Scripting</h3>
+              <p>
+                HTML allows scripting languages, most notably JavaScript, to be
+                used to build dynamic content and web applications.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;canvas&gt; </code></td>
+                    <td>It is used for drawing graphics.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;nonscript&gt; </code></td>
+                    <td>It provides alternate content for scripts.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;script&gt; </code></td>
+                    <td>An element used to embed scripts.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>8. HTML Table Elements</h3>
+              <p>
+                The following list of HTML table elements is used to create and
+                manage table data.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;caption&gt; </code></td>
+                    <td>It shows the title of a table.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;col&gt; </code></td>
+                    <td>Defines the properties of a single column.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;colgroup&gt; </code></td>
+                    <td>
+                      It groups multiple elements together to define properties
+                      for multiple columns.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;table&gt; </code></td>
+                    <td>Defines a table structure.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;tbody&gt; </code></td>
+                    <td>It represents the body content of a table.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;td&gt; </code></td>
+                    <td>
+                      It defines a single cell in a table containing data.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;tfoot&gt; </code></td>
+                    <td>Defines the footer content of a table.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;th&gt; </code></td>
+                    <td>Represents a header cell within a table.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;thead&gt; </code></td>
+                    <td>Defines the header content of a table.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;tr&gt; </code></td>
+                    <td>Inserts a row in a table.</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>9. HTML Form Elements</h3>
+              <p>
+                A variety of HTML components can be used to build forms that
+                users can fill out and submit to a website or application.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;button&gt; </code></td>
+                    <td>
+                      Represents a clickable element that triggers an action.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;datalist&gt; </code></td>
+                    <td>Shows several options to choose from.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;fieldset&gt; </code></td>
+                    <td>Groups several elements together.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;form&gt; </code></td>
+                    <td>It collects and submits user data.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;input&gt; </code></td>
+                    <td>It creates a field so that users can enter data.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;label&gt; </code></td>
+                    <td>It represents a description of an item.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;legend&gt; </code></td>
+                    <td>
+                      Provides a caption or title for a &lt;fieldset&gt;
+                      element.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;meter&gt; </code></td>
+                    <td>It represents a scalar value within a range.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;optgroup&gt; </code></td>
+                    <td>
+                      It creates a grouping of options within a &lt;select&gt;
+                      element.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;option&gt; </code></td>
+                    <td>
+                      Represents an option in a dropdown list, or &lt;                     datalist&gt; .
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;output&gt; </code></td>
+                    <td>It shows the output of a user action.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;progress&gt; </code></td>
+                    <td>It shows the complete process of a task.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;select&gt; </code></td>
+                    <td>
+                      It creates a drop-down list of items for users to choose
+                      from.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;textarea&gt; </code></td>
+                    <td>
+                      It creates a longer text field for users to enter longer
+                      text.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>10. Interactive Elements</h3>
+              <p>
+                A variety of HTML components are available to create interactive
+                user interface items.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;details&gt; </code></td>
+                    <td>
+                      It shows some content that is hidden at the user's
+                      request.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;dialog&gt; </code></td>
+                    <td>
+                      It is used to create a dialog box that can be dismissed.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;summary&gt; </code></td>
+                    <td>
+                      Specifies the summary, caption, or legend for the
+                      disclosure box of a details element.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>11. Block-Level Elements</h3>
+              <p>
+                A block-level element is an HTML element that typically starts
+                on a new line and takes up the full width available on a web
+                page.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;div&gt; </code></td>
+                    <td>
+                      It is used to divide other elements. It is a container
+                      element and can be used to group elements together in
+                      order to style them with CSS.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;h1&gt; �&lt;h6&gt; </code></td>
+                    <td>
+                      It is used to create headings. It is generally used for
+                      main titles, such as the title of a page or the main
+                      heading of a section.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;p&gt; </code></td>
+                    <td>
+                      It is used to create paragraphs of text. It displays text
+                      content on a web page in separate blocks.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;ul&gt; </code></td>
+                    <td>
+                      This element creates an unordered list. This type of list
+                      does not have numbers or bullets but instead displays
+                      items in a simple list format.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;ol&gt; </code></td>
+                    <td>
+                      It creates ordered lists. It displays items in a numbered
+                      list format, with each item having a specific number.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;form&gt; </code></td>
+                    <td>
+                      It is used to create forms. This tag includes inputs,
+                      labels, and buttons, allowing users to interact with the
+                      website.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;table&gt; </code></td>
+                    <td>
+                      It is used to create tables. It allows the user to
+                      organize content in a tabular form with rows and columns.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;header&gt; </code></td>
+                    <td>
+                      It creates a header section. It is used to create the
+                      title of a page or the main heading of a section.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;footer&gt; </code></td>
+                    <td>
+                      It is used to create a footer section. It is typically
+                      used for page information, such as copyright information,
+                      contact details, links, etc.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;section&gt; </code></td>
+                    <td>
+                      It is typically used to create a section to group related
+                      content together.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>12. Inline Elements</h3>
+              <p>
+                Inline elements in HTML are elements that can be used within a
+                block-level element to create a specific layout within the
+                block. Common inline elements are given in the table below.
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;span&gt; </code></td>
+                    <td>
+                      This element is used to define a section within a text.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;img&gt; </code></td>
+                    <td>It is used to embed an image in the HTML document.</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;a&gt; </code></td>
+                    <td>
+                      This is an anchor text element. It is used to create a
+                      link to another web page or to a different section of the
+                      current web page.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;em&gt; </code></td>
+                    <td>
+                      This element helps emphasize a text. It is typically used
+                      to draw attention to a word or phrase, making it stand out
+                      from the rest of the content.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;br&gt; </code></td>
+                    <td>
+                      It is used to insert a line break. It creates a new line
+                      in the text and can be used to separate sentences or
+                      paragraphs.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;input&gt; </code></td>
+                    <td>
+                      It creates an input field in an HTML form. The type of
+                      input field can be specified, such as a text field, a
+                      checkbox, or a drop-down list.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;code&gt; </code></td>
+                    <td>
+                      It is used to display code snippets, such as HTML, CSS,
+                      and Javascript, on a web page. It can also create
+                      interactive elements, such as buttons, forms, and menus.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('basic')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('elements')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('attributes')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Attributes -->
+          <section class="lesson" id="attributes" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-tags"></i>HTML Attributes</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>Overview</h2>
+              <p>
+                An attribute in HTML is a special word within an element's
+                opening tag that controls its behavior. HTML attributes are a
+                modifier of an HTML element type. Attributes either modify a
+                type's default functionality or provide functionality without
+                which certain types cannot function correctly. Attributes are
+                added to HTML start tags. An attribute usually consists of a
+                name and value, like this: <code>name="value"</code>.
+              </p>
+              <h2>What are Attributes in HTML?</h2>
+              <p>
+                HTML attributes are pieces of markup language that are used to
+                modify the behavior or appearance of HTML elements. For Example:
+                If you want to add links to your website you can use the
+                <code>href</code>attribute, similarly if you want to change the
+                height and width you can use the <code>height</code>and
+                <code>width</code>attribute. HTML elements can also be
+                customized by setting attributes such as color, size, and
+                functionality.
+              </p>
+              <h3>Syntax:</h3>
+              <p>Attributes can be set in the opening HTML tag as follows:</p>
+              <div class="code-snippet">
+                <pre><code>&lt;tag-name attribute_name="value"&gt;
+Content&lt;/tag-name&gt;
+</code></pre>
+              </div>
+              <h3>Example:</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h2&gt;
+href Attribute Example&lt;/h2&gt;
+&lt;!-- Here we are providing the link to be displayed when clicked using the href attribute --&gt;
+&lt;a href="https://youtube.com"target="_blank"&gt;
+Welcome to Youtube !&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h2>Core Attributes</h2>
+              <h3>1. ID Attribute:</h3>
+              <p>
+                The ID HTML attribute is used to identify an element on a page
+                in a unique way. This can be used either as a unique identifier
+                for elements carrying an id attribute or to identify elements
+                with the same name from within a web page when there are many
+                elements with the same name. When two elements have the same
+                name, the ID attribute can be used to easily distinguish them.
+              </p>
+              <p><strong>Syntax:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;tag id=""&gt;
+&lt;/tag&gt;
+</code></pre>
+              </div>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+Id Attributes&lt;/title&gt;
+&lt;style&gt;
+
+#yt {
+    color: red;
+    font-size: 100px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#youtube {
+    text-align: center;
+    font-size: 20px;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;div id="yt"&gt;
+Youtube&lt;/div&gt;
+&lt;div id="youtube"&gt;
+A place to learn what you want&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h3>2. Title Attribute:</h3>
+              <p>
+                The title attribute assigns a suggested title to a particular
+                element. Although typically they aren't displayed as tooltips by
+                default when the cursor passes over an element or when that
+                element is loading, it depends on the carrier how it behaves.
+                Hovering the mouse over an element will explain the element.
+                Different elements behave differently and in general, they
+                display their value when loaded or when the mouse pointer has
+                hovered over them.
+              </p>
+              <p><strong>Syntax:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;element title="text"&gt;
+</code></pre>
+              </div>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+title attribute&lt;/title&gt;
+&lt;style&gt;
+
+body {
+    text-align: center;
+}
+
+h1 {
+    color: red;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;
+Youtube&lt;/h1&gt;
+&lt;h2&gt;
+Title Attribute&lt;/h2&gt;
+&lt;p title="Youtube: A Place to learn"&gt;
+Youtube.com&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h3>3. Class Attribute:</h3>
+              <p>
+                An element of the style sheet is associated with this attribute.
+                Users must specify the class for this element. JavaScript can
+                also use it to modify HTML elements with a designated class (via
+                the HTML DOM). Additionally, this field can also contain a
+                space-separated list of class names. For example:
+                <code>class="class1 class2 class3"</code>
+              </p>
+              <p><strong>Syntax:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;tag-name class_name="value"&gt;
+Content&lt;/tag-name&gt;
+</code></pre>
+              </div>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+.country {
+    background-color: red;
+    color: white;
+    padding: 8px;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;h2 class="country"&gt;
+CHINA&lt;/h2&gt;
+
+&lt;p&gt;
+China Prime Minister is Xi Jinping.&lt;/p&gt;
+
+&lt;h2 class="country"&gt;
+INDIA&lt;/h2&gt;
+
+&lt;p&gt;
+India Prime Minister is Modi.&lt;/p&gt;
+
+&lt;h2 class="country"&gt;
+UNITED STATES&lt;/h2&gt;
+
+&lt;p&gt;
+United States President is Joe Biden.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h3>4. Style Attribute:</h3>
+              <p>
+                Cascading Style Sheet rules can be specified for any element
+                using this attribute. HTML elements can be rendered with
+                Cascading Style Sheet effects, such as increasing the font-size.
+                The font family and color can also be changed using this
+                attribute.
+              </p>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+The style Attribute&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;title&gt;
+Style Attribute&lt;/title&gt;
+&lt;p style="font-family: calibri; color: blue"&gt;
+Hello World Welcome ! !...&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h2>Internationalization Attributes</h2>
+              <p>
+                Let's have a look at some of the useful Internationalization
+                attributes in HTML.
+              </p>
+
+              <h3>1. Dir Attribute:</h3>
+              <p>
+                The dir attribute allows you to give the browser a direction in
+                which to follow a text. There are usually two values for this
+                attribute. RTL and LTR are both possible values. Left to right,
+                or LTR, is the default value, while the right to left, or RTL,
+                is the alternative value. This attribute dictates how the text
+                within a document should be represented when it is used within
+                the <code>&lt;html&gt; </code>tag. In addition to controlling
+                the text's direction, it can be used to control its positioning
+                from just the content of the tag.
+              </p>
+
+              <p><strong>Syntax:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;element dir="ltr | rtl | auto"&gt;
+</code></pre>
+              </div>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+dir attribute&lt;/title&gt;
+&lt;style&gt;
+
+h1 {
+    color: red;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;
+Youtube&lt;/h1&gt;
+&lt;h2&gt;
+dir attribute&lt;/h2&gt;
+&lt;p dir="ltr"&gt;
+Youtube: A free place to learn for developers&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h3>2. Lang Attribute:</h3>
+              <p>
+                A document's main language can be demonstrated by displaying
+                this attribute. HTML can keep this attribute to make it backward
+                compatible with earlier versions of HTML. This can also be
+                substituted with the XML:lang attribute in new XHTML documents.
+                The lang attribute values are ISO-639 standards and have
+                two-character language codes. A language must be specified in
+                order to use the application and to search in different search
+                engines.
+              </p>
+              <p><strong>Syntax:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;element lang="language_code"&gt;
+</code></pre>
+              </div>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+lang attribute&lt;/title&gt;
+&lt;style&gt;
+
+body {
+    text-align: center;
+}
+
+h1 {
+    color: red;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;
+Youtube&lt;/h1&gt;
+&lt;h2&gt;
+lang attribute&lt;/h2&gt;
+
+&lt;p lang="en"&gt;
+A learning place for developers&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h3>3. XML-Lang Attribute:</h3>
+              <p>
+                This attribute is designed to replace the lang attribute.
+                According to what has been mentioned previously, the country
+                code must be specified in the XML-lang attribute.
+              </p>
+              <h2>General Attributes</h2>
+              <p>
+                Let's have a look at some of the most commonly used general
+                attributes in HTML.
+              </p>
+
+              <h3>1. Align Attribute:</h3>
+              <p>
+                When you need to align some elements of your page in a certain
+                fashion, this attribute is useful. The alignment of the page can
+                be changed to left, right, or center. The left alignment is the
+                default for all elements.
+              </p>
+              <p><strong>Syntax:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;element_name align="left | right | center | justify"&gt;
+</code></pre>
+              </div>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+Align Attribute Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p align="left"&gt;
+This sentence is right aligned&lt;/p&gt;
+&lt;p align="center"&gt;
+This sentence is center aligned&lt;/p&gt;
+&lt;p align="right"&gt;
+This sentence is left aligned&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h3>2. Src Attribute:</h3>
+              <p>
+                Users can insert images into a web page by using the
+                <code>&lt;img&gt; </code>tag and the src attribute. The address
+                of the image can be specified as the value of the attribute
+                within the double quotation marks. As shown below, the src
+                attribute can be used to incorporate an image into a webpage.
+              </p>
+              <p><strong>Syntax:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;img src="URL"&gt;
+</code></pre>
+              </div>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+src Attribute&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;img src="https://jemcentral.org/wp-content/uploads/2021/12/you.tube_.logo_.4-1536x896.jpg"&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h3>3. Alt Attribute:</h3>
+              <p>
+                Using this attribute, you can display text that is not being
+                displayed by the primary attribute, such as the
+                <code>&lt;img&gt; </code>tag when it fails to display its
+                original value. Developers using the image at the coding end can
+                use this to describe the image. Alternate images can be
+                displayed if the main image fails.
+              </p>
+              <p><strong>Syntax:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;alt="Text which describes the image"&gt;
+</code></pre>
+              </div>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+HTML img alt Attribute&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;
+Youtube&lt;/h1&gt;
+&lt;h2&gt;
+HTML img alt Attribute&lt;/h2&gt;
+&lt;img src="https://jemcentral.org/wp-content/uploads/2021/12/you.tube_.logo_.4-1536x896.jpg"alt="Youtube logo"/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h3>4. The Width and Height Attribute:</h3>
+              <p>
+                We can adjust the height and width of an image with the help of
+                this attribute.
+              </p>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+Width and Height&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;img src="https://jemcentral.org/wp-content/uploads/2021/12/you.tube_.logo_.4-1536x896.jpg"width="250px"height="150px"/&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h3>5. Href Attribute:</h3>
+              <p>
+                We can use this attribute whenever we want a specific link to be
+                directed to any particular address. <code>&lt;a&gt; </code>tags
+                are used together with this attribute. The link is linked to the
+                text displayed within the <code>&lt;a&gt; </code>tag when it is
+                placed in the href attribute.
+              </p>
+              <p>
+                The user is redirected to the link's address when he or she
+                clicks this text. By default, this page will be opened in the
+                same tab. In addition, You can set the target attribute to
+                <code>_blank</code>, If you want to do so. Depending on your
+                browser settings, this will redirect to another tab or another
+                window.
+              </p>
+              <p><strong>Syntax:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;a href="URL"&gt;
+Link text &lt;/a&gt;
+</code></pre>
+              </div>
+              <p><strong>Example:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;html&gt;
+&lt;body&gt;
+&lt;h1&gt;
+Youtube&lt;/h1&gt;
+&lt;h2&gt;
+HTML a href Attribute&lt;/h2&gt;
+&lt;a href="https://www.youtube.com/"&gt;
+Click to open youtube in the same tab &lt;/a&gt;
+&lt;br /&gt;
+&lt;a href="https://www.youtube.com/"target="_blank"&gt;
+Click to open youtube in a different tab&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('elements')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button
+                class="btn-complete"
+                onclick="markComplete('attributes')"
+              >
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('headings')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Headings -->
+          <section class="lesson" id="headings" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-heading"></i>HTML Headings</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Headings</h2>
+              <p>
+                HTML headings are used to define the titles and subtitles of a
+                webpage. They help organize the content in a clear structure so
+                that users can easily read and understand the information.
+              </p>
+              <p>
+                In HTML, there are six levels of headings, from
+                <code>&lt;h1&gt; </code>to <code>&lt;h6&gt; </code>.
+              </p>
+              <ul class="styled-list">
+                <li>
+                  <code>&lt;h1&gt; </code>is the largest and most important
+                  heading
+                </li>
+                <li>
+                  <code>&lt;h6&gt; </code>is the smallest and least important
+                  heading
+                </li>
+              </ul>
+              <p>Headings are very important for:</p>
+              <ul class="styled-list">
+                <li>organizing webpage content</li>
+                <li>improving readability</li>
+                <li>helping search engines understand the page structure</li>
+              </ul>
+              <h3>Syntax</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h1&gt;
+Heading Text&lt;/h1&gt;
+</code></pre>
+              </div>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h1&gt;
+HTML Tutorial&lt;/h1&gt;
+&lt;h2&gt;
+Introduction to HTML&lt;/h2&gt;
+&lt;h3&gt;
+HTML Elements&lt;/h3&gt;
+&lt;h4&gt;
+HTML Attributes&lt;/h4&gt;
+&lt;h5&gt;
+HTML Images&lt;/h5&gt;
+&lt;h6&gt;
+HTML Comments&lt;/h6&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li>
+                  <code>&lt;h1&gt; </code>is usually used for the main title of
+                  the page
+                </li>
+                <li><code>&lt;h2&gt; </code>is used for major sections</li>
+                <li>
+                  <code>&lt;h3&gt; </code>to <code>&lt;h6&gt; </code>are used
+                  for subsections
+                </li>
+              </ul>
+              <h3>Example for a Tech Learning Website</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h1&gt;
+HTML Tutorial&lt;/h1&gt;
+
+&lt;h2&gt;
+What is HTML?&lt;/h2&gt;
+&lt;p&gt;
+HTML is the standard language used to create web pages.&lt;/p&gt;
+
+&lt;h2&gt;
+HTML Elements&lt;/h2&gt;
+&lt;p&gt;
+HTML elements define the structure of a webpage.&lt;/p&gt;
+
+&lt;h3&gt;
+HTML Attributes&lt;/h3&gt;
+&lt;p&gt;
+Attributes provide additional information about elements.&lt;/p&gt;
+</code></pre>
+              </div>
+              <p>In this example:</p>
+              <ul class="styled-list">
+                <li><strong>HTML Tutorial</strong>is the main heading</li>
+                <li>
+                  <strong>What is HTML?</strong>and
+                  <strong>HTML Elements</strong>are sections
+                </li>
+                <li><strong>HTML Attributes</strong>is a subsection</li>
+              </ul>
+              <h3>Important Points</h3>
+              <div class="info-box">
+                <ul class="styled-list">
+                  <li>
+                    Always use only one <code>&lt;h1&gt; </code>for the main
+                    title of the page.
+                  </li>
+                  <li>Use headings in proper order (h1 ? h2 ? h3).</li>
+                  <li>
+                    Headings make content structured and easy to understand.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('attributes')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('headings')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('paragraphs')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Paragraphs -->
+          <section class="lesson" id="paragraphs" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-paragraph"></i>HTML Paragraph</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Paragraph</h2>
+              <p>
+                An HTML paragraph is used to display a block of text on a
+                webpage. It is created using the <code>&lt;p&gt; </code>tag.
+                Paragraphs help organize content into readable sections so that
+                users can easily understand the information.
+              </p>
+              <p>
+                In web pages such as a tech learning or tutorial website,
+                paragraphs are commonly used to explain topics, provide
+                descriptions, or give instructions.
+              </p>
+              <h3>Syntax</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;p&gt;
+This is a paragraph.&lt;/p&gt;
+</code></pre>
+              </div>
+              <ul class="styled-list">
+                <li><code>&lt;p&gt; </code>? opening paragraph tag</li>
+                <li><code>&lt;/p&gt; </code>? closing paragraph tag</li>
+                <li>
+                  Text written between these tags is displayed as a paragraph.
+                </li>
+              </ul>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h1&gt;
+HTML Tutorial&lt;/h1&gt;
+
+&lt;p&gt;
+HTML stands for HyperText Markup Language. It is used to create the structure of web pages.&lt;/p&gt;
+
+&lt;p&gt;
+HTML uses different tags and elements to organize content such as headings,
+paragraphs,
+images,
+and links.&lt;/p&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li>
+                  <code>&lt;h1&gt; </code>displays the main heading of the
+                  page.
+                </li>
+                <li>
+                  The <code>&lt;p&gt; </code>tags create paragraphs that
+                  explain the topic.
+                </li>
+              </ul>
+              <h3>Example for a Tech Learning Website</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+What is HTML?&lt;/h2&gt;
+
+&lt;p&gt;
+HTML is the standard language used to create web pages. It allows developers to structure content using different elements such as headings,
+paragraphs,
+images,
+and links.&lt;/p&gt;
+
+&lt;p&gt;
+HTML works together with CSS and JavaScript to build modern and interactive websites.&lt;/p&gt;
+</code></pre>
+              </div>
+              <p>In this example:</p>
+              <ul class="styled-list">
+                <li>The heading introduces the topic.</li>
+                <li>
+                  The paragraphs provide detailed explanations for learners.
+                </li>
+              </ul>
+              <h3>Important Points</h3>
+              <div class="info-box">
+                <ul class="styled-list">
+                  <li>
+                    Paragraphs automatically add space before and after the
+                    text.
+                  </li>
+                  <li>Browsers ignore extra spaces inside a paragraph.</li>
+                  <li>
+                    The <code>&lt;p&gt; </code>tag is widely used for writing
+                    content on web pages.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('headings')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button
+                class="btn-complete"
+                onclick="markComplete('paragraphs')"
+              >
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('formatting')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Formatting -->
+          <section class="lesson" id="formatting" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-font"></i>HTML Formatting</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Formatting</h2>
+              <p>
+                HTML formatting is used to change the appearance of text on a
+                webpage. It helps highlight important words, make text bold or
+                italic, and improve the readability of content.
+              </p>
+              <p>
+                In a tutorial or learning website, formatting is useful to
+                emphasize keywords, definitions, or important notes.
+              </p>
+              <h3>Common HTML Formatting Tags</h3>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Tag</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;b&gt; </code></td>
+                    <td>Makes text bold</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;strong&gt; </code></td>
+                    <td>Defines important text (usually bold)</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;i&gt; </code></td>
+                    <td>Makes text italic</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;em&gt; </code></td>
+                    <td>Emphasizes text (usually italic)</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;mark&gt; </code></td>
+                    <td>Highlights text</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;small&gt; </code></td>
+                    <td>Displays smaller text</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;del&gt; </code></td>
+                    <td>Shows deleted text</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;ins&gt; </code></td>
+                    <td>Shows inserted text</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;sub&gt; </code></td>
+                    <td>Subscript text</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;sup&gt; </code></td>
+                    <td>Superscript text</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;p&gt;
+This is &lt;b&gt;
+bold&lt;/b&gt;
+text.&lt;/p&gt;
+&lt;p&gt;
+This is &lt;i&gt;
+italic&lt;/i&gt;
+text.&lt;/p&gt;
+&lt;p&gt;
+This is &lt;strong&gt;
+important&lt;/strong&gt;
+text.&lt;/p&gt;
+&lt;p&gt;
+This is &lt;mark&gt;
+highlighted&lt;/mark&gt;
+text.&lt;/p&gt;
+</code></pre>
+              </div>
+              <h3>Example for a Tech Learning Website</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+HTML Formatting&lt;/h2&gt;
+
+&lt;p&gt;
+HTML is a &lt;strong&gt;
+markup language&lt;/strong&gt;
+used to create web pages.&lt;/p&gt;
+
+&lt;p&gt;
+You can use &lt;b&gt;
+bold text&lt;/b&gt;
+to highlight important concepts.&lt;/p&gt;
+
+&lt;p&gt;
+The &lt;i&gt;
+italic text&lt;/i&gt;
+is used to emphasize certain words.&lt;/p&gt;
+
+&lt;p&gt;
+You can also &lt;mark&gt;
+highlight key points&lt;/mark&gt;
+for better learning.&lt;/p&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li>
+                  <code>&lt;strong&gt; </code>shows important information.
+                </li>
+                <li><code>&lt;b&gt; </code>makes text bold.</li>
+                <li><code>&lt;i&gt; </code>displays italic text.</li>
+                <li><code>&lt;mark&gt; </code>highlights text.</li>
+              </ul>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('paragraphs')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button
+                class="btn-complete"
+                onclick="markComplete('formatting')"
+              >
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('links')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Links -->
+          <section class="lesson" id="links" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-link"></i>HTML Links</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Links</h2>
+              <p>
+                HTML links are used to connect one webpage to another webpage,
+                file, or website. They allow users to navigate from one page to
+                another by clicking on text or images.
+              </p>
+              <p>
+                Links are created using the <code>&lt;a&gt; </code>(anchor) tag
+                in HTML.
+              </p>
+              <h3>Syntax</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;a href="URL"&gt;
+Link Text&lt;/a&gt;
+</code></pre>
+              </div>
+              <ul class="styled-list">
+                <li>
+                  <code>&lt;a&gt; </code>? Anchor tag used to create a link
+                </li>
+                <li>
+                  <code>href</code>? Attribute that specifies the destination of
+                  the link
+                </li>
+                <li>
+                  <strong>Link Text</strong>? The clickable text shown on the
+                  webpage
+                </li>
+              </ul>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;a href="https://www.google.com"&gt;
+Visit Google&lt;/a&gt;
+</code></pre>
+              </div>
+              <p>
+                When the user clicks <strong>Visit Google</strong>, the browser
+                opens the Google website.
+              </p>
+              <h3>Example for a Tech Learning Website</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+HTML Tutorial&lt;/h2&gt;
+
+&lt;p&gt;
+Click the link below to start learning HTML.&lt;/p&gt;
+
+&lt;a href="html-basics.html"&gt;
+Start HTML Basics Tutorial&lt;/a&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li>The <code>&lt;a&gt; </code>tag creates a link.</li>
+                <li>
+                  The <code>href</code>attribute specifies the page that will
+                  open.
+                </li>
+                <li>
+                  The text <strong>Start HTML Basics Tutorial</strong>is
+                  clickable.
+                </li>
+              </ul>
+              <h3>Open Link in a New Tab</h3>
+              <p>
+                You can open a link in a new browser tab using the
+                <code>target</code>attribute.
+              </p>
+              <div class="code-snippet">
+                <pre><code>&lt;a href="https://www.w3schools.com"target="_blank"&gt;
+Learn HTML Online&lt;/a&gt;
+</code></pre>
+              </div>
+              <p>Here:</p>
+              <ul class="styled-list">
+                <li>
+                  <code>target="_blank"</code>opens the link in a new tab.
+                </li>
+              </ul>
+              <h3>Types of HTML Links</h3>
+              <ul class="styled-list">
+                <li>
+                  <strong>External Links</strong>� Link to another website.
+                </li>
+                <li>
+                  <strong>Internal Links</strong>� Link to another page within
+                  the same website.
+                </li>
+                <li>
+                  <strong>Email Links</strong>� Open an email application.
+                </li>
+              </ul>
+              <p><strong>Example of email link:</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;a href="mailto:info@techlearning.com"&gt;
+Contact Us&lt;/a&gt;
+</code></pre>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('formatting')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('links')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('images')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Images -->
+          <section class="lesson" id="images" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-image"></i>HTML Images</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Images</h2>
+              <p>
+                HTML images are used to display pictures on a webpage. Images
+                help make a website more attractive and help users understand
+                content better.
+              </p>
+              <p>
+                In a tech learning or tutorial website, images can be used to
+                show:
+              </p>
+              <ul class="styled-list">
+                <li>diagrams</li>
+                <li>logos</li>
+                <li>examples</li>
+                <li>screenshots of code or output</li>
+              </ul>
+              <p>
+                Images in HTML are added using the
+                <code>&lt;img&gt; </code>tag.
+              </p>
+              <h3>Syntax</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;img src="image-path"alt="description"&gt;
+</code></pre>
+              </div>
+              <ul class="styled-list">
+                <li>
+                  <code>&lt;img&gt; </code>? tag used to display an image
+                </li>
+                <li>
+                  <code>src</code>? attribute that specifies the path of the
+                  image
+                </li>
+                <li>
+                  <code>alt</code>? alternative text shown if the image cannot
+                  load
+                </li>
+              </ul>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;img src="html-logo.png"alt="HTML Logo"&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li><code>src</code>? location of the image file</li>
+                <li><code>alt</code>? description of the image</li>
+                <li>
+                  If the image does not load, the text
+                  <strong>HTML Logo</strong>will appear.
+                </li>
+              </ul>
+              <h3>Example for a Tech Learning Website</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+Learn HTML&lt;/h2&gt;
+
+&lt;p&gt;
+HTML is the foundation of web development.&lt;/p&gt;
+
+&lt;img src="html-course.png"alt="HTML Course Image"&gt;
+</code></pre>
+              </div>
+              <p>Here:</p>
+              <ul class="styled-list">
+                <li>The image helps illustrate the HTML course content.</li>
+              </ul>
+              <h3>Setting Image Width and Height</h3>
+              <p>
+                You can control the size of an image using <code>width</code>and
+                <code>height</code>attributes.
+              </p>
+              <div class="code-snippet">
+                <pre><code>&lt;img src="html-logo.png"alt="HTML Logo"width="200"height="200"&gt;
+</code></pre>
+              </div>
+              <h3>Important Points</h3>
+              <div class="info-box">
+                <ul class="styled-list">
+                  <li>
+                    The <code>&lt;img&gt; </code>tag is an empty tag, so it
+                    does not need a closing tag.
+                  </li>
+                  <li>
+                    Always use the <code>alt</code>attribute for accessibility
+                    and SEO.
+                  </li>
+                  <li>
+                    Images improve the visual appearance and user experience of
+                    a website.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('links')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('images')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('lists')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Lists -->
+          <section class="lesson" id="lists" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-list"></i>HTML Lists</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Lists</h2>
+              <p>
+                HTML lists are used to display a group of related items in an
+                organized way. Lists help present information clearly so users
+                can easily read and understand the content.
+              </p>
+              <p>
+                In a tutorial or tech learning website, lists are commonly used
+                to show:
+              </p>
+              <ul class="styled-list">
+                <li>course topics</li>
+                <li>steps to follow</li>
+                <li>features or advantages</li>
+                <li>examples and explanations</li>
+              </ul>
+              <p>HTML provides three types of lists.</p>
+              <h3>1. Ordered List</h3>
+              <p>
+                An ordered list displays items in a numbered order. It is
+                created using the <code>&lt;ol&gt; </code>tag, and each item is
+                written using the <code>&lt;li&gt; </code>tag.
+              </p>
+              <p><strong>Example</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;ol&gt;
+&lt;li&gt;
+Introduction to HTML&lt;/li&gt;
+&lt;li&gt;
+HTML Elements&lt;/li&gt;
+&lt;li&gt;
+HTML Attributes&lt;/li&gt;
+&lt;li&gt;
+HTML Images&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+              </div>
+              <p><strong>Explanation</strong></p>
+              <ul class="styled-list">
+                <li><code>&lt;ol&gt; </code>? ordered list</li>
+                <li><code>&lt;li&gt; </code>? list item</li>
+                <li>Items appear in numbers (1, 2, 3, 4)</li>
+              </ul>
+              <p><strong>Example output:</strong></p>
+              <ol>
+                <li>Introduction to HTML</li>
+                <li>HTML Elements</li>
+                <li>HTML Attributes</li>
+                <li>HTML Images</li>
+              </ol>
+              <h3>2. Unordered List</h3>
+              <p>
+                An unordered list displays items with bullet points instead of
+                numbers. It is created using the <code>&lt;ul&gt; </code>tag.
+              </p>
+              <p><strong>Example</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;ul&gt;
+&lt;li&gt;
+HTML&lt;/li&gt;
+&lt;li&gt;
+CSS&lt;/li&gt;
+&lt;li&gt;
+JavaScript&lt;/li&gt;
+&lt;li&gt;
+React&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+              </div>
+              <p><strong>Explanation</strong></p>
+              <ul class="styled-list">
+                <li><code>&lt;ul&gt; </code>? unordered list</li>
+                <li><code>&lt;li&gt; </code>? list item</li>
+                <li>Items appear with bullet points</li>
+              </ul>
+              <p><strong>Example output:</strong></p>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+              </ul>
+              <h3>3. Description List</h3>
+              <p>
+                A description list is used to display terms and their
+                descriptions. It uses the tags <code>&lt;dl&gt; </code>,
+                <code>&lt;dt&gt; </code>, and <code>&lt;dd&gt; </code>.
+              </p>
+              <ul class="styled-list">
+                <li><code>&lt;dl&gt; </code>? description list</li>
+                <li><code>&lt;dt&gt; </code>? term or name</li>
+                <li><code>&lt;dd&gt; </code>? description of the term</li>
+              </ul>
+              <p><strong>Example</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;dl&gt;
+&lt;dt&gt;
+HTML&lt;/dt&gt;
+&lt;dd&gt;
+A markup language used to create web pages.&lt;/dd&gt;
+
+&lt;dt&gt;
+CSS&lt;/dt&gt;
+&lt;dd&gt;
+A stylesheet language used to design web pages.&lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('images')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('lists')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('tables')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- HTML Tables  -->
+          <section class="lesson" id="tables" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-table"></i>HTML Table</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Table</h2>
+              <p>
+                An HTML table is used to display data in a structured format
+                using rows and columns. Tables are useful for organizing
+                information such as schedules, student data, product lists, or
+                course details.
+              </p>
+              <p>
+                In a tech learning or tutorial website, tables can be used to
+                show:
+              </p>
+              <ul class="styled-list">
+                <li>course topics</li>
+                <li>comparison of technologies</li>
+                <li>student information</li>
+                <li>schedules or timetables</li>
+              </ul>
+              <h3>Basic Table Tags</h3>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Tag</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;table&gt; </code></td>
+                    <td>Defines the table</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;tr&gt; </code></td>
+                    <td>Defines a table row</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;th&gt; </code></td>
+                    <td>Defines a table heading</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;td&gt; </code></td>
+                    <td>Defines a table data cell</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>Syntax</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;
+Heading&lt;/th&gt;
+&lt;th&gt;
+Heading&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;
+Data&lt;/td&gt;
+&lt;td&gt;
+Data&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+              </div>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;table border="1"&gt;
+&lt;tr&gt;
+&lt;th&gt;
+Course&lt;/th&gt;
+&lt;th&gt;
+Duration&lt;/th&gt;
+&lt;th&gt;
+Level&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;
+HTML&lt;/td&gt;
+&lt;td&gt;
+2 Weeks&lt;/td&gt;
+&lt;td&gt;
+Beginner&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;
+CSS&lt;/td&gt;
+&lt;td&gt;
+3 Weeks&lt;/td&gt;
+&lt;td&gt;
+Intermediate&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li><code>&lt;table&gt; </code>creates the table.</li>
+                <li><code>&lt;tr&gt; </code>creates a row in the table.</li>
+                <li>
+                  <code>&lt;th&gt; </code>creates a header cell (usually bold
+                  and centered).
+                </li>
+                <li><code>&lt;td&gt; </code>creates a normal data cell.</li>
+                <li>
+                  The <code>border</code>attribute is used to show table
+                  borders.
+                </li>
+              </ul>
+              <h3>Example for a Tech Learning Website</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+HTML Course Modules&lt;/h2&gt;
+
+&lt;table border="1"&gt;
+&lt;tr&gt;
+&lt;th&gt;
+Module&lt;/th&gt;
+&lt;th&gt;
+Topic&lt;/th&gt;
+&lt;th&gt;
+Description&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;
+1&lt;/td&gt;
+&lt;td&gt;
+HTML Basics&lt;/td&gt;
+&lt;td&gt;
+Introduction to HTML and basic tags&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;
+2&lt;/td&gt;
+&lt;td&gt;
+HTML Elements&lt;/td&gt;
+&lt;td&gt;
+Understanding HTML elements and structure&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;
+3&lt;/td&gt;
+&lt;td&gt;
+HTML Images&lt;/td&gt;
+&lt;td&gt;
+Adding and displaying images on web pages&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('lists')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('tables')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('forms')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Forms -->
+          <section class="lesson" id="forms" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-wpforms"></i>HTML Forms</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Forms</h2>
+              <p>
+                An HTML form is used to collect information from users on a
+                webpage. Forms allow users to enter data such as names, email
+                addresses, passwords, and messages.
+              </p>
+              <p>Forms are commonly used in websites for:</p>
+              <ul class="styled-list">
+                <li>login pages</li>
+                <li>registration forms</li>
+                <li>contact forms</li>
+                <li>feedback forms</li>
+              </ul>
+              <p>
+                In HTML, forms are created using the
+                <code>&lt;form&gt; </code>tag.
+              </p>
+              <h3>Basic Syntax</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;form&gt;
+form elements &lt;/form&gt;
+</code></pre>
+              </div>
+              <p>
+                Inside the form we can use different input elements like text
+                boxes, buttons, radio buttons, checkboxes, and submit buttons.
+              </p>
+              <h3>Important Form Elements</h3>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Tag</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;form&gt; </code></td>
+                    <td>Defines the form</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;input&gt; </code></td>
+                    <td>Used to create input fields</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;label&gt; </code></td>
+                    <td>Defines a label for input fields</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;textarea&gt; </code></td>
+                    <td>Used for multi-line text input</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;select&gt; </code></td>
+                    <td>Creates a drop-down list</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;button&gt; </code></td>
+                    <td>Creates a clickable button</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;form&gt;
+&lt;label&gt;
+Name:&lt;/label&gt;
+&lt;input type="text"name="username"&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;label&gt;
+Email:&lt;/label&gt;
+&lt;input type="email"name="email"&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;label&gt;
+Password:&lt;/label&gt;
+&lt;input type="password"name="password"&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;input type="submit"value="Submit"&gt;
+&lt;/form&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li><code>&lt;form&gt; </code>creates the form container.</li>
+                <li><code>&lt;label&gt; </code>describes the input field.</li>
+                <li>
+                  <code>&lt;input type="text"&gt; </code>allows the user to
+                  enter text.
+                </li>
+                <li>
+                  <code>&lt;input type="email"&gt; </code>accepts email
+                  addresses.
+                </li>
+                <li>
+                  <code>&lt;input type="password"&gt; </code>hides the password
+                  characters.
+                </li>
+                <li>
+                  <code>&lt;input type="submit"&gt; </code>sends the form data.
+                </li>
+              </ul>
+              <h3>Example for a Tech Learning Website</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+Register for HTML Course&lt;/h2&gt;
+
+&lt;form&gt;
+&lt;label&gt;
+Full Name:&lt;/label&gt;
+&lt;input type="text"name="name"&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;label&gt;
+Email:&lt;/label&gt;
+&lt;input type="email"name="email"&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;label&gt;
+Select Course:&lt;/label&gt;
+&lt;select&gt;
+&lt;option&gt;
+HTML&lt;/option&gt;
+&lt;option&gt;
+CSS&lt;/option&gt;
+&lt;option&gt;
+JavaScript&lt;/option&gt;
+&lt;/select&gt;
+&lt;br&gt;
+&lt;br&gt;
+
+&lt;button type="submit"&gt;
+Register&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('tables')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('forms')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('semantic')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Semantic Tags -->
+          <section class="lesson" id="semantic" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-sitemap"></i>HTML Semantic Tags</h1>
+              <span class="lesson-badge">Intermediate</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Semantic Tags</h2>
+              <p>
+                HTML semantic tags are elements that clearly describe the
+                meaning and purpose of the content inside them. They help both
+                developers and browsers understand the structure of a webpage.
+              </p>
+              <p>
+                Semantic tags make the code more readable, organized, and
+                SEO-friendly. They also help search engines and screen readers
+                understand the webpage content better.
+              </p>
+              <h3>Common HTML Semantic Tags</h3>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Tag</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>&lt;header&gt; </code></td>
+                    <td>Defines the header section of a webpage</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;nav&gt; </code></td>
+                    <td>Contains navigation links</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;section&gt; </code></td>
+                    <td>Defines a section of content</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;article&gt; </code></td>
+                    <td>
+                      Represents independent content such as a blog post or
+                      article
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;aside&gt; </code></td>
+                    <td>Contains sidebar content</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;footer&gt; </code></td>
+                    <td>Defines the footer section of a webpage</td>
+                  </tr>
+                  <tr>
+                    <td><code>&lt;main&gt; </code></td>
+                    <td>Represents the main content of the webpage</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;header&gt;
+&lt;h1&gt;
+Tech Learning Website&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;nav&gt;
+&lt;a href="#"&gt;
+Home&lt;/a&gt;
+&lt;a href="#"&gt;
+HTML Tutorial&lt;/a&gt;
+&lt;a href="#"&gt;
+CSS Tutorial&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;section&gt;
+&lt;h2&gt;
+HTML Basics&lt;/h2&gt;
+&lt;p&gt;
+HTML is used to create the structure of web pages.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;article&gt;
+&lt;h2&gt;
+Latest Web Development Trends&lt;/h2&gt;
+&lt;p&gt;
+This article explains the latest technologies in web development.&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;footer&gt;
+&lt;p&gt;
+Copyright � 2026 Tech Learning&lt;/p&gt;
+&lt;/footer&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li>
+                  <code>&lt;header&gt; </code>contains the title or
+                  introduction of the webpage.
+                </li>
+                <li>
+                  <code>&lt;nav&gt; </code>contains navigation links for the
+                  website.
+                </li>
+                <li>
+                  <code>&lt;section&gt; </code>groups related content together.
+                </li>
+                <li>
+                  <code>&lt;article&gt; </code>represents independent content
+                  such as blog posts or tutorials.
+                </li>
+                <li>
+                  <code>&lt;footer&gt; </code>contains information like
+                  copyright or contact details.
+                </li>
+              </ul>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('forms')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('semantic')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('media')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Audio and Video -->
+          <section class="lesson" id="media" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-play-circle"></i>HTML Audio and Video</h1>
+              <span class="lesson-badge">Intermediate</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Audio and Video</h2>
+              <p>
+                HTML provides special tags to embed audio and video files
+                directly into a webpage. These elements allow users to play
+                media without using external plugins.
+              </p>
+              <p>Audio and video elements are commonly used in websites for:</p>
+              <ul class="styled-list">
+                <li>tutorials and lectures</li>
+                <li>music or podcasts</li>
+                <li>training videos</li>
+                <li>demonstrations</li>
+              </ul>
+              <h2>HTML Audio</h2>
+              <p>
+                The <code>&lt;audio&gt; </code>tag is used to add sound or
+                music to a webpage. Users can play, pause, and control the audio
+                using built-in controls.
+              </p>
+              <h3>Syntax</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;audio controls&gt;
+&lt;source src="audio-file.mp3"type="audio/mpeg"&gt;
+&lt;/audio&gt;
+</code></pre>
+              </div>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+HTML Audio Example&lt;/h2&gt;
+
+&lt;audio controls&gt;
+&lt;source src="lesson-audio.mp3"type="audio/mpeg"&gt;
+&lt;/audio&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li><code>&lt;audio&gt; </code>defines the audio element.</li>
+                <li>
+                  <code>controls</code>displays play, pause, and volume buttons.
+                </li>
+                <li>
+                  <code>&lt;source&gt; </code>specifies the audio file and
+                  format.
+                </li>
+              </ul>
+              <h2>HTML Video</h2>
+              <p>
+                The <code>&lt;video&gt; </code>tag is used to embed videos on a
+                webpage. It allows users to watch videos with playback controls.
+              </p>
+              <h3>Syntax</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;video width="320"height="240"controls&gt;
+&lt;source src="video-file.mp4"type="video/mp4"&gt;
+&lt;/video&gt;
+</code></pre>
+              </div>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+HTML Video Tutorial&lt;/h2&gt;
+
+&lt;video width="400"controls&gt;
+&lt;source src="html-introduction.mp4"type="video/mp4"&gt;
+&lt;/video&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li><code>&lt;video&gt; </code>defines the video element.</li>
+                <li><code>width</code>sets the video size.</li>
+                <li>
+                  <code>controls</code>adds play, pause, and volume buttons.
+                </li>
+                <li><code>&lt;source&gt; </code>specifies the video file.</li>
+              </ul>
+              <h3>Example for a Tech Learning Website</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+Learn HTML with Video&lt;/h2&gt;
+
+&lt;video width="500"controls&gt;
+&lt;source src="html-tutorial.mp4"type="video/mp4"&gt;
+&lt;/video&gt;
+
+&lt;h2&gt;
+Listen to HTML Explanation&lt;/h2&gt;
+
+&lt;audio controls&gt;
+&lt;source src="html-audio.mp3"type="audio/mpeg"&gt;
+&lt;/audio&gt;
+</code></pre>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('semantic')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('media')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('canvas')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Canvas -->
+          <section class="lesson" id="canvas" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-draw-polygon"></i>HTML Canvas</h1>
+              <span class="lesson-badge">Advanced</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Canvas</h2>
+              <p>
+                HTML Canvas is used to draw graphics on a web page using
+                JavaScript. It provides a space where developers can create
+                shapes, images, animations, and games directly in the browser.
+              </p>
+              <p>
+                The canvas element itself is only a container for graphics, and
+                the actual drawing is done using JavaScript.
+              </p>
+              <p>Canvas is commonly used for:</p>
+              <ul class="styled-list">
+                <li>charts and graphs</li>
+                <li>game development</li>
+                <li>animations</li>
+                <li>image editing tools</li>
+              </ul>
+              <h3>Syntax</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;canvas id="myCanvas"width="400"height="200"&gt;
+&lt;/canvas&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li><code>&lt;canvas&gt; </code>defines the drawing area.</li>
+                <li>
+                  <code>id</code>is used to access the canvas using JavaScript.
+                </li>
+                <li>
+                  <code>width</code>and <code>height</code>define the size of
+                  the canvas.
+                </li>
+              </ul>
+              <h3>Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;canvas id="myCanvas"width="400"height="200"&gt;
+&lt;/canvas&gt;
+
+&lt;script&gt;
+const canvas=document.getElementById("myCanvas");
+const ctx=canvas.getContext("2d");
+
+ctx.fillStyle="blue";
+ctx.fillRect(50, 50, 150, 100);
+&lt;/script&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li>
+                  <code>getElementById()</code>selects the canvas element.
+                </li>
+                <li>
+                  <code>getContext("2d")</code>creates a 2D drawing context.
+                </li>
+                <li><code>fillStyle</code>sets the color of the shape.</li>
+                <li>
+                  <code>fillRect()</code>draws a filled rectangle on the canvas.
+                </li>
+              </ul>
+              <h3>Example for a Tech Learning Website</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+HTML Canvas Example&lt;/h2&gt;
+
+&lt;canvas id="canvasExample"width="300"height="150"&gt;
+&lt;/canvas&gt;
+
+&lt;script&gt;
+const canvas=document.getElementById("canvasExample");
+const ctx=canvas.getContext("2d");
+
+ctx.fillStyle="green";
+ctx.fillRect(20, 20, 120, 80);
+&lt;/script&gt;
+</code></pre>
+              </div>
+              <p>
+                This example draws a green rectangle inside the canvas area.
+              </p>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('media')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('canvas')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('svg')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML SVG -->
+          <section class="lesson" id="svg" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-vector-square"></i>HTML SVG</h1>
+              <span class="lesson-badge">Advanced</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML SVG</h2>
+              <p>
+                SVG (Scalable Vector Graphics) is used to create graphics on a
+                web page using XML-based code. Unlike Canvas, SVG graphics are
+                resolution-independent and can be scaled without losing quality.
+              </p>
+              <p>
+                SVG graphics are defined using XML tags directly in HTML, making
+                them easy to create, modify, and style with CSS.
+              </p>
+              <p>SVG is commonly used for:</p>
+              <ul class="styled-list">
+                <li>logos and icons</li>
+                <li>charts and diagrams</li>
+                <li>illustrations</li>
+                <li>scalable graphics for responsive design</li>
+              </ul>
+              <h3>Syntax</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;svg width="200"height="200"&gt;
+&lt;!-- SVG shapes go here --&gt;
+&lt;/svg&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li><code>&lt;svg&gt; </code>defines the SVG container.</li>
+                <li>
+                  <code>width</code>and <code>height</code>define the size of
+                  the SVG area.
+                </li>
+                <li>
+                  SVG shapes are created using tags like
+                  <code>&lt;circle&gt; </code>, <code>&lt;rect&gt; </code>,
+                  <code>&lt;line&gt; </code>, etc.
+                </li>
+              </ul>
+              <h3>Example - Circle</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;svg width="200"height="200"&gt;
+&lt;circle cx="100"cy="100"r="50"fill="blue"/&gt;
+&lt;/svg&gt;
+</code></pre>
+              </div>
+              <h3>Example - Rectangle</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;svg width="300"height="200"&gt;
+&lt;rect x="50"y="50"width="150"height="100"fill="green"/&gt;
+&lt;/svg&gt;
+</code></pre>
+              </div>
+              <h3>Explanation</h3>
+              <ul class="styled-list">
+                <li><code>&lt;circle&gt; </code>creates a circle shape.</li>
+                <li>
+                  <code>cx</code>and <code>cy</code>define the center position.
+                </li>
+                <li><code>r</code>defines the radius.</li>
+                <li><code>&lt;rect&gt; </code>creates a rectangle.</li>
+                <li>
+                  <code>x</code>and <code>y</code>define the starting position.
+                </li>
+                <li><code>fill</code>sets the color of the shape.</li>
+              </ul>
+              <h3>Example for a Tech Learning Website</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;h2&gt;
+HTML SVG Example&lt;/h2&gt;
+
+&lt;svg width="250"height="200"&gt;
+&lt;rect x="25"y="25"width="200"height="150"fill="orange"stroke="black"s troke-width="2"/&gt;
+&lt;circle cx="125"cy="100"r="40"fill="yellow"/&gt;
+&lt;/svg&gt;
+</code></pre>
+              </div>
+              <p>
+                This example creates an orange rectangle with a black border and
+                a yellow circle inside the SVG area.
+              </p>
+              <h3>SVG vs Canvas</h3>
+              <div class="info-box">
+                <ul class="styled-list">
+                  <li>
+                    <strong>SVG:</strong>Vector-based, scalable, defined using
+                    XML tags, better for static graphics and icons.
+                  </li>
+                  <li>
+                    <strong>Canvas:</strong>Pixel-based, drawn using JavaScript,
+                    better for animations and complex graphics.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('canvas')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('svg')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('apis')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML APIs -->
+          <section class="lesson" id="apis" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-cogs"></i>HTML APIs</h1>
+              <span class="lesson-badge">Advanced</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML APIs</h2>
+              <p>
+                HTML APIs are built-in features provided by modern web browsers
+                that allow developers to create interactive and dynamic web
+                applications. APIs help web pages interact with the browser and
+                the user's device, such as accessing location, storing data, or
+                drawing graphics.
+              </p>
+              <p>
+                HTML APIs work together with JavaScript to add advanced
+                functionality to websites.
+              </p>
+              <h3>Common HTML APIs</h3>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>API</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Geolocation API</td>
+                    <td>Gets the user's geographic location</td>
+                  </tr>
+                  <tr>
+                    <td>Web Storage API</td>
+                    <td>
+                      Stores data in the browser (localStorage and
+                      sessionStorage)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Drag and Drop API</td>
+                    <td>Allows elements to be dragged and dropped</td>
+                  </tr>
+                  <tr>
+                    <td>Canvas API</td>
+                    <td>Used for drawing graphics on a webpage</td>
+                  </tr>
+                  <tr>
+                    <td>History API</td>
+                    <td>Allows navigation through browser history</td>
+                  </tr>
+                  <tr>
+                    <td>Web Workers API</td>
+                    <td>Runs scripts in the background</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>1. Geolocation API Example</h3>
+              <p>
+                The Geolocation API is used to get the user's current location
+                such as latitude and longitude.
+              </p>
+
+              <div class="code-snippet">
+                <pre><code>&lt;button onclick="getLocation()"&gt;
+Get Location&lt;/button&gt;
+
+&lt;p id="demo"&gt;
+&lt;/p&gt;
+
+&lt;script&gt;
+
+function getLocation() {
+    navigator.geolocation.getCurrentPosition(function(position) {
+            document.getElementById("demo").innerHTML="Latitude: "+ position.coords.latitude + "&lt;br&gt;Longitude: "+ position.coords.longitude;
+        }
+
+    );
+}
+
+&lt;/script&gt;
+</code></pre>
+              </div>
+              <p><strong>Explanation</strong></p>
+              <ul class="styled-list">
+                <li>
+                  <code>navigator.geolocation</code>accesses the user's
+                  location.
+                </li>
+                <li>
+                  <code>getCurrentPosition()</code>gets the current coordinates.
+                </li>
+                <li>The location is displayed on the webpage.</li>
+              </ul>
+              <h3>2. Web Storage API Example</h3>
+              <p>The Web Storage API is used to store data in the browser.</p>
+              <div class="code-snippet">
+                <pre><code>&lt;button onclick="saveData()"&gt;
+Save Data&lt;/button&gt;
+
+&lt;p id="result"&gt;
+&lt;/p&gt;
+
+&lt;script&gt;
+
+function saveData() {
+    localStorage.setItem("username", "Vivek");
+    document.getElementById("result").innerHTML=localStorage.getItem("username");
+}
+
+&lt;/script&gt;
+</code></pre>
+              </div>
+              <p><strong>Explanation</strong></p>
+              <ul class="styled-list">
+                <li><code>setItem()</code>stores data in the browser.</li>
+                <li><code>getItem()</code>retrieves stored data.</li>
+              </ul>
+              <h3>3. Drag and Drop API Example</h3>
+              <p>
+                The Drag and Drop API allows users to drag elements and drop
+                them somewhere else on the page.
+              </p>
+              <div class="code-snippet">
+                <pre><code>&lt;div id="box1"ondrop="drop(event)"ondragover="allowDrop(event)"
+style="width:200px;height:200px;border:2px solid black"&gt;
+&lt;/div&gt;
+
+&lt;img id="drag1"src="https://via.placeholder.com/100"draggable="true"ondragstart="drag(event)"&gt;
+
+&lt;script&gt;
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data=ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+&lt;/script&gt;
+</code></pre>
+              </div>
+              <h3>4. Canvas API Example</h3>
+              <p>The Canvas API is used to draw graphics on a webpage.</p>
+              <div class="code-snippet">
+                <pre><code>&lt;canvas id="myCanvas"width="300"height="150"&gt;
+&lt;/canvas&gt;
+
+&lt;script&gt;
+const canvas=document.getElementById("myCanvas");
+const ctx=canvas.getContext("2d");
+
+ctx.fillStyle="red";
+ctx.fillRect(20, 20, 150, 100);
+&lt;/script&gt;
+</code></pre>
+              </div>
+              <p><strong>Explanation</strong></p>
+              <ul class="styled-list">
+                <li><code>&lt;canvas&gt; </code>creates a drawing area.</li>
+                <li>
+                  <code>getContext("2d")</code>creates a 2D drawing environment.
+                </li>
+                <li><code>fillRect()</code>draws a rectangle.</li>
+              </ul>
+              <h3>5. History API Example</h3>
+              <p>
+                The History API allows navigation through the browser history.
+              </p>
+              <div class="code-snippet">
+                <pre><code>&lt;button onclick="goBack()"&gt;
+Go Back&lt;/button&gt;
+
+&lt;script&gt;
+
+function goBack() {
+    window.history.back();
+}
+
+&lt;/script&gt;
+</code></pre>
+              </div>
+              <p><strong>Explanation</strong></p>
+              <ul class="styled-list">
+                <li>
+                  <code>window.history.back()</code>takes the user to the
+                  previous page.
+                </li>
+              </ul>
+              <h3>6. Web Workers API Example</h3>
+              <p>
+                The Web Workers API allows JavaScript to run in the background
+                without affecting page performance.
+              </p>
+              <p><strong>HTML File</strong></p>
+              <div class="code-snippet">
+                <pre><code>&lt;button onclick="startWorker()"&gt;
+Start Worker&lt;/button&gt;
+
+&lt;p id="result"&gt;
+&lt;/p&gt;
+
+&lt;script&gt;
+let worker;
+
+function startWorker() {
+    worker=new Worker("worker.js");
+
+    worker.onmessage=function(event) {
+        document.getElementById("result").innerHTML=event.data;
+    }
+
+    ;
+}
+
+&lt;/script&gt;
+</code></pre>
+              </div>
+              <p><strong>worker.js</strong></p>
+              <div class="code-snippet">
+                <pre><code>let i=0;
+
+function count() {
+    i++;
+    postMessage(i);
+    setTimeout(count, 1000);
+}
+
+count();
+</code></pre>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('svg')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('apis')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('comments')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Comments -->
+          <section class="lesson" id="comments" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-comment"></i>HTML Comments</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Comments</h2>
+              <p>
+                HTML comments are used to add notes or explanations in the HTML
+                code. These comments are not displayed on the webpage and are
+                only visible to developers in the source code.
+              </p>
+              <h3>Comments help developers:</h3>
+              <ul class="styled-list">
+                <li>Explain the code</li>
+                <li>Make the code easier to understand</li>
+                <li>Temporarily disable parts of the code during testing</li>
+              </ul>
+              <h2>Syntax</h2>
+              <p>
+                HTML comments start with <code>&lt;!--</code>and end with
+                <code>--&gt; </code>.
+              </p>
+              <div class="code-snippet">
+                <pre><code>&lt;!-- This is a comment --&gt;
+</code></pre>
+              </div>
+              <p>
+                Anything written between these symbols will not appear on the
+                webpage.
+              </p>
+              <h3>Practical Example: Student Dashboard</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;                   !--==========STUDENT DASHBOARD==========--&gt;
+
+&lt;!-- Navigation Section --&gt;
+&lt;h1&gt;
+Welcome Back,
+Rahul ! ??&lt;/h1&gt;
+
+&lt;!-- Course Progress Section --&gt;
+&lt;p&gt;
+You have completed 15 out of 24 HTML lessons !&lt;/p&gt;
+
+&lt;!-- TODO: Add quiz section here later --&gt;
+&lt;!-- &lt;div class="quiz-section"&gt;
+...&lt;/div&gt;
+--&gt;
+</code></pre>
+              </div>
+              <p><strong>Explanation</strong></p>
+              <ul class="styled-list">
+                <li>
+                  The text inside <code>&lt;!-- --&gt; </code>is a comment.
+                </li>
+                <li>
+                  The browser ignores comments and only displays the HTML
+                  elements.
+                </li>
+              </ul>
+              <h3>Real Project Example: Course Page</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;!--===================================Techknowldge - HTML Course Page Created: March 2026 Author: Your Name=  Vivek Vishwakarma=======--&gt;
+
+&lt;!-- Hero Section --&gt;
+&lt;h1&gt;
+Master HTML in 30 Days ??&lt;/h1&gt;
+&lt;p&gt;
+From Zero to Hero - Build Real Websites !&lt;/p&gt;
+
+&lt;!-- Course Stats --&gt;
+&lt;p&gt;
+? 10,
+000+Students Enrolled&lt;/p&gt;
+&lt;p&gt;
+? 4.9/5 Rating&lt;/p&gt;
+</code></pre>
+              </div>
+              <p>Here:</p>
+              <ul class="styled-list">
+                <li>
+                  Comments describe different sections of the website code.
+                </li>
+              </ul>
+              <div class="info-box">
+                <div class="info-icon"><i class="fas fa-info-circle"></i></div>
+                <div class="info-content">
+                  <h3>Why Use HTML Comments? ??</h3>
+                  <ul class="styled-list">
+                    <li>
+                      ?? <strong>Document your code</strong>: Explain complex
+                      sections for teammates
+                    </li>
+                    <li>
+                      ??? <strong>Temporary disable</strong>: Test without
+                      deleting code
+                    </li>
+                    <li>
+                      ?? <strong>Mark sections</strong>: "Header Section",
+                      "Footer Section"
+                    </li>
+                    <li>
+                      ? <strong>TODO reminders</strong>: Note what needs to be
+                      done later
+                    </li>
+                    <li>
+                      ?? <strong>Team collaboration</strong>: Help others
+                      understand your work
+                    </li>
+                    <li>
+                      ?? <strong>Remember</strong>: Comments are visible in View
+                      Source - no secrets !
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <h3>Pro Tip: Commenting During Development</h3>
+              <p>
+                Use comments to test different versions without deleting code:
+              </p>
+              <div class="code-snippet">
+                <pre><code>&lt;!-- Version 1: Simple Button --&gt;
+&lt;!-- &lt;button&gt;
+Click Me&lt;/button&gt;
+--&gt;
+
+&lt;!-- Version 2: Styled Button (Currently Active) --&gt;
+&lt;button style="background: #04AA6D; color: white; padding: 10px 20px;"&gt;
+Enroll Now ?? &lt;/button&gt;
+</code></pre>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('apis')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('comments')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('favicon')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Favicon -->
+          <section class="lesson" id="favicon" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-image"></i>HTML Favicon</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Favicon</h2>
+              <p>
+                A favicon is a small icon that appears in the browser tab of a
+                website. It helps users easily identify a website when multiple
+                tabs are open.
+              </p>
+              <h3>Favicons are commonly used for:</h3>
+              <ul class="styled-list">
+                <li>Website branding</li>
+                <li>Improving user experience</li>
+                <li>Making a site look more professional</li>
+              </ul>
+              <p>Most websites use their logo as the favicon.</p>
+              <h2>Syntax</h2>
+              <p>
+                To add a favicon in HTML, the <code>&lt;link&gt; </code>tag is
+                used inside the <code>&lt;head&gt; </code>section.
+              </p>
+              <div class="code-snippet">
+                <pre><code>&lt;link rel="icon"type="image/png"href="favicon.png"&gt;
+</code></pre>
+              </div>
+              <p><strong>Explanation</strong></p>
+              <ul class="styled-list">
+                <li>
+                  <code>rel="icon"</code>tells the browser that this file is the
+                  favicon.
+                </li>
+                <li><code>type="image/png"</code>defines the image format.</li>
+                <li>
+                  <code>href</code>specifies the path of the favicon image.
+                </li>
+              </ul>
+              <h3>Real-World Example: Techknowldge Platform</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;
+Techknowldge - Learn Coding Online ??&lt;/title&gt;
+
+&lt;!-- Favicon for browser tab --&gt;
+&lt;link rel="icon"type="image/png"href="images/tk-logo.png"&gt;
+
+&lt;!-- Apple devices icon --&gt;
+&lt;link rel="apple-touch-icon"href="images/tk-logo-180.png"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;
+?? Start Your Coding Journey Today !&lt;/h1&gt;
+&lt;p&gt;
+Join 10,
+000+students learning web development&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <p>In this example:</p>
+              <ul class="styled-list">
+                <li>
+                  <code>logo.png</code>will appear as the icon in the browser
+                  tab.
+                </li>
+              </ul>
+              <h2>Common Favicon Formats</h2>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Format</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>.ico</code></td>
+                    <td>Most commonly used favicon format</td>
+                  </tr>
+                  <tr>
+                    <td><code>.png</code></td>
+                    <td>High-quality favicon</td>
+                  </tr>
+                  <tr>
+                    <td><code>.jpg</code></td>
+                    <td>Also supported but less common</td>
+                  </tr>
+                  <tr>
+                    <td><code>.svg</code></td>
+                    <td>Scalable vector favicon</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3>Multiple Favicon Sizes Example</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;!-- Different sizes for different devices --&gt;
+&lt;link rel="icon"type="image/png"sizes="32x32"href="favicon-32.png"&gt;
+&lt;link rel="icon"type="image/png"sizes="16x16"href="favicon-16.png"&gt;
+&lt;link rel="apple-touch-icon"sizes="180x180"href="apple-icon.png"&gt;
+</code></pre>
+              </div>
+              <div class="info-box">
+                <div class="info-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="info-content">
+                  <h3>Tip</h3>
+                  <p>
+                    If your learning website is called Code-Seekho or Tech
+                    Learning, you can use your website logo as the favicon.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('comments')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('favicon')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('pagetitle')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Page Title -->
+          <section class="lesson" id="pagetitle" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-heading"></i>HTML Page Title</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Page Title</h2>
+              <p>
+                The HTML page title defines the title of a webpage that appears
+                in the browser tab. It helps users identify the webpage when
+                multiple tabs are open and also helps search engines understand
+                the page content.
+              </p>
+              <p>
+                The page title is written using the
+                <code>&lt;title&gt; </code>tag, which is placed inside the
+                <code>&lt;head&gt; </code>section of an HTML document.
+              </p>
+              <h2>Syntax</h2>
+              <div class="code-snippet">
+                <pre><code>&lt;title&gt;
+Page Title&lt;/title&gt;
+</code></pre>
+              </div>
+              <h3>Good vs Better Title Examples</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;!-- ? Bad Title (Too Generic) --&gt;
+&lt;!-- &lt;title&gt;
+Home Page&lt;/title&gt;
+--&gt;
+
+&lt;!-- ? Good Title (Descriptive + Brand) --&gt;
+&lt;title&gt;
+Learn HTML - Complete Tutorial for Beginners | Techknowldge&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;
+HTML Complete Guide 2026&lt;/h1&gt;
+&lt;p&gt;
+Master HTML with hands-on projects and real examples !&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <p><strong>Explanation</strong></p>
+              <ul class="styled-list">
+                <li>
+                  <code>&lt;title&gt; </code>defines the title of the webpage.
+                </li>
+                <li>
+                  The title <strong>HTML Tutorial</strong>will appear in the
+                  browser tab.
+                </li>
+                <li>It does not appear inside the webpage content.</li>
+              </ul>
+              <h3>SEO-Optimized Title Examples</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;!-- For Course Homepage --&gt;
+&lt;title&gt;
+HTML Course - Free Tutorial for Beginners 2026 | Techknowldge&lt;/title&gt;
+
+&lt;!-- For Specific Lesson --&gt;
+&lt;title&gt;
+HTML Forms Tutorial - Lesson 13 | Techknowldge&lt;/title&gt;
+
+&lt;!-- For Student Dashboard --&gt;
+&lt;title&gt;
+My Dashboard - Progress &amp;
+Courses | Techknowldge&lt;/title&gt;
+</code></pre>
+              </div>
+              <p>Here:</p>
+              <ul class="styled-list">
+                <li>
+                  The browser tab will display
+                  <strong>Learn HTML - Tech Learning</strong>.
+                </li>
+              </ul>
+              <div class="info-box">
+                <div class="info-icon"><i class="fas fa-star"></i></div>
+                <div class="info-content">
+                  <h3>Why Page Title Matters ??</h3>
+                  <ul class="styled-list">
+                    <li>
+                      ?? <strong>SEO Ranking</strong>: Google reads your title -
+                      make it descriptive !
+                    </li>
+                    <li>
+                      ?? <strong>First Impression</strong>: Shows in search
+                      results before description
+                    </li>
+                    <li>
+                      ?? <strong>Browser Tabs</strong>: Users identify your site
+                      among many tabs
+                    </li>
+                    <li>
+                      ?? <strong>Social Sharing</strong>: Appears when shared on
+                      Facebook, Twitter
+                    </li>
+                    <li>
+                      ?? <strong>Bookmarks</strong>: Default name when users
+                      bookmark your page
+                    </li>
+                    <li>
+                      ? <strong>Pro Format</strong>: "Page Name | Section |
+                      Brand Name"(50-60 chars)
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('favicon')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('pagetitle')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('blockinline')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Block & Inline -->
+          <section class="lesson" id="blockinline" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-cube"></i>HTML Block & Inline Elements</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>HTML Block & Inline Elements</h2>
+              <p>
+                Every HTML element has a default display property that
+                determines how it behaves on the webpage. Elements are
+                classified into two main categories:
+                <strong>Block Elements</strong>and
+                <strong>Inline Elements</strong>.
+              </p>
+              <h2>Block-level Elements</h2>
+              <p>
+                Block-level elements always start on a new line and take up the
+                full width available, stretching from left to right as far as
+                they can.
+              </p>
+              <h3>Visual Example: Block Elements</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;!-- Each block element takes FULL WIDTH --&gt;
+
+&lt;div style="background: lightblue; padding: 10px;"&gt;
+?? Block 1: I take the full width &lt;/div&gt;
+
+&lt;p style="background: lightgreen; padding: 10px;"&gt;
+?? Block 2: I also take full width (new line) &lt;/p&gt;
+
+&lt;h2 style="background: lightcoral; padding: 10px;"&gt;
+?? Block 3: Me too ! Always starts on new line &lt;/h2&gt;
+</code></pre>
+              </div>
+              <h3>List of Block Elements</h3>
+              <ul class="styled-list">
+                <li><code>&lt;div&gt; </code>- Generic container</li>
+                <li><code>&lt;p&gt; </code>- Paragraph</li>
+                <li><code>&lt;h1&gt; - &lt;h6&gt; </code>- Headings</li>
+                <li>
+                  <code>&lt;ul&gt; , &lt;ol&gt; , &lt;li&gt; </code>- Lists
+                </li>
+                <li>
+                  <code
+                    >&lt;header&gt; , &lt;footer&gt; , &lt;section&gt; </code
+                  >- Semantic elements
+                </li>
+                <li>
+                  <code>&lt;form&gt; , &lt;table&gt; </code>- Interactive &
+                  data elements
+                </li>
+              </ul>
+              <h2>Inline Elements</h2>
+              <p>
+                Inline elements do not start on a new line and only take up as
+                much width as necessary. They flow with the content.
+              </p>
+              <h3>Visual Example: Inline Elements</h3>
+              <div class="code-snippet">
+                <pre><code>&lt;!-- Inline elements stay IN THE SAME LINE --&gt;
+
+&lt;p&gt;
+My name is &lt;span style="color: blue;"&gt;
+Rahul&lt;/span&gt;
+and I am learning &lt;strong&gt;
+HTML&lt;/strong&gt;
+from &lt;a href="#"&gt;
+Techknowldge&lt;/a&gt;
+platform. It's &lt;em&gt;awesome&lt;/em&gt;! ??
+&lt;/p&gt;
+
+&lt;!-- All inline elements flow together like text --&gt;
+</code></pre>
+              </div>
+              <h3>List of Inline Elements</h3>
+              <ul class="styled-list">
+                <li><code>&lt;span&gt; </code>- Generic inline container</li>
+                <li><code>&lt;a&gt; </code>- Links</li>
+                <li>
+                  <code>&lt;strong&gt; , &lt;b&gt; 4t6ddd </code>- Bold text
+                </li>
+                <li><code>&lt;em&gt; , &lt;i&gt; </code>- Italic text</li>
+                <li><code>&lt;img&gt; </code>- Images</li>
+                <li>
+                  <code>&lt;input&gt; , &lt;button&gt; </code>- Form elements
+                </li>
+              </ul>
+              <h2>Visual Comparison: Block vs Inline</h2>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;
+Block vs Inline Demo&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- BLOCK Elements: Take Full Width --&gt;
+&lt;div style="background: #667eea; color: white; padding: 15px; margin: 5px 0;"&gt;
+?? BLOCK: Full Width Container &lt;/div&gt;
+
+&lt;div style="background: #764ba2; color: white; padding: 15px; margin: 5px 0;"&gt;
+?? BLOCK: Another Full Width Container &lt;/div&gt;
+
+&lt;!-- INLINE Elements: Flow Together --&gt;
+&lt;div style="background: #f0f0f0; padding: 15px;"&gt;
+&lt;span style="background: #04AA6D; color: white; padding: 5px;"&gt;
+?? Inline&lt;/span&gt;
+&lt;span style="background: #FFA500; color: white; padding: 5px;"&gt;
+?? Inline&lt;/span&gt;
+&lt;span style="background: #FF6347; color: white; padding: 5px;"&gt;
+?? Inline&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h2>Changing Display Property</h2>
+              <p>You can change element behavior using CSS display property:</p>
+              <div class="code-snippet">
+                <pre><code>&lt;!-- Example: Making navigation links display as blocks on mobile --&gt;
+&lt;style&gt;
+
+/* Mobile: Stack links vertically (block) */
+.nav-link {
+    display: block;
+    padding: 15px;
+    background: #667eea;
+    color: white;
+    margin: 5px 0;
+}
+
+/* Desktop: Show links horizontally (inline-block) */
+@media (min-width: 768px) {
+    .nav-link {
+        display: inline-block;
+        margin: 0 10px;
+    }
+}
+
+&lt;/style&gt;
+
+&lt;a href="#"class="nav-link"&gt;
+?? Home&lt;/a&gt;
+&lt;a href="#"class="nav-link"&gt;
+?? Courses&lt;/a&gt;
+&lt;a href="#"class="nav-link"&gt;
+?? Profile&lt;/a&gt;
+</code></pre>
+              </div>
+              <div class="info-box">
+                <div class="info-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="info-content">
+                  <h3>Block vs Inline - Quick Reference ??</h3>
+                  <table style="width: 100%; text-align: left">
+                    <tr>
+                      <th
+                        style="padding: 10px; background: #667eea; color: white"
+                      >
+                        Block Elements ??
+                      </th>
+                      <th
+                        style="padding: 10px; background: #04aa6d; color: white"
+                      >
+                        Inline Elements ??
+                      </th>
+                    </tr>
+                    <tr>
+                      <td style="padding: 10px; background: #f0f0f0">
+                        � Starts on NEW line <br />� Takes FULL width <br />�
+                        Can set width/height <br />� Examples: div, p, h1
+                      </td>
+                      <td style="padding: 10px; background: #f0f0f0">
+                        � Stays IN line <br />� Takes only NEEDED width <br />�
+                        Cannot set width/height <br />� Examples: span, a,
+                        strong
+                      </td>
+                    </tr>
+                  </table>
+                  <p style="margin-top: 15px">
+                    <strong>Pro Tip:</strong>Use
+                    <code>display: inline-block; </code>to get best of both
+                    worlds ! ??
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('pagetitle')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button
+                class="btn-complete"
+                onclick="markComplete('blockinline')"
+              >
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('div')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Div -->
+          <section class="lesson" id="div" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-square"></i>HTML Div Element</h1>
+              <span class="lesson-badge">Beginner</span>
+            </div>
+            <div class="lesson-content">
+              <h2>The HTML &lt;div&gt; Element</h2>
+              <p>
+                The <code>&lt;div&gt; </code>element is one of the most
+                commonly used HTML elements. It stands for "division"and is used
+                as a container to group other HTML elements together.
+              </p>
+              <p>
+                The <code>&lt;div&gt; </code>is a
+                <strong>block-level element</strong>, which means it starts on a
+                new line and takes up the full width available.
+              </p>
+              <h2>Basic Syntax</h2>
+              <div class="code-snippet">
+                <pre><code>&lt;div&gt;
+Content goes here... &lt;/div&gt;
+</code></pre>
+              </div>
+              <h2>Why Use &lt;div&gt; ?</h2>
+              <ul class="styled-list">
+                <li>
+                  <strong>Grouping</strong>: Group related elements together
+                </li>
+                <li>
+                  <strong>Styling</strong>: Apply CSS styles to multiple
+                  elements at once
+                </li>
+                <li>
+                  <strong>Layout</strong>: Create page sections and layouts
+                </li>
+                <li>
+                  <strong>JavaScript</strong>: Manipulate groups of elements
+                </li>
+              </ul>
+              <h2>Real Example: Course Card Container</h2>
+              <div class="code-snippet">
+                <pre><code>&lt;!-- Using div as a course card --&gt;
+&lt;div style="border: 2px solid #667eea; border-radius: 10px; padding: 20px; max-width: 400px;"&gt;
+
+&lt;h2 style="color: #667eea;"&gt;
+?? HTML Masterclass&lt;/h2&gt;
+
+&lt;p&gt;
+????? 4.9 (2, 500 reviews)&lt;/p&gt;
+
+&lt;p&gt;
+?? 10,
+000+students enrolled&lt;/p&gt;
+
+&lt;p&gt;
+?? Duration: 6 hours&lt;/p&gt;
+
+&lt;button style="background: #04AA6D; color: white; padding: 12px 30px; border: none; border-radius: 5px; cursor: pointer;"&gt;
+Enroll Now - FREE ?? &lt;/button&gt;
+
+&lt;/div&gt;
+</code></pre>
+              </div>
+              <h2>Example: Alert/Notification Box</h2>
+              <div class="code-snippet">
+                <pre><code>&lt;!-- Success Message --&gt;
+&lt;div style="background: #d4edda; color: #155724; border: 1px solid #c3e6cb; padding: 15px; border-radius: 5px; margin: 10px 0;"&gt;
+? &lt;strong&gt;
+Success !&lt;/strong&gt;
+Your lesson is now marked as complete. &lt;/div&gt;
+
+&lt;!-- Warning Message --&gt;
+&lt;div style="background: #fff3cd; color: #856404; border: 1px solid #ffeeba; padding: 15px; border-radius: 5px; margin: 10px 0;"&gt;
+?? &lt;strong&gt;
+Warning !&lt;/strong&gt;
+You have 3 pending assignments. &lt;/div&gt;
+
+&lt;!-- Info Message --&gt;
+&lt;div style="background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; padding: 15px; border-radius: 5px; margin: 10px 0;"&gt;
+?? &lt;strong&gt;
+Tip:&lt;/strong&gt;
+Practice daily for better results ! &lt;/div&gt;
+</code></pre>
+              </div>
+              <h2>Example: Multiple Divs for Layout</h2>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+
+.header {
+    background: #04AA6D;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+}
+
+.footer {
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="header"&gt;
+&lt;h1&gt;
+My Website&lt;/h1&gt;
+&lt;/div&gt;
+&lt;div class="content"&gt;
+&lt;h2&gt;
+Main Content&lt;/h2&gt;
+&lt;p&gt;
+This is the main content area.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="footer"&gt;
+&lt;p&gt;
+Copyright 2024&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h2>Practical Example: Organizing Course Content</h2>
+              <div class="code-snippet">
+                <pre><code>&lt;!-- Method 1: Using Classes (Recommended) --&gt;
+&lt;div class="course-card"&gt;
+&lt;h3&gt;
+?? HTML Course&lt;/h3&gt;
+&lt;p&gt;
+Learn the basics&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="course-card"&gt;
+&lt;h3&gt;
+?? CSS Course&lt;/h3&gt;
+&lt;p&gt;
+Style your websites&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Method 2: Using ID for Unique Section --&gt;
+&lt;div id="featured-course"&gt;
+&lt;h3&gt;
+? Featured: JavaScript Masterclass&lt;/h3&gt;
+&lt;p&gt;
+Most popular course this month !&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+              </div>
+              <h2>Div vs Semantic Tags</h2>
+              <p>
+                While <code>&lt;div&gt; </code>is very useful, HTML5 introduced
+                semantic alternatives that better describe their content:
+              </p>
+              <ul class="styled-list">
+                <li>
+                  <code>&lt;header&gt; </code>instead of
+                  <code>&lt;div class="header"&gt; </code>
+                </li>
+                <li>
+                  <code>&lt;footer&gt; </code>instead of
+                  <code>&lt;div class="footer"&gt; </code>
+                </li>
+                <li>
+                  <code>&lt;section&gt; </code>instead of
+                  <code>&lt;div class="section"&gt; </code>
+                </li>
+                <li><code>&lt;article&gt; </code>for independent content</li>
+                <li><code>&lt;nav&gt; </code>for navigation menus</li>
+              </ul>
+              <div class="info-box">
+                <div class="info-icon"><i class="fas fa-star"></i></div>
+                <div class="info-content">
+                  <h3>Best Practices for Divs ??</h3>
+                  <ul class="styled-list">
+                    <li>
+                      ? <strong>Use semantic tags first</strong>: &lt;                     header&gt; , &lt;main&gt; , &lt;footer&gt; better than
+                      divs
+                    </li>
+                    <li>
+                      ??? <strong>Meaningful class names</strong>:
+                      "course-card"not "box1"
+                    </li>
+                    <li>
+                      ?? <strong>Avoid "div soup"</strong>: Don't nest too many
+                      divs unnecessarily
+                    </li>
+                    <li>
+                      ?? <strong>Organize logically</strong>: Group related
+                      content together
+                    </li>
+                    <li>
+                      ?? <strong>Style consistently</strong>: Use classes, not
+                      inline styles everywhere
+                    </li>
+                    <li>
+                      ??? <strong>Reusable components</strong>: Create common
+                      patterns (cards, alerts)
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('blockinline')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button class="btn-complete" onclick="markComplete('div')">
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button class="btn-next" onclick="navigateLesson('responsive')">
+                Next Lesson <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Lesson: HTML Responsive -->
+          <section class="lesson" id="responsive" style="display: none">
+            <div class="lesson-header">
+              <h1><i class="fas fa-mobile-alt"></i>HTML Responsive Design</h1>
+              <span class="lesson-badge">Intermediate</span>
+            </div>
+            <div class="lesson-content">
+              <h2>Responsive Web Design</h2>
+              <p>
+                Responsive web design makes your website look good on all
+                devices (desktops, tablets, and phones). It automatically
+                adjusts the layout, images, and content based on the screen
+                size.
+              </p>
+              <h3>Understanding the Viewport Tag ??</h3>
+              <p>
+                <strong>What it does:</strong>Controls how your website appears
+                on mobile devices
+              </p>
+              <div class="code-snippet">
+                <pre><code>&lt;meta name="viewport"content="width=device-width, initial-scale=1.0"&gt;
+</code></pre>
+              </div>
+              <p><strong>Breaking it down:</strong></p>
+              <ul class="styled-list">
+                <li>
+                  <code>width=device-width</code>?? Makes width match the device
+                  screen (not 980px)
+                </li>
+                <li>
+                  <code>initial-scale=1.0</code>?? Sets zoom level to 100% (no
+                  zooming)
+                </li>
+                <li>
+                  <code>user-scalable=no</code>?? (Optional) Prevents
+                  pinch-to-zoom
+                </li>
+              </ul>
+              <p>
+                <strong>Result:</strong>Your website looks perfect on phones,
+                tablets, and desktops ! ??
+              </p>
+              <h2>Mobile-First Responsive Template</h2>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport"content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;
+Techknowldge - Responsive Learning Platform&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;header&gt;
+&lt;h1&gt;
+?? Techknowldge&lt;/h1&gt;
+&lt;p&gt;
+Learn Anytime,
+Anywhere ????&lt;/p&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+&lt;h2&gt;
+Start Your Learning Journey&lt;/h2&gt;
+&lt;p&gt;
+Access 100+courses on any device !&lt;/p&gt;
+&lt;/main&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h2>Responsive Images for Courses</h2>
+              <p>Make course thumbnails and images responsive:</p>
+              <div class="code-snippet">
+                <pre><code>&lt;style&gt;
+
+.course-thumbnail {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+&lt;/style&gt;
+
+&lt;!-- Course Image - Automatically adjusts to screen size --&gt;
+&lt;img src="html-course-thumbnail.jpg"
+alt="HTML Course Thumbnail"
+class="course-thumbnail"&gt;
+</code></pre>
+              </div>
+              <h2>CSS Media Queries for Different Devices</h2>
+              <p>Adapt your course platform for mobile, tablet, and desktop:</p>
+              <div class="code-snippet">
+                <pre><code>&lt;style&gt;
+
+/* ?? Mobile First (Default) */
+.course-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* 1 column on mobile */
+    gap: 20px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+/* ?? Tablet (768px and up) */
+@media (min-width: 768px) {
+    .course-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 columns */
+        padding: 30px;
+        font-size: 18px;
+    }
+}
+
+/* ?? Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .course-grid {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns */
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px;
+        font-size: 20px;
+    }
+}
+
+&lt;/style&gt;
+
+/* Tablet screens (768px and up) */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+        padding: 20px;
+    }
+}
+
+/* Desktop screens (1024px and up) */
+@media (min-width: 1024px) {
+    body {
+        font-size: 20px;
+        padding: 40px;
+    }
+}
+
+&lt;/style&gt;
+</code></pre>
+              </div>
+              <h2>Responsive Units</h2>
+              <p>
+                Use relative units instead of fixed pixels for better
+                responsiveness:
+              </p>
+              <table class="elements-table">
+                <thead>
+                  <tr>
+                    <th>Unit</th>
+                    <th>Description</th>
+                    <th>Example</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>%</code></td>
+                    <td>Percentage of parent element</td>
+                    <td><code>width: 50%; </code></td>
+                  </tr>
+                  <tr>
+                    <td><code>em</code></td>
+                    <td>Relative to font size</td>
+                    <td><code>padding: 2em; </code></td>
+                  </tr>
+                  <tr>
+                    <td><code>rem</code></td>
+                    <td>Relative to root font size</td>
+                    <td><code>font-size: 1.5rem; </code></td>
+                  </tr>
+                  <tr>
+                    <td><code>vw</code></td>
+                    <td>Viewport width (1vw=1%)</td>
+                    <td><code>width: 100vw; </code></td>
+                  </tr>
+                  <tr>
+                    <td><code>vh</code></td>
+                    <td>Viewport height (1vh=1%)</td>
+                    <td><code>height: 100vh; </code></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h2>Responsive Course Grid Layout</h2>
+              <div class="code-snippet">
+                <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta name="viewport"content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;
+Course Catalog - Techknowldge&lt;/title&gt;
+&lt;style&gt;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+.course-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ?? Mobile: 1 column (full width) */
+.course-card {
+    width: 100%;
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ?? Tablet: 2 columns */
+@media (min-width: 768px) {
+    .course-card {
+        width: 48%;
+        float: left;
+        margin: 1%;
+    }
+}
+
+/* ?? Desktop: 3 columns */
+@media (min-width: 1024px) {
+    .course-card {
+        width: 31.33%;
+    }
+}
+
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="course-container"&gt;
+
+&lt;div class="course-card"&gt;
+&lt;h3&gt;
+?? HTML Basics&lt;/h3&gt;
+&lt;p&gt;
+Learn HTML from scratch&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="course-card"&gt;
+&lt;h3&gt;
+?? CSS Styling&lt;/h3&gt;
+&lt;p&gt;
+Style beautiful websites&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="course-card"&gt;
+&lt;h3&gt;
+?? JavaScript&lt;/h3&gt;
+&lt;p&gt;
+Add interactivity&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+              </div>
+              <h2>Mobile-First Navigation Example</h2>
+              <p>Start with mobile design, then enhance for larger screens:</p>
+              <div class="code-snippet">
+                <pre><code>&lt;style&gt;
+
+/* ?? Mobile First: Hamburger Menu (Default) */
+.nav-menu {
+    display: none;
+    /* Hidden by default on mobile */
+}
+
+.menu-toggle {
+    display: block;
+    background: #667eea;
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-menu.active {
+    display: block;
+}
+
+.nav-item {
+    display: block;
+    padding: 15px;
+    background: #f0f0f0;
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* ?? Desktop: Horizontal Menu (768px+) */
+@media (min-width: 768px) {
+    .menu-toggle {
+        display: none;
+        /* Hide hamburger on desktop */
+    }
+
+    .nav-menu {
+        display: flex !important;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .nav-item {
+        display: inline-block;
+        background: transparent;
+        margin: 0;
+    }
+}
+
+&lt;/style&gt;
+
+&lt;!-- Navigation --&gt;
+&lt;button class="menu-toggle"&gt;
+? Menu&lt;/button&gt;
+&lt;nav class="nav-menu"&gt;
+&lt;a href="#"class="nav-item"&gt;
+?? Home&lt;/a&gt;
+&lt;a href="#"class="nav-item"&gt;
+?? Courses&lt;/a&gt;
+&lt;a href="#"class="nav-item"&gt;
+?? Progress&lt;/a&gt;
+&lt;a href="#"class="nav-item"&gt;
+?? Profile&lt;/a&gt;
+&lt;/nav&gt;
+</code></pre>
+              </div>
+              <div class="info-box">
+                <div class="info-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="info-content">
+                  <h3>Pro Tips for Responsive Design ??</h3>
+                  <ul class="styled-list">
+                    <li>
+                      ? <strong>Always</strong>include viewport meta tag in
+                      &lt;head&gt;
+                    </li>
+                    <li>
+                      ?? <strong>Test on real devices</strong>- Chrome
+                      DevTools+actual phones
+                    </li>
+                    <li>
+                      ?? <strong>Use relative units</strong>(%, rem, em) instead
+                      of pixels
+                    </li>
+                    <li>
+                      ?? <strong>Mobile-first approach</strong>- Start small,
+                      then scale up
+                    </li>
+                    <li>
+                      ?? <strong>Flexbox/Grid</strong>for modern, flexible
+                      layouts
+                    </li>
+                    <li>
+                      ??? <strong>Responsive images</strong>- Always set
+                      max-width: 100%
+                    </li>
+                    <li>
+                      ?? <strong>Touch-friendly</strong>- Make buttons minimum
+                      44x44 pixels
+                    </li>
+                    <li>
+                      ? <strong>Performance</strong>- Load smaller images on
+                      mobile
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="lesson-navigation">
+              <button class="btn-prev" onclick="navigateLesson('div')">
+                <i class="fas fa-arrow-left"></i>Previous</button
+              ><button
+                class="btn-complete"
+                onclick="markComplete('responsive')"
+              >
+                <i class="fas fa-check-circle"></i>Mark Complete</button
+              ><button
+                class="btn-next"
+                onclick="generateAndDownloadCertificate()"
+              >
+                Get Certificate <i class="fas fa-certificate"></i>
+              </button>
+            </div>
+          </section>
+          <!-- Continue pattern for all 18 lessons -->
+        </div>
+        <!-- Live Playground Tab -->
+        <div class="tab-content" id="playground">
+          <div class="playground-container">
+            <div class="playground-header">
+              <h2>
+                <i class="fas fa-code"></i>Write, edit and run HTML, CSS and
+                JavaScript code online
+              </h2>
+            </div>
+            <div class="playground-split">
+              <!-- Left Editor Panel -->
+              <div class="playground-editor-panel">
+                <div class="editor-tabs">
+                  <div class="editor-tab active" data-editor="html">
+                    <span>Files</span
+                    ><i class="fas fa-plus" title="Add file"></i>
+                  </div>
+                </div>
+                <div class="editor-file-tabs">
+                  <button class="file-tab active" data-file="html">
+                    <i class="fab fa-html5" style="color: #e34c26"></i
+                    >index.html <span class="close-tab">�</span></button
+                  ><button class="file-tab" data-file="css">
+                    <i class="fab fa-css3-alt" style="color: #264de4"></i
+                    >style.css <span class="close-tab">�</span></button
+                  ><button class="file-tab" data-file="js">
+                    <i class="fab fa-js" style="color: #f0db4f"></i>script.js
+                    <span class="close-tab">�</span>
+                  </button>
+                </div>
+                <div class="playground-editor">
+                  <textarea
+                    id=" htmlEditor"
+                    class="code-editor active"
+                    spellcheck="false"
+                    placeholder="Write HTML code here..."
+                  >
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"content="width=device-width, initial-scale=1.0"><title>My Playground</title></head><body><h1>Hello,
+World !</h1><p>Start coding here...</p><button id="myButton">Click Me !</button></body></html></textarea
+                  ><textarea
+                    id=" cssEditor"
+                    class="code-editor"
+                    spellcheck="false"
+                    placeholder="Write CSS code here..."
+                  >
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 1rem;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+</textarea
+                  ><textarea
+                    id=" jsEditor"
+                    class="code-editor"
+                    spellcheck="false"
+                    placeholder="Write JavaScript code here..."
+                  >
+ // Your JavaScript code const button=document.getElementById('myButton'); if (button) { button.addEventListener('click', function() { alert('Hello from Techknowldge!'); } ); }
+
+</textarea
+                  >
+                </div>
+                <div class="editor-controls">
+                  <button class="btn-code-action" onclick="runPlaygroundCode()">
+                    <i class="fas fa-play"></i>Run</button
+                  ><button
+                    class="btn-code-action"
+                    onclick="resetPlaygroundCode()"
+                  >
+                    <i class="fas fa-redo"></i>Reset</button
+                  ><button
+                    class="btn-code-action"
+                    onclick="copyPlaygroundCode()"
+                  >
+                    <i class="fas fa-copy"></i>Copy</button
+                  ><button class="btn-code-action" onclick="downloadCode()">
+                    <i class="fas fa-download"></i>Download
+                  </button>
+                </div>
+              </div>
+              <!-- Right Preview Panel -->
+              <div class="playground-preview-panel">
+                <div class="preview-tabs">
+                  <button class="preview-tab active">
+                    <i class="fas fa-globe"></i>Browser
+                    <i class="fas fa-caret-down"></i>
+                  </button>
+                </div>
+                <div class="preview-content">
+                  <div class="preview-header-text">
+                    <h3>
+                      Write, edit and run HTML, CSS and JavaScript code online.
+                    </h3>
+                    <p>
+                      Our HTML editor updates the webview automatically in
+                      real-time as you write code.
+                    </p>
+                  </div>
+                  <iframe
+                    id="playgroundFrame"
+                    sandbox="allow-scripts allow-same-origin"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Drag & Drop Builder Tab -->
+        <div class="tab-content" id="builder">
+          <div class="builder-container">
+            <div class="builder-header">
+              <h2><i class="fas fa-th-large"></i>Visual HTML Builder</h2>
+              <button class="btn-action" onclick="clearBuilder()">
+                <i class="fas fa-trash"></i>Clear All
+              </button>
+            </div>
+            <div class="builder-layout">
+              <div class="components-panel">
+                <h3>Components</h3>
+                <div class="component-list">
+                  <div
+                    class="component-item"
+                    draggable="true"
+                    data-type="heading"
+                  >
+                    <i class="fas fa-heading"></i><span>Heading</span>
+                  </div>
+                  <div
+                    class="component-item"
+                    draggable="true"
+                    data-type="paragraph"
+                  >
+                    <i class="fas fa-paragraph"></i><span>Paragraph</span>
+                  </div>
+                  <div
+                    class="component-item"
+                    draggable="true"
+                    data-type="button"
+                  >
+                    <i class="fas fa-square"></i><span>Button</span>
+                  </div>
+                  <div
+                    class="component-item"
+                    draggable="true"
+                    data-type="image"
+                  >
+                    <i class="fas fa-image"></i><span>Image</span>
+                  </div>
+                  <div class="component-item" draggable="true" data-type="link">
+                    <i class="fas fa-link"></i><span>Link</span>
+                  </div>
+                  <div
+                    class="component-item"
+                    draggable="true"
+                    data-type="input"
+                  >
+                    <i class="fas fa-keyboard"></i><span>Input</span>
+                  </div>
+                  <div
+                    class="component-item"
+                    draggable="true"
+                    data-type="container"
+                  >
+                    <i class="fas fa-box"></i><span>Container</span>
+                  </div>
+                  <div class="component-item" draggable="true" data-type="list">
+                    <i class="fas fa-list"></i><span>List</span>
+                  </div>
+                </div>
+              </div>
+              <div class="drop-area" id="dropArea">
+                <p class="drop-placeholder">
+                  Drag components here to build your HTML page
+                </p>
+              </div>
+              <div class="code-output-panel">
+                <h3>Generated HTML</h3>
+                <div class="code-output">
+                  <button class="copy-btn-small" onclick="copyGeneratedCode()">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                  <pre><code id="generatedCode">&lt;!-- Drag components to generate code --&gt;
+</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- AI Assistant Tab -->
+        <div class="tab-content" id="ai-assistant">
+          <div class="ai-container">
+            <div class="ai-header">
+              <div class="ai-title">
+                <i class="fas fa-robot"></i>
+                <h2>AI Code Assistant</h2>
+              </div>
+              <span class="ai-status"><i class="fas fa-circle"></i>Online</span>
+            </div>
+            <div class="ai-chat-area" id="aiChatArea">
+              <div class="ai-message ai-message-bot">
+                <div class="ai-avatar"><i class="fas fa-robot"></i></div>
+                <div class="ai-content">
+                  <p>
+                    Hello ! I'm your AI HTML assistant. Ask me anything about
+                    HTML !
+                  </p>
+                  <div class="ai-suggestions">
+                    <button
+                      class="ai-suggestion"
+                      onclick="askAI('How do I create a link?')"
+                    >
+                      How do I create a link?</button
+                    ><button
+                      class="ai-suggestion"
+                      onclick="askAI('Explain HTML forms')"
+                    >
+                      Explain HTML forms</button
+                    ><button
+                      class="ai-suggestion"
+                      onclick="askAI('Fix my HTML errors')"
+                    >
+                      Fix my HTML errors
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ai-input-area">
+              <textarea
+                id="aiInput"
+                placeholder="Ask me anything about HTML..."
+                rows="3"
+              ></textarea
+              ><button class="btn-send" onclick="sendAIMessage()">
+                <i class="fas fa-paper-plane"></i>Send
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- Certificate Modal -->
+    <div class="modal" id="certificateModal">
+      <div class="modal-content certificate-content">
+        <span class="close-modal" onclick="closeModal()">&times; </span>
+        <div class="certificate" id="certificate">
+          <!-- Geometric Background Shapes -->
+          <div class="cert-bg-shape cert-shape-1"></div>
+          <div class="cert-bg-shape cert-shape-2"></div>
+          <div class="cert-bg-shape cert-shape-3"></div>
+          <div class="cert-bg-shape cert-shape-4"></div>
+          <!-- Certificate Content -->
+          <div class="certificate-content-wrapper">
+            <!-- Logo Badge -->
+            <div class="certificate-badge">
+              <div class="badge-logo"><strong>Tech</strong>Knowldge</div>
+            </div>
+            <!-- Certificate Header -->
+            <div class="certificate-header">
+              <h1>CERTIFICATE</h1>
+              <p class="cert-subtitle">OF COMPLETION</p>
+            </div>
+            <!-- Certificate Body -->
+            <div class="certificate-body">
+              <p class="cert-intro">This certifies that</p>
+              <h2 class="certificate-name" id="certificateName">
+                Student Name
+              </h2>
+              <div class="cert-name-underline"></div>
+              <p class="cert-course-info">has successfully completed the</p>
+              <h3 class="certificate-course">"HTML Complete Course"</h3>
+              <p class="cert-details">conducted by Techknowldge Academy</p>
+              <p class="cert-date-location">
+                on <span id="certificateDate"></span>, Online
+              </p>
+            </div>
+            <!-- Certificate Signatures -->
+            <div class="certificate-signatures">
+              <div class="signature-block">
+                <div class="signature-line"></div>
+                <p class="signature-name">Sarah Johnson</p>
+                <p class="signature-title">Chief Executive Officer</p>
+              </div>
+              <div class="signature-block">
+                <div class="signature-line"></div>
+                <p class="signature-name">Michael Chen</p>
+                <p class="signature-title">Training Coordinator</p>
+              </div>
+            </div>
+            <!-- Certificate Footer -->
+            <div class="certificate-footer">
+              <p>Certificate ID: <span id="certificateId"></span></p>
+            </div>
+          </div>
+        </div>
+        <button class="btn-download" onclick="downloadCertificate()">
+          <i class="fas fa-download"></i>Download Certificate
+        </button>
+      </div>
+    </div>
+    <script src="html-course.js"></script>
+  </body>
+
+</body>
+</html>
